@@ -19,6 +19,9 @@
 .gris{
     color: #ECECEC;
 }
+.pTop{
+    padding-top: 2rem;
+}
 /*Titul*/
 
 .demoContainer #experiencia {
@@ -38,8 +41,4 @@
 
 .casosExitFoto{
     width: 100%;
-}
-
-.text{
-
 }
