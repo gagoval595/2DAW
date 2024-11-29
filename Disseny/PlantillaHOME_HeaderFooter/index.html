@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./common/css/normalize.css" />
+    <!--ADAPTAR LINK A LA RUTA EN LA QUE ESTAS-->
+    <link rel="stylesheet" href="./common/css/grid.css" />
+    <!--ADAPTAR LINK A LA RUTA EN LA QUE ESTAS-->
+    <link rel="stylesheet" href="./common/css/common.css" />
+    <!--ADAPTAR LINK A LA RUTA EN LA QUE ESTAS-->
+    <link rel="stylesheet" href="./common/css/styles.css" />
+    <!--ADAPTAR-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./js/script.js" defer></script>
+    <title>HOME-SPRINT 2</title>
+  </head>
+
+  <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="menu-container">
+            <div class="logo-header">
+              <img src="./img/logo_header.png" alt="" />
+            </div>
+            <div class="busqueda">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="contenedorMenu">
+              <div class="primerMenu">
+                <ul class="primeraLista">
+                  <li class="dropdown">
+                    PRODUCTO <span>^</span>
+                    <ul class="dropdown-menu">
+                      <li>DESCARGA DE PRODUCTO</li>
+                      <li>PLANES Y PRECIOS</li>
+                    </ul>
+                  </li>
+                  <li>CASOS DE ÉXITO</li>
+                  <li>RESEÑAS</li>
+                </ul>
+              </div>
+
+              <div class="segonMenu">
+                <ul class="segonaLista">
+                  <li>QUIÉNES SOMOS</li>
+                  <li>BLOG</li>
+                  <li>CONTACTO</li>
+                </ul>
+                <div class="demoContainer">
+                  <button id="demo">DEMO</button>
+                </div>
+              </div>
+              <div class="hamburguesa-container">
+                <i id="menuHamburguesa" class="fa-solid fa-bars"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="container-fluid">
+            <div class="row">
+              <!--ESCRIVIU EL CODI ACI -->
+              <div class="col-6">
+                <div class="top"> <!--Div a casos d'exit-->
+                  <h1>Casos d'Èxit</h1>
+
+                  <p>
+                    StockFlow se enorgullece de colaborar con empresas líderes
+                    como Microsoft, Apple, Ubisoft y Amazon. Descubre cómo
+                    nuestras soluciones a medida han contribuido al éxito de sus
+                    negocios y cómo hemos construido relaciones sólidas y
+                    duraderas."
+                  </p>
+
+                </div>
+                <div class="demoContainer exp">
+                  <button id="experiencia">Contan's la teva experiència</button>
+                </div>
+              </div>
+              <div class="col-6">
+                <img src="./img-meu/01-caso-exito.png" class="casosExitFoto" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <!--Amazon-->
+                <p>
+                    Al optimizar la gestión de sus devoluciones, Amazon pudo mejorar
+                    la experiencia del cliente y reducir los costos asociados a este proceso. 
+                </p>
+              </div>
+              <div class="col-6"></div>
+            </div>
+            <div class="row">
+              <div class="col-6"></div>
+              <div class="col-6">
+                <!--Apple-->
+                <p>
+                    Gracias a nuestra solución de transporte prioritario, Apple garantizó la 
+                    entrega a tiempo de sus nuevos productos en todo el mundo, superando las 
+                    expectativas de los consumidores.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <!--Microsoft-->
+                    <p>
+                        Al implementar nuestro sistema de gestión de inventario, Microsoft pudo 
+                        reducir sus tiempos de respuesta a los clientes en un 20%, optimizando 
+                        sus operaciones en la región de EMEA.
+                    </p>
+                </div>
+                <div class="col-6"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6">
+                  <!--Ubisoft-->
+                  <p>
+                    Con nuestra plataforma de seguimiento en tiempo real, Ubisoft logró una 
+                    mayor visibilidad de sus envíos, reduciendo significativamente las pérdidas
+                    y mejorando la satisfacción de sus clientes.
+                  </p>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </main>
+    <footer class="container-fluid" id="fonsFooter">
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div class="stockFlow-container">
+              <div class="img-container">
+                <img id="logoFooter" src="./img/logo_footer.png" alt="" />
+              </div>
+              <div class="stockFlow-text-container">
+                <p>
+                  <i id="iconoUbicacion" class="fa-solid fa-location-dot"></i>
+                  <span id="ubicacion">C/Duanes, 17 - Pego </span>
+                </p>
+                <p>
+                  <i id="iconoTelefono" class="fa-solid fa-phone"></i>
+                  <span id="telefono">+34 966 409 960 </span>
+                </p>
+                <p>
+                  <i id="iconoCorreo" class="fa-solid fa-envelope"></i>
+                  <span id="correo">03007613@edu.gva.es</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="legalidad-container">
+              <div class="legalidad-contenido">
+                <p id="tituloLegalidad">Legal</p>
+                <div class="avisoLegalidad">
+                  <p>Aviso legal</p>
+                  <p>Política de cookies</p>
+                  <p>Política de privacidad</p>
+                </div>
+
+                <div class="redesSociales-container">
+                  <i class="fa-brands fa-twitter"></i>
+                  <i class="fa-brands fa-linkedin"></i>
+                  <i class="fa-brands fa-youtube"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="newsLetter-container">
+              <div class="newsLetter-contenido">
+                <p id="tituloNewsLetter">NEWSLETTERS</p>
+                <div class="inputsNewsLetter">
+                  <div class="nombre-contenedor">
+                    <p>* Nombre</p>
+                    <input
+                      type="text"
+                      id="nombre"
+                      placeholder="Indica tu nombre"
+                    />
+                  </div>
+                  <div class="correo-contenedor">
+                    <p>* Email</p>
+                    <input
+                      type="text"
+                      id="correo"
+                      placeholder="Indica tu email"
+                    />
+                  </div>
+                </div>
+                <div class="checkboxNewsLetter">
+                  <input type="checkbox" id="checkboxCondicions" />
+                  <label for=""
+                    >Acepto <span>términos</span> y
+                    <span>condiciones</span></label
+                  >
+                </div>
+                <div class="botonNewsLetter">
+                  <button id="btnSuscripcio">Suscríbete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="container-fluid" id="copyrightFondo">
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+          <div class="copyright">
+            <p id="textoCopyright">
+              © Copyrigth 2024. Todos los derechos reservados
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+/*GENERAL ------------*/
+* {
+    font-family: 'Ubuntu', system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.souce {
+    font-family: 'Souce Code Pro';
+}
+
+.centrat {
+    text-align: center;
+}
+
+.blanc {
+    color: white;
+}
+
+.negre {
+    color: black;
+}
+
+.taronja {
+    color: orange;
+}
+
+.taronjaFort {
+    color: #FF7000;
+    text-decoration: none;
+}
+
+.roig {
+    color: red;
+}
+
+.pTop {
+    padding-top: 1rem;
+}
+
+.padding {
+    padding-right: 1rem;
+}
+
+.raro {
+    background-color: #B2B2B2;
+    border-radius: 5px;
+    padding: 0.2rem;
+    letter-spacing: 2px;
+    font-family: 'Arial';
+}
+
+
+/*PROVES*/
+.prova {
+    border: 1px solid black;
+}
+
+.prova2 {
+    border: 1px solid white;
+}
+
+.prova3 {
+    border: 1px solid aqua;
+}
+
+/*HEADER ------------*/
+.partEsquerra {
+    text-align: left;
+}
+
+.header {
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.logo {
+    width: 2.25rem;
+}
+
+.fotoLogo {
+    display: flex;
+    align-items: center;
+}
+
+.fotoLogo p {
+    padding-left: 0.6rem;
+}
+
+/*menu*/
+.menu {
+    text-align: right;
+    /*position: fixed;*/
+}
+.menu a:last-child{
+    padding-right: 4rem;
+}
+
+.menu a {
+    font-size: 0.8rem;
+    display: inline-flex;
+    padding-right: 4.1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #FF7000;
+}
+
+/*CREEM DISSENYS ------------*/
+.confeti {
+    padding-top: 0.8rem;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+}
+
+.fonsMorat {
+    background-image: radial-gradient(80vw circle at 50% 10%, #3a2099 17%, #480c59 100%);
+}
+
+.bordes {
+    border-radius: 10px;
+}
+
+/*Titul i eslogan*/
+.partDalt {
+    padding-top: 6.2rem;
+}
+
+.partDalt h1 {
+    font-size: 4rem;
+    font-weight: 100;
+    margin-bottom: 0;
+}
+/*Text de la part de dalt*/
+.partDalt h2 {
+    font-weight: 200;
+    font-size: 1.63em;
+    line-height: 2.2rem;
+    margin:0;
+    padding: 2.2rem 2.5rem 1rem 2.6rem;
+    opacity: 75%;
+}
+
+
+
+/*Els col-6*/
+.partDaltText{
+    padding:1rem 0 1rem 4.8rem;
+}
+
+.partDaltText  a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.88rem;
+}
+
+.partDaltText p {
+    line-height: 1.45rem;
+    padding-bottom: 2rem;
+    margin: 0;
+}
+
+.iconesTitul {
+    align-items: center;
+    padding:2.4em 0em 1em 1em;
+    display: flex;
+}
+
+.iconesTitul h1 {
+    font-size:2.6rem;
+    padding-left:1rem;
+    font-weight: 200;
+    margin: 0;
+}
+
+.fonsTaronja {
+    background-image: linear-gradient(153deg, #e64c4c 0%, #fb8332 95%);
+    padding: 1.25rem 1.25rem 0 1.25rem;
+}
+
+/*Assistència*/
+.morat {
+    background-image: linear-gradient(153deg, #da6bf8 0%, #815eff 95%);
+    padding: 1.25rem 1.25rem 0 1.25rem;
+}
+
+
+
+
+/*Els col-4*/
+.trio{
+    padding-top: 2.7rem;
+    padding-bottom: 3.2rem;
+}
+.cols{
+    padding: 0;
+}
+.cols h2{
+    font-size: 1.6rem;
+    font-family: 100;
+}
+.cols:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+.cols p{
+    line-height: 1.3rem;
+}
+
+.logosDalt {
+    width: 3rem;
+}
+
+.daw {
+    color: white;
+    background-color: #310A46;
+    padding: 0.2rem;
+    letter-spacing: 1px;
+    font-family: 'Arial';
+    border-radius: 5px;
+}
+
+/*ARRANQUEM*/
+.mWeb h3{ 
+    font-size: 1.55rem;
+    padding-top: 1.5rem;
+    margin-bottom: 0;
+}
+.mWeb p{
+    margin: 0;
+    padding-top: 1rem;
+    line-height: 1.74rem;
+    word-spacing: 0.09rem;
+}
+.arranquem{
+    padding-top: 5.5rem;
+    font-size: 2.5rem;
+}
+
+.i{
+    font-style: italic;
+}
+
+/*llista*/
+ol{
+    margin-top: 0;
+    padding-top: 0.3rem;
+    line-height: 1.5rem;
+}
+.imgArranquem{
+    padding-top: 1.51rem;
+}
+/*Div ensenyat*/
+.pre {
+    background-color: #ececec;
+    border-radius: 10px;
+    margin: 0;
+    text-align: left;
+}
+/*Publicar Web*/
+.pWeb h3{
+    padding-top: 1.8rem;
+    font-size: 1.51rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.pWeb p{
+    margin: 0;
+    padding-top:1rem;
+    line-height: 1.82rem;
+    word-spacing: 0.14rem;
+}
+#petit {
+    font-size: 0.75rem;
+    padding-top:3.85rem;
+    padding-left: 1rem;
+    padding-bottom: 6rem;
+    word-spacing: 0.2rem;
+
+}
+
+/*No desenvolupes es web?*/
+.idees {
+    background-color: #151617;
+}
+.planes{
+    padding: 0;
+}
+.planes h1{
+    padding-top: 4rem;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight:lighter;
+    letter-spacing: 0.06rem;
+    padding-bottom: 0;
+}
+.planes h2{
+    margin: 0;
+    padding-top:0.2rem;
+    font-size: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 0.06rem;
+}
+
+.planes h3{
+    margin:0;
+    padding-top:2rem;
+    font-size: 1.62rem;
+    font-weight: 200;
+    line-height: 2.2rem;
+}
+#ullada{
+    padding-top: 0.2rem;
+    padding-bottom: 5.99rem;
+}
+
+/*Estem per ajudar-te*/
+.ajuda h1{
+    font-size: 2.5rem;
+    padding-top:5.4rem;
+}
+
+.cols2{
+    padding: 0;
+}
+/*Footer (?)*/
+.linksFooter {
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}

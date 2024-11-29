@@ -1,0 +1,40 @@
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: php.Dockerfile
+    container_name: php-apache
+    ports:
+      - 8080:80
+    volumes:
+      - ./drupal:/var/www/html
+    depends_on:
+      - db
+  
+  db_phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    ports:
+      - 8081:80
+    depends_on:
+      - db
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    
+  db:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=drupal_db
+      - MARIADB_USER=root
+      - MARIADB_PASSWORD=root
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+    
+volumes:
+  db_data:

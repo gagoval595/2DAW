@@ -1,0 +1,579 @@
+* {
+    font-family: "Noto Serif", serif;
+}
+
+/* Header*/
+
+header {
+    background-color: #ECECEC;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo-header {
+    margin: 0;
+    padding: 0.8em 1em 0.55em; 
+}
+
+.logo-header img {
+    width: 12em;
+}
+
+.busqueda {
+    margin: 0;
+    padding-left: 2em;
+    padding-bottom: 0.3em;
+}
+
+.busqueda i {
+    font-size: 1.5em;
+    color: #30475E;
+}
+
+/* Menu*/
+
+.contenedorMenu {
+    margin-left: auto;
+    width: 55em;
+    padding: 0em;
+    padding-right: 2.9em;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.primerMenu, .segonMenu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.primerMenu {
+    border-right: 1px solid #30475E;
+}
+
+.primeraLista, .segonaLista {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.1em;
+    gap: 0.2em;
+}
+
+.primeraLista li, .segonaLista li {
+    margin: 0;
+    padding: 1.16em 0.8em;
+    font-size: 1em;
+    cursor: pointer;
+    color: #30475E;
+    position: relative;
+}
+
+.primeraLista li:hover, .segonaLista li:hover {
+    background-color: #30475E;
+    color: white;
+}
+
+.primeraLista .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ECECEC;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 15.5em;
+}
+
+.dropdown-menu li {
+    padding: 1.5em 0.8em;
+    border: 1px solid #30475E;
+    color: #30475E;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dropdown-menu li:hover {
+    background-color: #30475E;
+    color: white;
+}
+
+.primeraLista span {
+    padding: 0em 0.14em;
+    display: inline-block;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; 
+}
+
+.primeraLista li:hover span {
+    transform: rotate(0deg); 
+    transition: transform 0.3s ease; 
+}
+
+
+.segonMenu {
+    padding-left: 0.35em;
+}
+
+.demoContainer {
+    padding-top: 0.1em;
+    padding-left: 0.3em;
+}
+
+.demoContainer #demo {
+    border: 2px solid black;
+    background-color: #FF7000;
+    height: 2.3em;
+    width: 4.9em;
+    cursor: pointer;
+    color: white;
+    box-shadow: 2px 2px 0px 0px black;
+}
+
+#menuHamburguesa{
+    display: none;
+}
+
+/* MAIN */
+
+main {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+/* FOOTER */
+
+footer {
+    height: 17.6em;
+    background-color: #222831;
+    color: white;
+}
+
+/* StockFlow BOX*/
+.stockFlow-container {
+    display: flex;   
+    align-items: flex-end;
+    flex-direction: column;
+    height: 17.5em;
+}
+
+.img-container {    
+    padding-right:5.95em;
+    padding-top: 1em;
+}
+
+.img-container img {
+    width: 10em;
+}
+
+.stockFlow-text-container {
+    display: flex;   
+    align-items: flex-start;
+    flex-direction: column;
+    width: 15em;
+    padding-top: 1.65em;
+}
+
+.stockFlow-text-container p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.stockFlow-text-container span {
+    font-weight: 100;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+}
+
+#iconoUbicacion , #iconoTelefono , #iconoCorreo{
+    font-size: 1.5em;
+}
+
+#iconoUbicacion{
+    padding-right: 0.7em;
+}
+
+#iconoTelefono{
+    padding-top: 0.9em;
+    padding-right: 0.6em;
+}
+
+#telefono{
+    padding-top: 1.35em;
+    letter-spacing: 0em;
+}
+
+#iconoCorreo{
+    padding-top: 1em;
+    padding-right: 0.6em;
+}
+
+#correo{
+    padding-top: 1.5em;
+    letter-spacing: 0.02em;
+} 
+
+/* Legalidad BOX*/
+
+.legalidad-container {
+    display: flex;   
+    align-items: flex-end;
+    flex-direction: column;
+    height: 17.5em;
+}
+
+.legalidad-contenido {
+    width: 10.7em;
+    display: flex;   
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloLegalidad {
+    padding-top: 1.31em;
+    font-weight: bold;
+    padding-right: 0.2em;
+    letter-spacing: 0.02em;
+}
+
+.avisoLegalidad {
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.03em;
+    padding-right: 0.15em;
+    font-weight: 200;
+    padding-top: 1.35em;
+    line-height: 0.5em;
+}
+
+.redesSociales-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.15em;
+    padding-right: 0.25em;
+    padding-top: 2.95em;
+}
+
+.redesSociales-container i {
+    font-size: 1.5em;
+}
+
+/* NewsLetter BOX*/
+
+.newsLetter-container {
+    display: flex;   
+    align-items: flex-start;
+    height: 17.5em;
+}
+
+.newsLetter-contenido {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20em;
+}
+
+#tituloNewsLetter {
+    padding-top: 0.35em;
+    padding-left: 3.6em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.inputsNewsLetter {
+    padding-left: 3.6em;
+}
+
+.nombre-contenedor p {
+    padding-top: 0.1em;
+    padding-bottom: 0.7em;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 0;
+}
+
+.inputsNewsLetter #nombre {
+    width: 14em;
+    padding: 0.2em 0em;
+    text-align: center;
+}
+
+.correo-contenedor {
+    text-align: center;
+    padding-top: 0.85em;
+}
+
+.correo-contenedor p{
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.04em;
+    padding-bottom: 0.72em;
+}
+
+.inputsNewsLetter #correo {
+    width: 14em;
+    padding: 0.14em 0em;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+.checkboxNewsLetter {
+    font-weight: 200;
+    font-size: 0.9em;
+    padding-left: 4em;
+    word-spacing: 0.3em;
+    padding-top: 1.2em;
+}
+
+.checkboxNewsLetter span {
+    text-decoration: underline;
+}
+
+.botonNewsLetter {
+    padding-left: 3.6em;
+    padding-top: 0.9em;
+}
+
+.botonNewsLetter #btnSuscripcio {
+    background-color: #FF7000;
+    width: 6.6em;
+    height: 2em;
+    color: white;
+    cursor: pointer; 
+    box-shadow: 2px 2px 0px 0px black;
+}
+
+/* COPYRIGHT */
+
+#copyrightFondo {
+    background-color: #ECECEC;
+    border-bottom: 0.7em solid lightgray;
+}
+
+.copyright {
+    height: 3em;
+}
+
+#textoCopyright {
+    padding-left: 4.6em;
+    padding-top: 0.5em;
+}
+
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 767px) {
+    
+    .logo-header {
+        padding: 0.8em 0em 0.55em; 
+    }
+    
+    .logo-header img {
+        width: 5em;
+    }
+    
+    .busqueda {
+        display: none;
+    }
+    
+    /* Menu*/
+    
+    .contenedorMenu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .primerMenu, .segonMenu {
+        display: flex;
+    }
+    
+    .primeraLista.active, .segonaLista.active {
+        display: flex; 
+    }
+       
+    .primeraLista , .segonaLista{
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: absolute;
+        top: 4.2em;
+        left: 0;
+        width: 100%;
+        gap: 0;
+        padding: 0;
+    }
+
+    .primeraLista {
+        top: 4.35em;
+    }
+    .segonaLista {
+        top: 19.9em;
+    }
+    
+    .primeraLista li, .segonaLista li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ECECEC;
+        text-align: center;
+        border: 1px solid #30475E;
+        height: 5.2em;
+    }
+
+    .primeraLista li {
+        height: 5.2em;
+    }
+
+    .segonaLista li {
+        height: 5.1em;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .demoContainer {
+        padding-left: 2.4em;
+    }
+    
+    .demoContainer #demo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.7em;
+    }
+    
+    #menuHamburguesa{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.5em;
+        padding-left: 2.85em;
+    }
+    
+    /* MAIN */
+    
+    main {
+        padding-bottom: 2em;
+    }
+    
+        
+    /* FOOTER */
+    
+    footer {
+        height: 48.9em;
+    }
+    
+    /* StockFlow BOX*/
+    .stockFlow-container {
+        padding-right: 2.55em;
+    }
+    
+    .img-container {    
+        padding-right: 2.2em;
+        padding-top: 0.95em;
+    }
+    
+    #iconoTelefono{
+        padding-top: 1em;
+    }
+    
+    /* Legalidad BOX*/
+
+    .legalidad-container {
+        display: flex;   
+        align-items: center;
+        flex-direction: column;
+        height: 13em;
+        width: 17.5em;
+        margin-top: 0.56em;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+    .legalidad-contenido {
+        height: 11em;
+    }
+
+    #tituloLegalidad {
+        margin: 0;
+        padding-left: 0.24em;
+        padding-top: 1.45em;
+        padding-bottom: 0.3em;
+    }
+
+    .avisoLegalidad {
+        padding-top: 0.1em !important;
+        padding-left: 0.1em !important;
+    }
+
+    .redesSociales-container {
+        margin: 0;
+        padding: 0;
+        padding-top: 0.95em !important;
+        padding-left: 0.1em;
+    }
+    
+    /* NewsLetter BOX*/   
+    .newsLetter-contenido {
+        display: flex;   
+        justify-content: center;
+        padding-top: 1.5em;
+        padding-right: 0.9em;
+    }
+    
+    #tituloNewsLetter {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .inputsNewsLetter {
+        padding: 0;
+        padding-top: 1.1em;
+    }
+    
+    .inputsNewsLetter #correo {
+        padding: 0.2em 0em;
+    }
+    
+    .checkboxNewsLetter {
+        padding: 0;
+        padding-top: 1.05em;
+    }
+    
+    .botonNewsLetter {
+        padding: 0;
+        padding-top: 0.9em;
+    }
+    
+    /* COPYRIGHT */
+    
+    #copyrightFondo {
+        border-bottom: 0.7em solid lightgray;
+    }
+
+    .copyright {
+        height: 5em;
+    }
+    
+    #textoCopyright {
+        padding: 0;
+        text-align: center;
+        line-height: 2em;
+    }
+}
