@@ -356,7 +356,6 @@ ol{
 }
 
 /*Cookies*/
-
 .divCookies{
     display: flex;
     justify-content: center;
@@ -364,7 +363,7 @@ ol{
   
   .cookies {
     position: fixed;
-    width: 36.5%;
+    width: 37.5%;
     bottom: 2.3em;
     font-weight: 300;
     font-size: 0.8rem;
