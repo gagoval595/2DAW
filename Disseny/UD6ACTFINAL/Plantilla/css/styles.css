@@ -333,7 +333,7 @@ ol{
 }
 /*Footer (?)*/
 .copy{
-    padding-top: 0.2rem;
+    padding-top: 1rem;
     padding-left: 2rem;
 }
 .copy p{
@@ -398,5 +398,4 @@ ol{
   .x:hover {
     opacity: 100%;
   }
-  
   
