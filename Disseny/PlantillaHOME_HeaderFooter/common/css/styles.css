@@ -5,20 +5,21 @@
     Gris: #ECECEC
 */
 .blauOscur{
-    color:color #222831;
+    color: #222831;
 }
 
 .blauClar{
-    color:color #30475E;
+    color: #30475E;
 }
 
 .taronja{
-    color:color #FF7000;
+    color: #FF7000;
 }
 
 .gris{
-    color:color #ECECEC;
+    color: #ECECEC;
 }
+/*Titul*/
 
 .demoContainer #experiencia {
     border: 2px solid black;
@@ -30,7 +31,18 @@
     box-shadow: 2px 2px 0px 0px black;
 }
 
+.demoContainer{
+    padding-bottom: 3rem;
+}
+
 
 .casosExitFoto{
     width: 100%;
+}
+.imgCompanyies img{
+    width: 50%;
+}
+
+.text{
+
 }

@@ -320,6 +320,9 @@ ol{
 }
 
 /*Estem per ajudar-te*/
+.ajuda{
+    padding-bottom: 3rem;
+}
 .ajuda h1{
     font-size: 2.5rem;
     padding-top:5.4rem;
@@ -329,10 +332,71 @@ ol{
     padding: 0;
 }
 /*Footer (?)*/
+.copy{
+    padding-top: 0.2rem;
+    padding-left: 2rem;
+}
+.copy p{
+    font-size: 0.75rem;
+}
 .linksFooter {
+    text-align: right;
+    margin: 0;
+    padding-top: 0.96rem;
+}
+.linksFooter a{
     text-decoration: none;
     color: black;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
+    font-size: 0.77rem;
+    font-weight: 600;
+    padding-left: 4.12rem;
 }
+.linksFooter a:last-child{
+    padding-right: 6.34rem;
+}
+
+/*Cookies*/
+
+.divCookies{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cookies {
+    position: fixed;
+    width: 36.5%;
+    bottom: 2.3em;
+    font-weight: 300;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    padding: 0.6em 1.7em;
+    background-color: #ececec;
+    border: 1px solid #ececec;
+  }
+  
+  .cookies p {
+    float: left;
+    width: 29em;
+    margin: 0;
+    line-height: 1.5em;
+    padding-left: 0.25em;
+    padding-top: 0.25em;
+    letter-spacing: 0.0015em;
+  }
+  .cookies a:hover {
+    color: #e24f00;
+  }
+  
+  .x {
+    width: 0.8rem;
+    float: left;
+    padding-top: 1.67em;
+    opacity: 50%;
+    cursor: pointer;
+  }
+  
+  .x:hover {
+    opacity: 100%;
+  }
+  
+  
