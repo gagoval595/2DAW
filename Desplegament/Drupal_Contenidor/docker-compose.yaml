@@ -1,3 +1,4 @@
+version: '3'
 services:
   web:
     build: 
@@ -8,6 +9,10 @@ services:
       - 8080:80
     volumes:
       - ./drupal:/var/www/html
+      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./default-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
     depends_on:
       - db
   
@@ -29,10 +34,10 @@ services:
     environment:
       - MARIADB_ROOT_PASSWORD=root
       - MARIADB_DATABASE=drupal_db
-      - MARIADB_USER=root
-      - MARIADB_PASSWORD=root
+      - MARIADB_USER=gabriel
+      - MARIADB_PASSWORD=1234
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - db_data:/var/lib/mysql
     
