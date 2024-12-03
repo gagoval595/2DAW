@@ -22,9 +22,13 @@
 .pTop{
     padding-top: 2rem;
 }
+
+.pDown{
+    padding-bottom: 2rem;
+}
 /*Titul*/
 
-.demoContainer #experiencia {
+#experiencia {
     border: 2px solid black;
     background-color: #FF7000;
     height: 2.3em;
@@ -34,9 +38,6 @@
     box-shadow: 2px 2px 0px 0px black;
 }
 
-.demoContainer{
-    padding-bottom: 3rem;
-}
 
 
 .casosExitFoto{
