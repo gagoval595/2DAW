@@ -35,11 +35,9 @@
                                                 class="fa-solid fa-circle-chevron-right"></i>Usuaris</a></li>
                                     <li><a href="../../administracio/rols/llistat/llistatUserProfile.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Rols</a></li>
-                                    <li><a
-                                            href="../../administracio/estatsProvinciesCiutats/state/llistaEstat.html"><i
+                                    <li><a href="../../administracio/estatsProvinciesCiutats/state/llistaEstat.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Dades geogràfiques</a></li>
-                                    <li><a
-                                            href="../../administracio/transportistes/llistar/llistatTransportistes.html"><i
+                                    <li><a href="../../administracio/transportistes/llistar/llistatTransportistes.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Transportistes</a></li>
                                 </ul>
                             </li>
@@ -58,11 +56,11 @@
                                     <li><a href="../../recepcio/proveidors/proveidors.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Proveidors</a></li>
                                     <li><a href="../../recepcio/estatsOrdesRecepcio/estatLinia/listar/listar.html"><i
-                                                    class="fa-solid fa-circle-chevron-right"></i>Estats de Línia d'Ordres
-                                                recepció</a></li>
-                                        <li><a href="../../recepcio/estatsOrdesRecepcio/estatOrdre/listar/listar.html"><i
-                                                    class="fa-solid fa-circle-chevron-right"></i>Estats Ordes de
-                                                Recepció</a></li>
+                                                class="fa-solid fa-circle-chevron-right"></i>Estats de Línia d'Ordres
+                                            recepció</a></li>
+                                    <li><a href="../../recepcio/estatsOrdesRecepcio/estatOrdre/listar/listar.html"><i
+                                                class="fa-solid fa-circle-chevron-right"></i>Estats Ordes de
+                                            Recepció</a></li>
                                     <li><a href="../../recepcio/productes/productes.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Productes</a></li>
                                     <li><a href="../../recepcio/lots/lots.html"><i
@@ -72,13 +70,16 @@
                             <li>
                                 <a><i class="fa-solid fa-box-open"></i>Magatzem</a>
                                 <ul class="padding-izq-zero">
-                                    <li><a href="../../../../magatzem/inventaris/inventaris.html"><i
+                                    <li><a href="../../magatzem/inventaris/inventaris.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Gestió del magatzem</a>
                                     </li>
-                                    <li><a href="../../../../magatzem/inventaris/inventaris.html"><i
+                                    <li><a href="../../magatzem/inventaris/inventaris.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Inventaris</a></li>
-                                    <li><a href="../../../../magatzem/incidents/incidencies.html"><i
+                                    <li><a href="../../magatzem/incidents/incidencies.html"><i
                                                 class="fa-solid fa-circle-chevron-right"></i>Incidències</a></li>
+                                    <li><a href="moviments.html"><i
+                                                class="fa-solid fa-circle-chevron-right"></i>Moviments</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
@@ -96,19 +97,43 @@
                         <div class="row rowFiltres">
                             <div class="col-4">
                                 <div class="boxFiltre">
-                                    <label for="filter-id">Filtrar per ID:</label>
-                                    <input type="text" id="filter-id" placeholder="Introdueix un ID">
+                                    <label for="filter-id">Filtrar per Producte:</label>
+                                    <input type="text" id="filter-id" placeholder="Introdueix una lletra">
                                 </div>
                             </div>
 
                             <div class="col-4">
                                 <div class="boxFiltre">
-                                    <label for="filter-name">Filtrar per Nom:</label>
-                                    <input type="text" id="filter-name" placeholder="Introdueix un Nom">
+                                    <label for="filter-name">Filtrar per Magatzem:</label>
+                                    <input type="text" id="filter-name" placeholder="Introdueix el id del Magatzem">
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-4">
+                                <div class="boxFiltre">
+                                    <label for="filter-name">Filtrar per Operari:</label>
+                                    <input type="text" id="filter-name" placeholder="Introdueix el id del Operari">
+                                </div>
+                            </div>
+                            
+                            <div class="row rowFiltres">
+                                <div class="col-6">
+                                    <div class="boxFiltre">
+                                        <label for="filter-id">Filtrar per Data:</label>
+                                        <input type="text" id="filter-id" placeholder="Introdueix una Data">
+                                    </div>
+                                </div>
+    
+                                <div class="col-6">
+                                    <div class="boxFiltre">
+                                        <label for="filter-name">Filtrar per Origen:</label>
+                                        <input type="text" id="filter-name" placeholder="Introdueix el id del Origen">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row rowFiltres">
                             <div class="col-12">
                                 <div class="container-button-filter">
@@ -119,15 +144,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="boxTaula">
-                                    <div class="boxBtn">
-                                        <a href="../alta/alta.html" style="color: white;"><button id="altaLlistat">Nou
-                                                Moviment</button></a>
-                                        <label for="accionsLot">Accions en lot</label>
-                                        <select name="accionsLot">
-                                            <option value="">Selecciona una acció</option>
-                                            <option value="">Eliminar</option>
-                                        </select>
-                                    </div>
+                                   
                                     <table class="taulaGestio">
                                         <thead>
                                             <tr>
@@ -137,14 +154,10 @@
                                                 <th>ID</th>
                                                 <th>Producte</th>
                                                 <th>Magatzem</th>
-                                                <th>Carrer</th>
-                                                <th>Estanteria</th>
-                                                <th>Espai</th>
                                                 <th>Quantitat</th>
                                                 <th>Data</th>
                                                 <th>Operari</th>
                                                 <th>Origen</th>
-                                                <th>Document</th>
                                                 <th>Accions</th>
                                             </tr>
                                         </thead>
@@ -153,103 +166,161 @@
                                                 <td data-no-colon="true" class="checkBoxth">
                                                     <input type="checkbox">
                                                 </td>
-                                                <td data-cell="ID">1</td>
-                                                <td data-cell="Estat">Pendent</td>
+                                                <td data-cell="ID">5a1v</td>
+                                                <td data-cell="Producte">Kit-Kat</td>
+                                                <td data-cell="Magatzem">02</td>
+                                                <td data-cell="Quantitat">-10</td>
+                                                <td data-cell="Data">3/12/2024, 14:25:51</td>
+                                                <td data-cell="Operari">2</td>
+                                                <td data-cell="Origen">Inventari</td>
                                                 <td data-no-colon="true">
                                                     <div class="divAccions">
-                                                        <a href="../modificar/modificar.html">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </a>
-                                                        <a href="../visualitzar/ver.html">
+                                                        <a href="../moviments/visualitzar/ver.html">
                                                             <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                        <a href="">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-no-colon="true" class="checkBoxth">
-                                                    <input type="checkbox">
-                                                </td>
-                                                <td data-cell="ID">2</td>
-                                                <td data-cell="Estat">Descarregada</td>
-                                                <td data-no-colon="true">
-                                                    <div class="divAccions">
-                                                        <a href="../modificar/modificar.html">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </a>
-                                                        <a href="../visualitzar/ver.html">
-                                                            <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                        <a href="">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-no-colon="true" class="checkBoxth">
-                                                    <input type="checkbox">
-                                                </td>
-                                                <td data-cell="ID">3</td>
-                                                <td data-cell="Estat">Desempaquetada</td>
-                                                <td data-no-colon="true">
-                                                    <div class="divAccions">
-                                                        <a href="../modificar/modificar.html">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </a>
-                                                        <a href="../visualitzar/ver.html">
-                                                            <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                        <a href="">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-no-colon="true" class="checkBoxth">
-                                                    <input type="checkbox">
-                                                </td>
-                                                <td data-cell="ID">4</td>
-                                                <td data-cell="Estat">Emmagatzemada</td>
-                                                <td data-no-colon="true">
-                                                    <div class="divAccions">
-                                                        <a href="../modificar/modificar.html">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </a>
-                                                        <a href="../visualitzar/ver.html">
-                                                            <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                        <a href="">
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-no-colon="true" class="checkBoxth">
-                                                    <input type="checkbox">
-                                                </td>
-                                                <td data-cell="ID">5</td>
-                                                <td data-cell="Estat">Purgada</td>
-                                                <td data-no-colon="true">
-                                                    <div class="divAccions">
-                                                        <a href="../modificar/modificar.html">
-                                                            <i class="fa-regular fa-pen-to-square"></i>
-                                                        </a>
-                                                        <a href="../visualitzar/ver.html">
-                                                            <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                        <a href="">
-                                                            <i class="fa-regular fa-trash-can"></i>
                                                         </a>
                                                     </div>
                                                 </td>
                                             </tr>
 
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">2cdd</td>
+                                                <td data-cell="Producte">Pilas alcalinas AA</td>
+                                                <td data-cell="Magatzem">03</td>
+                                                <td data-cell="Quantitat">24</td>
+                                                <td data-cell="Data">1/12/2024, 19:21:11</td>
+                                                <td data-cell="Operari">3</td>
+                                                <td data-cell="Origen">Ordres d'Enviament</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">1as2</td>
+                                                <td data-cell="Producte">Tubos de PVC</td>
+                                                <td data-cell="Magatzem">01</td>
+                                                <td data-cell="Quantitat">-1</td>
+                                                <td data-cell="Data">29/11/2024, 15:05:01</td>
+                                                <td data-cell="Operari">1</td>
+                                                <td data-cell="Origen">Inventari</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">52eg</td>
+                                                <td data-cell="Producte">Cables USB-C</td>
+                                                <td data-cell="Magatzem">02</td>
+                                                <td data-cell="Quantitat">5</td>
+                                                <td data-cell="Data">27/11/2024, 12:12:41</td>
+                                                <td data-cell="Operari">2</td>
+                                                <td data-cell="Origen">Ordres de Recepció</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">dbcc</td>
+                                                <td data-cell="Producte">Pinturas acrílicas</td>
+                                                <td data-cell="Magatzem">02</td>
+                                                <td data-cell="Quantitat">7</td>
+                                                <td data-cell="Data">16/11/2024, 16:01:32</td>
+                                                <td data-cell="Operari">1</td>
+                                                <td data-cell="Origen">Inventari</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">e351</td>
+                                                <td data-cell="Producte">Bolsas de fertilizante</td>
+                                                <td data-cell="Magatzem">03</td>
+                                                <td data-cell="Quantitat">-21</td>
+                                                <td data-cell="Data">13/11/2024, 11:25:46</td>
+                                                <td data-cell="Operari">3</td>
+                                                <td data-cell="Origen">Incidència</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">614d</td>
+                                                <td data-cell="Producte">Barriles de gasolina</td>
+                                                <td data-cell="Magatzem">01</td>
+                                                <td data-cell="Quantitat">9</td>
+                                                <td data-cell="Data">3/11/2024, 16:50:59</td>
+                                                <td data-cell="Operari">2</td>
+                                                <td data-cell="Origen">Ordres de Recepció</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td data-no-colon="true" class="checkBoxth">
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td data-cell="ID">11dn</td>
+                                                <td data-cell="Producte">Pringles</td>
+                                                <td data-cell="Magatzem">02</td>
+                                                <td data-cell="Quantitat">-4</td>
+                                                <td data-cell="Data">30/10/2024, 18:17:21</td>
+                                                <td data-cell="Operari">3</td>
+                                                <td data-cell="Origen">Ordres d'Enviament</td>
+                                                <td data-no-colon="true">
+                                                    <div class="divAccions">
+                                                        <a href="../moviments/visualitzar/ver.html">
+                                                            <i class="fa-regular fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
