@@ -189,7 +189,7 @@ async function autocompleta() {
   });
 
   // Autocompletar per origen
-  let arrayOrigin = ["Incident", "Reception", "Inventary", "OrderReception"];
+  let arrayOrigin = ["Incident", "Reception", "Inventary", "OrderReception", "OrderLineReception"];
 
   $("#buscaOrigen").autocomplete({
     source: arrayOrigin,
@@ -209,9 +209,9 @@ function filtrar() {
   const buscaEstanteria = document.getElementById("buscaEstanteria").value.trim();
   const buscaEspai = document.getElementById("buscaEspai").value.trim();
   const dataInici = document.getElementById("dataInici").value.trim();
-  const dataFinal = document.getElementById("dataFinal").value.trim();
+  //const dataFinal = document.getElementById("dataFinal").value.trim();
   const dataIniciObj = dataInici ? new Date(dataInici) : null;
-  const dataFinalObj = dataFinal ? new Date(dataFinal) : null;
+  //const dataFinalObj = dataFinal ? new Date(dataFinal) : null;
   const buscaOperari = document.getElementById("buscaOperari").value.trim();
   const buscaOrigen = document.getElementById("buscaOrigen").value.trim();
 
@@ -233,7 +233,7 @@ function filtrar() {
     const coincideixEstanteria = !buscaEstanteria || estanteriaID == buscaEstanteria;
     const coincideixEspai = !buscaEspai || espaiID == buscaEspai;
     const coincideixData = !dataIniciObj || dataMoviment >= dataIniciObj;
-    const coincideixDataFinal = !dataFinalObj || dataMoviment <= dataFinalObj;
+    //const coincideixDataFinal = !dataFinalObj || dataMoviment <= dataFinalObj;
     const coincideixOperari = !buscaOperari || operariID == buscaOperari;
     const coincideixOrigen = !buscaOrigen || origen == buscaOrigen;
 
@@ -243,7 +243,7 @@ function filtrar() {
       coincideixEstanteria &&
       coincideixEspai &&
       coincideixData &&
-      coincideixDataFinal &&
+      //coincideixDataFinal &&
       coincideixOperari &&
       coincideixOrigen;
   });
