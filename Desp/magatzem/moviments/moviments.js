@@ -77,10 +77,10 @@ function construirTaula(moviments = arrayMoviments) {
 
 
     // Botó Visualitzar
-    const accionsCela = document.createElement("td");
+    const accionsCela = document.createElement("i");
     const visualitzarButton = document.createElement("button");
     visualitzarButton.textContent = "Visualitzar";
-    visualitzarButton.className = "btn btn-info";
+    visualitzarButton.className = "fa-regular fa-eye";
     visualitzarButton.addEventListener("click", () => visualitzarMoviment(mov.id));
     accionsCela.appendChild(visualitzarButton);
     fila.appendChild(accionsCela);
@@ -88,6 +88,13 @@ function construirTaula(moviments = arrayMoviments) {
     taulaContingut.appendChild(fila);
   });
 }
+
+/*
+         Botó Visualitzar
+        const btnVisualitzar = document.createElement("i");
+        btnVisualitzar.className = "fa-regular fa-eye";
+        btnVisualitzar.title = "Visualitzar";
+        btnVisualitzar.addEventListener("click", () => visualitzaEstat(estat.id)); */
 
 /**
  * Crea una cel·la de taula amb un text donat.
