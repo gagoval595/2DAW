@@ -1,0 +1,79 @@
+Perfecte! Si has de generar la documentació amb **Doxygen**, aquí tens els passos detallats per a la instal·lació, configuració i execució, juntament amb la generació del document final en PDF i el document tècnic.
+
+---
+
+## **Passos per utilitzar Doxygen per a documentar un projecte**
+
+### **1. Instal·lació de Doxygen**
+#### A. Instal·lació a Windows:
+1. Descarrega l’instal·lador des del [lloc oficial de Doxygen](https://www.doxygen.nl/).
+2. Executa l'instal·lador i segueix els passos per instal·lar-lo.
+
+#### B. Instal·lació a macOS:
+1. Fes servir **Homebrew**:
+   ```bash
+   brew install doxygen
+   ```
+
+#### C. Instal·lació a Linux:
+1. Executa aquesta comanda:
+   ```bash
+   sudo apt-get install doxygen
+   ```
+
+---
+
+### **2. Configuració de Doxygen**
+1. Situa’t a la carpeta del projecte amb el codi font:
+   ```bash
+   cd /ruta/al/teu/projecte
+   ```
+2. Genera un fitxer de configuració inicial:
+   ```bash
+   doxygen -g
+   ```
+   Això crearà un fitxer anomenat **Doxyfile** amb configuracions predeterminades.
+
+3. Edita el fitxer **Doxyfile** amb un editor de text (p. ex., VSCode o Nano):
+   - **PROJECT_NAME**: Nom del teu projecte.
+   - **INPUT**: Ruta dels fitxers del teu projecte (p. ex., `src`).
+   - **OUTPUT_DIRECTORY**: Carpeta on es guardarà la documentació generada.
+   - **GENERATE_LATEX**: Canvia a `YES` si vols generar documentació en format LaTeX (necessari per crear un PDF).
+   - **FILE_PATTERNS**: Inclou extensions de fitxers a documentar (p. ex., `.php, .js`).
+   - **EXTRACT_ALL**: Canvia a `YES` per incloure tota la documentació, fins i tot de fitxers sense comentaris.
+
+---
+
+### **3. Generar la documentació**
+1. Executa la comanda següent:
+   ```bash
+   doxygen Doxyfile
+   ```
+2. Si has activat l'opció **LaTeX**, entra a la carpeta de sortida LaTeX:
+   ```bash
+   cd /ruta/al/teu/output/latex
+   ```
+3. Genera el PDF amb **pdflatex**:
+   ```bash
+   pdflatex refman.tex
+   ```
+
+---
+
+### **4. Crear el document tècnic**
+Crea un document explicatiu en PDF que incloga:
+- **Objectiu del projecte**: Explica per què documentes el codi.
+- **Eines utilitzades**: Doxygen i altres eines relacionades (p. ex., pdflatex).
+- **Procés seguit**:
+  - Instal·lació i configuració.
+  - Com s’ha generat la documentació.
+- **Resultat final**: Inclou captures de pantalla o descripcions dels fitxers generats.
+- **Conclusió**: Avantatges de tenir una documentació automàtica.
+
+---
+
+### **5. Producte final**
+- **Documentació del codi**: Generada amb Doxygen i exportada a PDF.
+- **Document tècnic**: En format PDF seguint la guia proporcionada.
+
+Si necessites ajuda amb algun pas concret o configurar el **Doxyfile**, no dubtes a demanar-ho! 😊
