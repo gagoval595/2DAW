@@ -59,29 +59,34 @@ function mostrarTaula(estats) {
 
         // Columna Accions
         const tdAccions = document.createElement("td");
+        const divAccions = document.createElement('div');
+        divAccions.className = 'divAccions';
 
         // Botó Visualitzar
         const btnVisualitzar = document.createElement("i");
-        btnVisualitzar.className = "fa-regular fa-eye iconaAccio";
+        btnVisualitzar.className = "fa-regular fa-eye";
         btnVisualitzar.title = "Visualitzar";
         btnVisualitzar.addEventListener("click", () => visualitzaEstat(estat.id));
 
         // Botó Modificar
         const btnModificar = document.createElement("i");
-        btnModificar.className = "fa-regular fa-pen-to-square iconaAccio";
+        btnModificar.className = "fa-regular fa-pen-to-square";
         btnModificar.title = "Modificar";
         btnModificar.addEventListener("click", () => modificaEstat(estat.id));
 
         // Botó Esborrar
         const btnEsborrar = document.createElement("i");
-        btnEsborrar.className = "fa-regular fa-trash-can iconaAccio";
+        btnEsborrar.className = "fa-regular fa-trash-can";
         btnEsborrar.title = "Esborrar";
         btnEsborrar.addEventListener("click", async () => await esborrar(estat.id));
 
-        // Afegir botons a la columna d'accions
-        tdAccions.appendChild(btnVisualitzar);
-        tdAccions.appendChild(btnModificar);
-        tdAccions.appendChild(btnEsborrar);
+        // Afegir botons al div
+        divAccions.appendChild(btnVisualitzar);
+        divAccions.appendChild(btnModificar);
+        divAccions.appendChild(btnEsborrar);
+
+        // Afegir el div al td
+        tdAccions.appendChild(divAccions);
 
         // Afegir les columnes a la fila
         fila.appendChild(tdCheckbox);
