@@ -1,6 +1,10 @@
-document.addEventListener("DOMContentLoaded", async function () {
+$(document).ready(function () {
+    main();
+});
 
-    document.getElementById("torna").addEventListener("click", function () {
+window.onload = async function () {
+
+    document.getElementById("cancelar").addEventListener("click", function () {
         window.location.href = "../listar/listar.html";
     });
 
@@ -29,4 +33,4 @@ document.addEventListener("DOMContentLoaded", async function () {
             missatgeError.textContent = "Error al guardar l'estat al servidor.";
         }
     });
-});
+};

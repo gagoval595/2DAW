@@ -1,4 +1,6 @@
-// Inicialització principal
+$(document).ready(function () {
+    main();
+});
 window.onload = function () {
     carregarDadesEstat();
 

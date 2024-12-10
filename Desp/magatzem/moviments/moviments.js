@@ -2,6 +2,10 @@ let arrayMoviments = [];
 let arrayProduct = [];
 let arrayUser = [];
 
+$(document).ready(function () {
+    main();
+});
+
 window.onload = async function () {
   try {
     await carregarDades();
@@ -66,45 +70,47 @@ function construirTaula(moviments = arrayMoviments) {
   moviments.forEach((mov) => {
     const fila = document.createElement("tr");
     const divAccions = document.createElement("div");
-    divAccions.className= 'divAccions';
+    divAccions.className = 'divAccions';
 
-    // Afegir les columnes a la fila
-    fila.appendChild(creaCela(mov.id));
-    fila.appendChild(creaCela(obtenirNomProducte(mov.product_id)));
-    fila.appendChild(creaCela(mov.storage_id));
-    fila.appendChild(creaCela(mov.street_id));
-    fila.appendChild(creaCela(mov.shelf_id));
-    fila.appendChild(creaCela(mov.space_id));
-    fila.appendChild(creaCela(mov.quantity));
-    fila.appendChild(creaCela(mov.date));
-    fila.appendChild(creaCela(mov.operator_id));
-    fila.appendChild(creaCela(mov.orgin)); //Crespo ha de canviar això, orgin per "origin"
-    
+    // Añadir las columnas con el atributo data-cell
+    fila.appendChild(creaCela(mov.id, "ID"));
+    fila.appendChild(creaCela(obtenirNomProducte(mov.product_id), "Producte"));
+    fila.appendChild(creaCela(mov.storage_id, "Magatzem"));
+    fila.appendChild(creaCela(mov.street_id, "Carrer"));
+    fila.appendChild(creaCela(mov.shelf_id, "Estanteria"));
+    fila.appendChild(creaCela(mov.space_id, "Espai"));
+    fila.appendChild(creaCela(mov.quantity, "Quantitat"));
+    fila.appendChild(creaCela(mov.date, "Data"));
+    fila.appendChild(creaCela(mov.operator_id, "Operari"));
+    fila.appendChild(creaCela(mov.orgin, "Origen"));
 
-    // Botó Visualitzar
+    // Botón Visualitzar con atributo data-no-colon
     const accionsCela = document.createElement("td");
+    accionsCela.setAttribute("data-no-colon", "true");
+    
     const iconVisualitzar = document.createElement("i");
     iconVisualitzar.className = "fa-regular fa-eye";
     iconVisualitzar.title = "Visualitzar";
+    iconVisualitzar.setAttribute("data-no-colon", "true");
     iconVisualitzar.addEventListener("click", () => visualitzarMoviment(mov.id));
 
     divAccions.appendChild(iconVisualitzar);
-    
-    // Afegir el botó a la cel·la d'accions
-    accionsCela.appendChild(iconVisualitzar);
+    accionsCela.appendChild(divAccions);
     fila.appendChild(accionsCela);
 
     taulaContingut.appendChild(fila);
-});
-
+  });
 }
 
 /**
- * Crea una cel·la de taula amb un text donat.
+ * Crea una celda de tabla con un texto dado y un atributo data-cell.
  */
-function creaCela(text) {
+function creaCela(text, dataCell) {
   const cela = document.createElement("td");
   cela.textContent = text;
+  if (dataCell) {
+    cela.setAttribute("data-cell", dataCell);
+  }
   return cela;
 }
 

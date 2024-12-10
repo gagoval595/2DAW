@@ -1,5 +1,8 @@
-// Inicialització principal
-window.onload = function () {
+$(document).ready(function () {
+    main();
+});
+
+window.onload = async function () {
     carregarDadesEstat();
     document.getElementById("guardar").addEventListener("click", guardarCanvis);
     document.getElementById("tornar").addEventListener("click", () => {
