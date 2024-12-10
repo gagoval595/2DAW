@@ -91,6 +91,12 @@
                                         <a href="../../recepcio/proveidors/proveidors.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Proveidors</a>
                                     </li>
+
+                                    <li>
+                                        <a href="../../recepcio/ordesRecepcio/llistar/llistar.html">
+                                            <i class="fa-solid fa-circle-chevron-right"></i>Ordres de Recepció</a>
+                                    </li>
+
                                     <li>
                                         <a href="../../recepcio/estatsOrdesRecepcio/estatLinia/listar/listar.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Estats Ordre</a>
@@ -112,20 +118,21 @@
                                 <a><i class="fa-solid fa-box-open"></i>Magatzem</a>
                                 <ul class="padding-izq-zero">
                                     <li>
-                                        <a href="../magatzem/inventaris/inventaris.html">
+                                        <a href="../../magatzem/inventaris/inventaris.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Gestió del magatzem</a>
                                     </li>
                                     <li>
-                                        <a href="../magatzem/inventari/processarInventari/processarInventari.html">
+                                        <a
+                                            href="../../../../magatzem/inventari/processarInventari/processarInventari.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Inventaris</a>
                                     </li>
                                     <li>
-                                        <a href="../magatzem/incidents/incidencies.html">
+                                        <a href="../../magatzem/incidents/incidencies.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Incidències</a>
                                     </li>
                                     <li>
-                                        <a href="../moviments/moviments.html">
-                                            <i class="fa-solid fa-circle-chevron-right"></i>Moviments</a>
+                                        <a class="paginaActiva" href="../moviments/moviments.html">
+                                            <i class="fa-solid fa-circle-chevron-right paginaActiva"></i>Moviments</a>
                                     </li>
 
                                 </ul>
@@ -193,51 +200,49 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row rowFiltres">
-                        <div class="col-12">
-                            <div class="container-button-filter">
-                                <button id="filtrar" class="filter-button">Filtrar</button>
+                        <div class="row rowFiltres">
+                            <div class="col-12 padding-zero">
+                                <div class="container-button-filter">
+                                    <button id="filtrar" class="filter-button">Filtrar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="boxTaula">
-                                <div class="boxBtn">
-                                    <button id="crearMovProva" >Crear Moviment de Prova</button>
-                                    </a>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="boxTaula">
+                                    <div class="boxBtn">
+                                        <button id="crearMovProva">Crear Moviment de Prova</button>
+                                        </a>
+                                    </div>
+                                    <table class="taulaGestio">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Producte</th>
+                                                <th>Magatzem</th>
+                                                <th>Carrer</th>
+                                                <th>Estanteria</th>
+                                                <th>Espai</th>
+                                                <th>Quantitat</th>
+                                                <th>Data</th>
+                                                <th>Operari</th>
+                                                <th>Origen</th>
+                                                <th>Accions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="taulaContingut"></tbody>
+                                    </table>
                                 </div>
-                                <table class="taulaGestio">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Producte</th>
-                                            <th>Magatzem</th>
-                                            <th>Carrer</th>
-                                            <th>Estanteria</th>
-                                            <th>Espai</th>
-                                            <th>Quantitat</th>
-                                            <th>Data</th>
-                                            <th>Operari</th>
-                                            <th>Origen</th>
-                                            <th>Document</th>
-                                            <th>Accions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="taulaContingut"></tbody>
-                                </table>
-                            </div>
-                            <div class="veureMes">
-                                <a href="#">Veure Més</a>
+                                <div class="veureMes">
+                                    <a href="#">Veure Més</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

@@ -202,6 +202,13 @@ h2 {
     color: var(--blauFosc);
 }
 
+.botonesFiltros{
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    padding: 1;
+    gap: 1em;
+}
+
 /*BOX TAULA*/
 .boxTaula {
     padding: 3em 1em 2em 1em;
@@ -251,6 +258,7 @@ button:hover{
 
 .divAccions i:hover{
     color: var(--taronja);
+	cursor: pointer;
 }
 
 /*TAULA*/
@@ -282,7 +290,7 @@ tbody tr:nth-child(even){
 }
 
 td, th {
-    padding: 0.5em 3em 0.5em 3em;
+    padding: 0.5em 1em;
 }
 
 .veureMes{
@@ -330,8 +338,7 @@ td, th {
     appearance: none;
 }
 
-/* BOTO TORNAR HECHO POR EL JAVMAN MAGNIFICO */
-
+/* BOTO TORNAR */
 .botoTornar{
     background-color: var(--blauClar);
     padding: 0.4em 0.8em 0.4em 0.8em;
@@ -346,10 +353,32 @@ td, th {
     color: inherit;
 }
 
+/* HOVER */
+.botoTornar:hover{
+    color: var(--taronja);
+}
+
+/* MISSATGE QUE ES MOSTRA QUAN HI 
+HA UN ERROR O SI NO HI HA CLIENTS */
+#missatgeError{
+    text-align: center; 
+    font-size: 1.5em; 
+    color: #ff0000;
+    margin-top: 1em;
+}
+
+/* ESTIL PER A PÀGINA ACTIVA */
+.paginaActiva{
+    color: var(--taronja);
+}
+
 /*MEDIAQUERY*/
 @media only screen and (max-width: 1100px) {
     #logo{
         width: 100%;
+    }
+	td, th {
+        padding: 0.5em 0.5em 0.5em 0.5em;
     }
 }
 

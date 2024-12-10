@@ -11,16 +11,19 @@ window.onload = async function () {
     $("#filtre").on("click", function () {
       $("#divFiltres").fadeToggle(300);
     });
-    document.getElementById("crearMovProva").addEventListener("click", async () => {
+    document.getElementById("crearMovProva").addEventListener("click", async () => { 
+      /*
+      * 2ce8 : Oreo, fd23: Principe, fd7f: Tosta Rica, 4c99: Dinosaurus, 8e3d: Maria, d788: Chips Ajoy   
+      */
       const prova = {
-        product_id: "2",
-        storage_id: "01",
-        street_id: "04",
-        shelf_id: "02",
-        space_id: "01",
-        quantity: 9,
+        product_id: "d788",
+        storage_id: "02",
+        street_id: "03",
+        shelf_id: "01",
+        space_id: "02",
+        quantity: -1,
         operator_id: "2",
-        origin: "OrderReception",
+        origin: "OrderLineReception",
         document: "1"
       };
 
@@ -61,6 +64,8 @@ function construirTaula(moviments = arrayMoviments) {
 
   moviments.forEach((mov) => {
     const fila = document.createElement("tr");
+    const divAccions = document.createElement("div");
+    divAccions.className= 'divAccions';
 
     // Afegir les columnes a la fila
     fila.appendChild(creaCela(mov.id));
@@ -73,28 +78,25 @@ function construirTaula(moviments = arrayMoviments) {
     fila.appendChild(creaCela(mov.date));
     fila.appendChild(creaCela(mov.operator_id));
     fila.appendChild(creaCela(mov.orgin)); //Crespo ha de canviar això, orgin per "origin"
-    fila.appendChild(creaCela(mov.document));
-
+    
 
     // Botó Visualitzar
-    const accionsCela = document.createElement("i");
-    const visualitzarButton = document.createElement("button");
-    visualitzarButton.textContent = "Visualitzar";
-    visualitzarButton.className = "fa-regular fa-eye";
-    visualitzarButton.addEventListener("click", () => visualitzarMoviment(mov.id));
-    accionsCela.appendChild(visualitzarButton);
+    const accionsCela = document.createElement("td");
+    const iconVisualitzar = document.createElement("i");
+    iconVisualitzar.className = "fa-regular fa-eye";
+    iconVisualitzar.title = "Visualitzar";
+    iconVisualitzar.addEventListener("click", () => visualitzarMoviment(mov.id));
+
+    divAccions.appendChild(iconVisualitzar);
+    
+    // Afegir el botó a la cel·la d'accions
+    accionsCela.appendChild(iconVisualitzar);
     fila.appendChild(accionsCela);
 
     taulaContingut.appendChild(fila);
-  });
-}
+});
 
-/*
-         Botó Visualitzar
-        const btnVisualitzar = document.createElement("i");
-        btnVisualitzar.className = "fa-regular fa-eye";
-        btnVisualitzar.title = "Visualitzar";
-        btnVisualitzar.addEventListener("click", () => visualitzaEstat(estat.id)); */
+}
 
 /**
  * Crea una cel·la de taula amb un text donat.
