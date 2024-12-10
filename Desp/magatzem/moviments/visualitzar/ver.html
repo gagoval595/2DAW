@@ -91,6 +91,12 @@
                                         <a href="../../../recepcio/proveidors/proveidors.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Proveidors</a>
                                     </li>
+
+                                    <li>
+                                        <a href="../../../recepcio/ordesRecepcio/llistar/llistar.html">
+                                            <i class="fa-solid fa-circle-chevron-right"></i>Ordres de Recepció</a>
+                                    </li>
+
                                     <li>
                                         <a href="../../../recepcio/estatsOrdesRecepcio/estatLinia/listar/listar.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Estats Ordre</a>
@@ -116,7 +122,8 @@
                                             <i class="fa-solid fa-circle-chevron-right"></i>Gestió del magatzem</a>
                                     </li>
                                     <li>
-                                        <a href="../../../magatzem/inventaris/inventaris.html">
+                                        <a
+                                            href="../../../../magatzem/inventari/processarInventari/processarInventari.html">
                                             <i class="fa-solid fa-circle-chevron-right"></i>Inventaris</a>
                                     </li>
                                     <li>
@@ -124,8 +131,8 @@
                                             <i class="fa-solid fa-circle-chevron-right"></i>Incidències</a>
                                     </li>
                                     <li>
-                                        <a href="../../../magatzem/moviments/moviments.html">
-                                            <i class="fa-solid fa-circle-chevron-right"></i>Moviments</a>
+                                        <a class="paginaActiva" href="../../moviments/moviments.html">
+                                            <i class="fa-solid fa-circle-chevron-right paginaActiva"></i>Moviments</a>
                                     </li>
 
                                 </ul>
@@ -140,72 +147,95 @@
             </div>
             <div class="col-10 padding-zero">
                 <div>
-                    <h2>Visualitzar Estat</h2>
+                    <h2>Visualitzar el Moviment</h2>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <div class="container">
-                                    <h2>Visualitzar el Moviment</h2>
-                                    <form id="formulario">
-                                        <div class="form-group">
-                                            <label for="id">Producte:</label>
-                                            <input type="text" id="product_id" class="form-control" readonly>
+                                <div class="boxTaula">
+                                    <form class="formulari">
+                                        <div class="row">
+                                            <label for="product_id" class="col-3">Producte:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="product_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="name">Magatzem:</label>
-                                            <input type="text" id="storage_id" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="storage_id" class="col-3">Magatzem:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="storage_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="name">Carrer:</label>
-                                            <input type="text" id="street_id" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="street_id" class="col-3">Carrer:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="street_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="name">Estanteria:</label>
-                                            <input type="text" id="shelf_id" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="shelf_id" class="col-3">Estanteria:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="shelf_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Espai:</label>
-                                            <input type="text" id="space_id" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="space_id" class="col-3">Espai:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="space_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Quantitat:</label>
-                                            <input type="text" id="quantity" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="quantity" class="col-3">Quantitat:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="quantity"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Data:</label>
-                                            <input type="date" id="date" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="date" class="col-3">Data:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="date"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Operari:</label>
-                                            <input type="text" id="operator_id" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="operator_id" class="col-3">Operari:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="operator_id"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Origen:</label>
-                                            <input type="text" id="origin" class="form-control" readonly>
+                                        <div class="row">
+                                            <label for="origin" class="col-3">Origen:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="origin"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="name">Document:</label>
-                                            <input type="text" id="document" class="form-control" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" id="tornar" class="btn btn-primary">Tornar</button>
+                                        <div class="row">
+                                            <label for="document" class="col-3">Document:</label>
+                                            <div class="col-9">
+                                                <input type="text" id="document"
+                                                    class="inputVisualitzar inputSolsVisualitzar" disabled required>
+                                            </div>
                                         </div>
                                     </form>
+                                    <div class="boxBtn">
+                                        <button type="button" id="tornar">Tornar</button>
+                                    </div>
                                 </div>
                                 <h5 id="missatgeError"></h5>
                             </div>
@@ -214,8 +244,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
-
 
 </html>

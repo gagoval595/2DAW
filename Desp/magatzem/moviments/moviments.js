@@ -33,6 +33,7 @@ window.onload = async function () {
     });
 
     document.getElementById("filtrar").addEventListener("click", filtrar);
+    document.getElementById("netejaFiltres").addEventListener("click", netejaFiltres);
   } catch (error) {
     console.error("Error inicialitzant l'aplicació:", error);
   }
@@ -210,7 +211,7 @@ function filtrar() {
   const buscaEspai = document.getElementById("buscaEspai").value.trim();
   const dataInici = document.getElementById("dataInici").value.trim();
   //const dataFinal = document.getElementById("dataFinal").value.trim();
-  const dataIniciObj = dataInici ? new Date(dataInici) : null;
+  const dataIniciObj = dataInici ? new Date(dataInici).toLocaleDateString("es-ES") : null;
   //const dataFinalObj = dataFinal ? new Date(dataFinal) : null;
   const buscaOperari = document.getElementById("buscaOperari").value.trim();
   const buscaOrigen = document.getElementById("buscaOrigen").value.trim();
@@ -222,7 +223,7 @@ function filtrar() {
     const carrerID = mov.street_id;
     const estanteriaID = mov.shelf_id;
     const espaiID = mov.space_id;
-    const dataMoviment = new Date(mov.date);
+    const dataMoviment = new Date(mov.date).toLocaleString("es-ES");
     const operariID = mov.operator_id;
     const origen = mov.orgin;
 
@@ -249,4 +250,16 @@ function filtrar() {
   });
   // Mostra la taula amb els moviments filtrats
   construirTaula(movimentsFiltrats);
+}
+
+function netejaFiltres(){
+  document.getElementById("buscaMagatzem").value = '';
+  document.getElementById("buscaCarrer").value = '';
+  document.getElementById("buscaEstanteria").value = '';
+  document.getElementById("buscaEspai").value = '';
+  document.getElementById("dataInici").value = '';
+  document.getElementById("buscaOperari").value = '';
+  document.getElementById("buscaOrigen").value = '';
+  document.getElementById("buscaProducte").value='';
+  filtrar();
 }
