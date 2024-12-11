@@ -39,14 +39,6 @@ function mostrarTaula(estats) {
         const fila = document.createElement("tr");
         fila.setAttribute("id", estat.id);
 
-        // Columna Checkbox (opcional)
-        const tdCheckbox = document.createElement("td");
-        const checkbox = document.createElement("input");
-        tdCheckbox.setAttribute("data-no-colon","true");
-        checkbox.type = "checkbox";
-        tdCheckbox.appendChild(checkbox);
-        fila.appendChild(tdCheckbox);
-
         // Columna ID
         const tdId = document.createElement("td");
         tdId.textContent = estat.id;
