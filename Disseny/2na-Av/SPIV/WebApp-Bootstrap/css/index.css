@@ -1,0 +1,25 @@
+:root{
+    --blauFosc: #222831;
+    --blauClar: #30475E;
+    --taronja: #FF7000;
+    --gris: #ECECEC;
+}
+.fonsBlauFosc{
+    background-color:var(--blauFosc);
+}
+
+.fonsTaronja {
+    background-color: var(--taronja);
+}
+
+.fonsGris{
+    background-color: var(--gris);
+}
+
+.fonsBlauClar{
+    background-color: var(--blauClar);
+}
+
+.blau{
+    color: var(--blauClar);
+}
