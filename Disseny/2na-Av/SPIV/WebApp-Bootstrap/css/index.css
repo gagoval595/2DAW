@@ -1,30 +1,118 @@
-:root{
+:root {
     --blauFosc: #222831;
     --blauClar: #30475E;
-    --taronja: #FF7000;
+    --taronja: #FF7F50;
+    --taronjaOG: #FF7000;
     --gris: #ECECEC;
+    --grisOscur: #B9BBBD;
 }
-.fonsBlauFosc{
-    background-color:var(--blauFosc);
+
+.fonsBlauFosc {
+    background-color: var(--blauFosc);
 }
 
 .fonsTaronja {
     background-color: var(--taronja);
 }
 
-.fonsGris{
+.fonsTaronjaOG {
+    background-color: var(--taronjaOG);
+}
+
+.fonsGris {
     background-color: var(--gris);
 }
 
-.fonsBlauClar{
+.fonsBlauClar {
     background-color: var(--blauClar);
 }
 
-*{
+.fonsGrisDif {
+    background-color: var(--grisOscur);
+}
+
+body {
+    font-family: "Noto Serif", serif;
     color: var(--blauClar);
 }
 
-/*col-2*/
+.blau td,
+.blau th {
+    color: var(--blauClar);
+}
 
+.hvb:hover, .bg-danger:hover{
+    color: #30475E !important;
+    background-color:white !important;  
+}
+.bg-danger:hover .bi {
+    color: #30475E !important; 
+}
+.num {
+    font-size: 0.85em;
+}
 
-/*col-10*/
+.aplicar {
+    background-color: var(--taronjaOG);
+}
+
+.aplicar:hover {
+    background-color: var(--blauClar);
+}
+
+.noPointer{
+    cursor:default ;
+}
+.damunt{
+    z-index: 1050;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--blauClar);
+    border-color: var(--blauClar);
+    color: #ffffff;
+}
+
+.pagination .page-link {
+    color: var(--blauClar);
+    border-color: var(--gris);
+}
+
+.pagination .page-link:hover {
+    background-color: #e9ecef;
+    color: var(--blauClar);
+}
+
+@media (max-width: 991px) {
+    .fonsBlauFosc>.d-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+    }
+
+    .logo-footer {
+        max-width: 80px;
+    }
+
+    .btn {
+        margin: 0;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        display: block;
+    }
+
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    td[data-no-colon="true"]::before {
+        content: "";
+    }
+}
