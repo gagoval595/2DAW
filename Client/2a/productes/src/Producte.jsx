@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { url, postData, getData, deleteData, updateId } from './crud'
 import { useState, useEffect } from 'react'
+import { Button } from 'react-bootstrap';
 
 const ProducteSchema = yup.object().shape({
   name: yup
@@ -69,7 +70,7 @@ function Producte() {
         }}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form className='p-3'>
             <div>
               <label htmlFor="name">Nom</label>
               <Field type="text" name="name" placeholder="Nom del producte" />
@@ -78,7 +79,7 @@ function Producte() {
 
             <div>
               <label htmlFor="description">Descripció</label>
-              <Field type="text" name="description" placeholder="Descripció" />
+              <Field type="textArea" name="description" placeholder="Descripció" />
               {errors.description && touched.description ? (
                 <div>{errors.description}</div>
               ) : null}
@@ -118,7 +119,7 @@ function Producte() {
               {errors.image_url && touched.image_url ? <div>{errors.image_url}</div> : null}
             </div>
 
-            <button type="submit">Enviar</button>
+            <Button type="submit">Enviar</Button>
           </Form>
         )}
       </Formik>
