@@ -1,26 +1,13 @@
-import { Route, Routes } from 'react-router-dom'
-import Producte from './Producte'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import './index.css'
 
-function App() {
-  return (
-    <>
-    <Routes>
-      <Route path="/Producte" element={<Producte/>}></Route>
-      <Route path="/" element={<Error404/>}></Route>
-      <Route path="/404" element={<Error404/>}></Route>
-
-      </Routes>
-    </>
-  )
-}
-
-function Error404(){
-  return(
-<div>
-    <h1>Error 404</h1>
-  </div>
-  )
-}
-
-
-export default App
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
