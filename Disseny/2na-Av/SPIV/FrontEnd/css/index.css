@@ -1,0 +1,16 @@
+:root {
+    --blauFosc: #222831;
+    --blauClar: #30475E;
+    --taronja: #FF7F50;
+    --taronjaOG: #FF7000;
+    --gris: #ECECEC;
+    --grisOscur: #B9BBBD;
+}
+
+.fonsGris{
+    background-color: var(--gris);
+}
+
+.logo-header{
+    width: 13.7em;
+}
