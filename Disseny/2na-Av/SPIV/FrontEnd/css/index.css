@@ -3,14 +3,94 @@
     --blauClar: #30475E;
     --taronja: #FF7F50;
     --taronjaOG: #FF7000;
-    --gris: #ECECEC;
+    --gris: #E9ECEF;
     --grisOscur: #B9BBBD;
 }
-
+body{
+    color: var(--blauFosc);
+}
 .fonsGris{
     background-color: var(--gris);
 }
 
-.logo-header{
-    width: 13.7em;
+.botoTaronja{
+    background-color: var(--taronja);
 }
+
+.botoTaronja:hover{
+    background-color: var(--blauFosc);
+}
+.logo-header{
+    width: 14em;
+}
+
+/*r1*/
+.roig{
+    background-color: red;
+    height: 10rem;
+
+}
+/*r2*/
+.orange{
+    background-color: orange;
+    height: 5rem;
+    border: 1px solid black;
+}
+
+.blue{
+    background-color: blue;
+}
+/*r3*/
+.verd{
+    height: 3rem;
+    background-color: greenyellow;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/*r4*/
+.groc{
+    height: 5rem;
+    background-color: yellow;
+    border: 1px solid black;
+}
+/*r5*/
+.blauClar{
+    height: 5rem;
+    background-color: aquamarine;
+    border: 1px solid black;
+    border-radius: 10px;
+    width:50%
+}
+/*r6*/
+.negre{
+    height: 8rem;
+    background-color: black;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+/*Footer*/
+.footer{
+    background-color: dodgerblue;
+    padding: 1rem;
+}
+.marro{
+    height: 4rem;
+    background-color: brown;
+    border: 1px solid white;
+    justify-content: center;
+    padding: 1rem;
+
+}
+
+/*copy*/
+.violeta{
+    background-color: blueviolet;
+}
+
+/*Movil*/
+@media only screen and (max-width: 767px) {
+    .logo-header{
+        width: 5rem;
+    }
+  }
