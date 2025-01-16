@@ -7,7 +7,8 @@
     --grisOscur: #B9BBBD;
 }
 body{
-    color: var(--blauFosc);
+    color: var(--blauClar) !important;
+    font-family: 'Noto Serif', serif !important;
 }
 .fonsGris{
     background-color: var(--gris);
@@ -21,71 +22,16 @@ body{
     background-color: var(--blauFosc);
 }
 .logo-header{
-    width: 14em;
+    width: 12em;
 }
 
-/*r1*/
-.roig{
-    background-color: red;
-    height: 10rem;
-
-}
-/*r2*/
-.orange{
-    background-color: orange;
-    height: 5rem;
-    border: 1px solid black;
+.border-blau{
+    color: var(--blauClar) !important;
 }
 
-.blue{
-    background-color: blue;
-}
-/*r3*/
-.verd{
-    height: 3rem;
-    background-color: greenyellow;
-    border: 1px solid rgb(0, 0, 0);
-}
-
-/*r4*/
-.groc{
-    height: 5rem;
-    background-color: yellow;
-    border: 1px solid black;
-}
-/*r5*/
-.blauClar{
-    height: 5rem;
-    background-color: aquamarine;
-    border: 1px solid black;
-    border-radius: 10px;
-    width:50%
-}
-/*r6*/
-.negre{
-    height: 8rem;
-    background-color: black;
-    border: 1px solid white;
-    padding: 1rem;
-}
-
-/*Footer*/
-.footer{
-    background-color: dodgerblue;
-    padding: 1rem;
-}
-.marro{
-    height: 4rem;
-    background-color: brown;
-    border: 1px solid white;
-    justify-content: center;
-    padding: 1rem;
-
-}
-
-/*copy*/
-.violeta{
-    background-color: blueviolet;
+.btn-header:hover{
+    background-color: var(--blauClar) !important;
+    color: white !important;
 }
 
 /*Movil*/
