@@ -14,13 +14,22 @@ body{
     background-color: var(--gris);
 }
 
-.botoTaronja{
+.btn-taronja{
     background-color: var(--taronja);
 }
 
-.botoTaronja:hover{
+.btn-taronja:hover{
     background-color: var(--blauFosc);
 }
+
+.btn-blau{
+    background-color: var(--blauClar);
+}
+
+.btn-blau:hover{
+    background-color: var(--blauFosc);
+}
+
 .logo-header{
     width: 12em;
 }

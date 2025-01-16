@@ -1,0 +1,38 @@
+Tipografia de lletra i icones:
+Font Awesome 6 Brands
+
+
+Icones:
+
+Encapçalament:
+Lupa:
+fa-solid fa-magnifying-glass
+
+Peu:
+
+Ubicació: 
+fa-solid fa-location-dot
+
+Telèfon:
+fa-solid fa-phone
+
+Email:
+fa-solid fa-envelope
+
+
+Twitter:
+fa-brands fa-twitter
+
+LinkedIn:
+fa-brands fa-linkedin
+
+Youtube: 
+fa-brands fa-youtube
+
+
+
+Estrel.la resenya emplenada:
+fa-solid fa-star
+
+Estrel.la resenya buida:
+fa-regular fa-star

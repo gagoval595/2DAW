@@ -1,0 +1,303 @@
+/*
+* Paleta de colors:
+* # Blau oscur: #222831;
+* # Blau clar: #30475E
+* # Taronja: #FF7000
+* # Blanc/Gris: #ECECEC
+*/
+
+/*GENERAL --------------------------*/
+*{
+    font-family: 'Noto Serif', serif;
+}
+.blauText{/*Color, ja que quasi tot el contingut es d'aquest color, per a que no hi haga redundància de codi*/
+    color: #30475E;
+}
+.pTop { /*padding top d'1 rem per separar els divs*/
+    padding-top: 1rem;
+}
+.pTopMitat{ /*padding top de 0.5 rem per separar els divs*/
+    padding-top: 0.5rem;
+}
+.bordes{ /*Border radius, ja que hi ha molta cosa amb border radius*/
+    border-radius: 10px;
+}
+.bordes2{ /*Boder radius de 5px*/
+    border-radius: 5px;
+}
+.separació{ /*padding right, per separar els divs o lo q vuiga*/
+    padding-right: 1rem;
+}
+.separacioDalt{
+    padding-top: 2rem;
+}
+.botoRaro{ /*El que fa, es bàsicament, lo que es vega com el DEMO*/
+    justify-items: center;
+    background-color: #FF7000;
+    box-shadow: 3px 3px black;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    
+}
+li{
+    font-weight: bold;
+}
+.icones{
+    color: white;
+}
+.titCent{
+    font-size: 1.8rem;
+}
+.centrat{ /*Per centrar els objectes ficats*/
+    text-align: center;
+}
+
+/*PROVES*/
+.prova{
+    border: 1px solid black;
+}
+.prova2{
+    border: 1px solid white;
+}
+.prova3{
+    border: 1px solid aqua;
+}
+
+/*HEADER --------------------------*/
+.header {
+    background-color: #ececec;
+    align-items: center;
+    padding-top: 0.81rem;
+}
+
+/*LOGO HEADER*/
+.logoHeader {
+    padding-left: 1rem;
+    width: 13rem;
+}
+
+/*LUPA*/
+.lupa{
+    font-size: 1.5rem;
+}
+
+.icona-lupa{}
+
+/*MENU*/
+.menu{
+    text-align: center;
+}
+.navbar {
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #222831;
+    color: white;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    border: 1px solid black;
+    display: block;
+    text-align: center;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ECECEC;
+    color: #222831;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/*Ralleta que separa RESEÑA de QUIENES SOMOS*/
+.ralla{}
+
+/*DEMO*/
+.demo{}
+
+/*BODY --------------------------*/
+
+/*SOFTWARE DE GESTIÓN*/
+.divJunt{
+    padding:0px;
+    padding-top: 2.5rem;
+}
+
+/*Part del text software*/
+.software {
+    background-color: #ECECEC;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #ECECEC;
+    padding: 2rem;
+}
+.software p{
+    line-height: 2rem;
+}
+.preusPlans{
+    background-color: #30475E;
+    color: #ECECEC;
+    width: 40%;
+}
+
+
+/*Part de foto de software*/
+.fotosG{
+    width:100%;
+}
+
+/*CAIXETES*/
+.espai{}
+.caixes {
+    background-color: #ECECEC;
+    padding:0.5rem;
+    height: 100%;
+}
+
+.caixes hr{
+    border-top: 1px dashed #222831;
+}
+
+/*BENEFICIOS PARA TU EMPRESA*/
+.beneficis{
+    background-color: #ECECEC;
+    padding: 1rem;
+}
+
+.rowBeneficis{
+    padding-top: 2rem;
+}
+/*CASOS DE EXITO*/
+.casas{
+    width: 100%;
+}
+
+.fotosCasos{
+     width: 100%;
+}
+.fotoMagatzem{
+    height: 18.523rem;
+}
+/*RESEÑAS*/
+.estrelles{
+    display: flex
+    gap: 0.45rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0;
+}
+/*FOOTER --------------------------*/
+.footer {
+    background-color: #222831;
+    padding: 1rem;
+    color:white;
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+/*col de l'esquerra*/
+.logoFooter{
+    width: 8rem;
+}
+
+.fotoFooter{}
+
+/*col d'enmig*/
+.iconesFooter i{
+    padding: 0.5rem;
+}
+
+.news input::placeholder{
+    text-align: center;
+}
+
+/*COPYRIGH --------------------------*/
+.copy {
+    background-color: #ECECEC;
+    color:black;
+}
+
+/*MÒVIL --------------------------*/
+@media only screen and (max-width: 767px) { 
+    /*GENERAL-------------*/
+    .titCent{
+        font-size: 1rem;
+    }
+    /*HEADER-------------*/
+    .logoHeader{
+        padding-top: 1rem;
+        width: 8rem;
+    }
+    
+    /*BODY --------------*/
+    
+    /*Software*/
+    
+    /*Caixetes*/
+    .caixes{
+        padding: 1rem;
+    }
+    .caixetes{
+        padding-top:0.5rem;
+    }
+    /*Beneficios*/
+    
+    /*CasosExito*/
+    
+    .fotoMagatzem{
+        height: 13.569rem;
+    }
+
+    /*Reseñas*/
+
+    
+
+    /*FOOTER-------------*/
+    .colCentreFooter{
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+    /*COPYRIGHT----------*/
+    .copy{
+        text-align: center;
+    }
+}
