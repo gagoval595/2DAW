@@ -1,8 +1,7 @@
 :root {
     --blauFosc: #222831;
     --blauClar: #30475E;
-    --taronja: #FF7F50;
-    --taronjaOG: #FF7000;
+    --taronja: #FF7000;
     --gris: #E9ECEF;
     --grisOscur: #B9BBBD;
 }
@@ -14,6 +13,9 @@ body{
     background-color: var(--gris);
 }
 
+.caixes{
+    height: 100%;
+}
 .btn-taronja{
     background-color: var(--taronja);
 }
@@ -29,7 +31,9 @@ body{
 .btn-blau:hover{
     background-color: var(--blauFosc);
 }
-
+.fto-magatzem{
+    height: 18.523rem;
+}
 .logo-header{
     width: 12em;
 }
