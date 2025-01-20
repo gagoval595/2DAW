@@ -5,12 +5,17 @@
     --gris: #E9ECEF;
     --grisOscur: #B9BBBD;
 }
+
 body{
     color: var(--blauClar) !important;
     font-family: 'Noto Serif', serif !important;
 }
 .fonsGris{
     background-color: var(--gris);
+}
+
+.fonsBlau{
+    background-color: var(--blauFosc);
 }
 
 .caixes{
@@ -34,6 +39,7 @@ body{
 .fto-magatzem{
     height: 18.523rem;
 }
+
 .logo-header{
     width: 12em;
 }
@@ -45,6 +51,10 @@ body{
 .btn-header:hover{
     background-color: var(--blauClar) !important;
     color: white !important;
+}
+
+.fotoFooter{
+    width: 12em ;
 }
 
 /*Movil*/
