@@ -67,3 +67,15 @@ body{
         width: 5rem;
     }
   }
+
+  @media only screen and (max-width: 1400px) {
+    .fto-mesGran{
+        width: 33.313em;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .logo-header{
+        width: 5rem;
+    }
+  }
