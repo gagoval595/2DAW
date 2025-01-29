@@ -1,0 +1,43 @@
+version: '3.1'
+services:
+  web:
+    image: php:8.3-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache_joomla
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.1
+    container_name: mysql_joomla
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_joomla
+      MYSQL_USER: gabi
+      MYSQL_PASSWORD: gabi
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d/
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin_joomla
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+  www:
