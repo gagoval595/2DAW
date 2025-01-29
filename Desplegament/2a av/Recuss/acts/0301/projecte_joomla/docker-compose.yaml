@@ -5,21 +5,21 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php-apache_joomla
-    ports:
-      - "8081:80"
+    container_name: php-apache_joomla   # Per a executar l'aplicació web
+    ports:                              # Depen de la base de dades db per a funcionar
+      - "8081:80"                       # S'accedeix des de localhost:8081 al navegador
     volumes:
       - ./www:/var/www/html
     depends_on:
-      - db
+      - db                         
 
   db:
     image: mysql:8.1
     container_name: mysql_joomla
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_joomla
-      MYSQL_USER: gabi
+      MYSQL_ROOT_PASSWORD: root         # Base de dades MySQL per a guardar les dades de l'aplicacíó web
+      MYSQL_DATABASE: db_joomla         # Es crea una base de dades (db_joomla) i un usuari (gabi) amb contrasenya.
+      MYSQL_USER: gabi                  
       MYSQL_PASSWORD: gabi
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d/
@@ -28,9 +28,9 @@ services:
   phpmyadmin:
     image: phpmyadmin:5.2.1
     container_name: phpmyadmin_joomla
-    ports:
-      - "8082:80"
-    environment:
+    ports:                               # És una interfície web per a gestionar la base de dades MySQL.
+      - "8082:80"                        # Per a administrar la base de dades de forma fàcil.
+    environment:                         # S'accedeix des de localhost:8082 al navegador
       PMA_HOST: db
       PMA_PORT: 3306
       PMA_USER: root
