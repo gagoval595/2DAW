@@ -1,0 +1,94 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --color-primary: #222831;
+  --color-secondary: #30475e;
+  --color-accent: #ff7000;
+  --color-background: #ececec;
+}
+
+* {
+  font-family: "Noto Serif", serif !important;
+}
+
+body {
+  padding-top: 8.3em
+}
+
+/* HEADER */
+nav {
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.navbar-brand,
+.nav-link,
+.dropdown-item {
+  color: var(--color-secondary) !important;
+}
+
+#logo {
+  width: 10.4em;
+}
+
+.border-primary-sf {
+  border-color: var(--color-secondary) !important;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+  color: white !important;
+  background-color: var(--color-secondary) !important;
+}
+
+.btn-accent-sf {
+  color: white;
+  background-color: var(--color-accent);
+  border: 1px solid black;
+}
+
+.btn-accent-sf:hover {
+  color: white;
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 950px) {
+  #brand-wrapper {
+    width: 100%;
+  }
+}
+
+/* COVER */
+#cover-container,
+.card,
+#beneficios {
+  background-color: var(--color-background);
+  color: var(--color-secondary) !important;
+}
+
+.btn-secondary-sf {
+  color: white !important;
+  background-color: var(--color-secondary) !important;
+  border: 1px solid black;
+}
+
+#cover-img {
+  background-image: url("../captures_pantalla_i_indicacions/1_inicio.png");
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  background-color: var(--color-primary);
+}
+
+#logo-footer {
+  width: 9.5em;
+}
