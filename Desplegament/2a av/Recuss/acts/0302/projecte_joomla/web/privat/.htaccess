@@ -1,0 +1,4 @@
+AuthUserFile "/etc/apache2/claus/passwd.txt"
+AuthName "Accés restringit"
+AuthType Basic
+Require valid-user
