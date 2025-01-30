@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7Q7ZKK6YXS"
+    ></script>
+    <script src="../js/modal.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-7Q7ZKK6YXS");
+    </script>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockFlow - Software de Gestión de Almacenes</title>
+    <meta
+      name="description"
+      content="Stockflow es una aplicación web que te permite llevar un control de tus productos y ventas de manera sencilla y eficiente."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="container-fluid sticky-top">
+      <div class="row">
+        <nav
+          class="col-12 navbar navbar-expand-lg"
+          aria-label="Navegación principal"
+        >
+          <div class="container-fluid">
+            <!-- Logo y búsqueda -->
+            <div
+              class="d-flex align-items-center justify-content-between pe-sm-3"
+              id="brand-wrapper"
+            >
+              <a href="/" class="navbar-brand" title="Ir a la página principal">
+                <img
+                  src="img/logo_header.png"
+                  alt="Logotipo de Stockflow"
+                  id="logo"
+                  class="ps-3"
+                />
+              </a>
+              <button
+                class="btn btn-link text-dark p-0"
+                aria-label="Buscar en el sitio"
+                aria-expanded="false"
+              >
+                <i
+                  class="bi bi-search fs-2 pe-sm-3"
+                  role="img"
+                  aria-label="Icono de búsqueda"
+                ></i>
+              </button>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent"
+                aria-expanded="false"
+                aria-label="Abrir o cerrar navegación"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+            <!-- Menú de navegación -->
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarToggleExternalContent"
+            >
+              <ul class="col-12 navbar-nav d-xl-flex justify-content-end">
+                <!-- Menú desplegable de productos -->
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    id="dropdownProducto"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    title="Ver opciones de productos"
+                  >
+                    PRODUCTO
+                  </a>
+                  <ul
+                    class="dropdown-menu p-0"
+                    aria-labelledby="dropdownProducto"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="dropdown-item"
+                        title="Ir a descarga de producto"
+                        >DESCARGA DE PRODUCTO</a
+                      >
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="dropdown-item"
+                        title="Ver planes y precios"
+                        >PLANES Y PRECIOS</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Enlaces adicionales -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link" title="Ver casos de éxito"
+                    >CASOS DE ÉXITO</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#"
+                    class="nav-link border-end border-1 border-primary-sf"
+                    title="Leer reseñas"
+                    >RESEÑAS</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#"
+                    class="nav-link"
+                    title="Conocer más sobre nosotros"
+                    >QUIÉNES SOMOS</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link" title="Leer nuestro blog"
+                    >BLOG</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link" title="Contáctanos">CONTACTO</a>
+                </li>
+                <!-- Botón de demo -->
+                <li>
+                  <form class="px-xl-3 d-flex align-items-center" role="search">
+                    <button
+                      class="btn btn-accent-sf px-2 py-0"
+                      type="button"
+                      title="Solicitar una demostración"
+                      aria-label="Solicitar una demostración"
+                    >
+                      DEMO
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main></main>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid footer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-xl-10">
+            <div class="container">
+              <div class="row">
+                <div
+                  class="col-sm-6 col-xl-4 ps-0 px-lg-0 pt-xl-3 d-flex justify-content-center justify-content-xl-start"
+                >
+                  <div>
+                    <div
+                      class="pt-3 ps-2 ps-lg-0 pt-lg-0 px-lg-0 d-flex justify-content-center justify-content-xl-start"
+                    >
+                      <img
+                        class="pb-xl-5 pb-xxl-3"
+                        src="./img/logo_footer.png"
+                        alt="Logotipo de Stockflow"
+                        id="logo-footer"
+                      />
+                    </div>
+                    <div
+                      class="ps-3 ps-md-3 ps-lg-0 pt-2 pt-md-1 pt-xxl-0 pt-xl-3"
+                    >
+                      <p class="pt-xl-4 mb-0 d-flex align-items-center">
+                        <i
+                          class="bi bi-geo-alt-fill text-light fs-3 pe-2"
+                          aria-label="ubicación"
+                        ></i>
+                        <span class="text-light">C/Duanes, 17 - Pego</span>
+                      </p>
+                      <p class="pt-2 mb-0 text-light d-flex align-items-center">
+                        <i
+                          class="bi bi-telephone-fill text-light fs-3 pe-2"
+                          aria-label="teléfono"
+                        ></i>
+                        <span class="text-light">+34 966 409 960</span>
+                      </p>
+                      <p
+                        class="pt-2 pb-3 pb-sm-0 text-light d-flex align-items-center"
+                      >
+                        <i
+                          class="bi bi-envelope-fill text-light fs-3 pe-2"
+                          aria-label="correo"
+                        ></i>
+                        <span class="text-light">03007613@edu.gva.es</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-xl-4 col-sm-6 d-flex flex-column justify-content-md-center justify-content-xl-start text-center"
+                >
+                  <div class="pt-2 pt-sm-0 pt-md-1 pt-lg-4">
+                    <p
+                      class="text-light fw-bold ps-lg-0 pt-4 pt-sm-3 pt-md-4 pt-xl-2 pb-sm-3 pb-xl-5"
+                    >
+                      Legal
+                    </p>
+                  </div>
+                  <div class="pb-sm-3 pb-md-2 pb-xl-5 pt-sm-4 pt-md-3 pt-xxl-0">
+                    <p class="pt-xl-2 pt-xxl-0 mb-0 text-light">
+                      <a class="text-light" href="">Aviso legal</a>
+                    </p>
+                    <p class="mb-0 text-light">
+                      <a class="text-light" href="#">Política de cookies</a>
+                    </p>
+                    <p class="mb-0 text-light">
+                      <a class="text-light" href="#">Política de privacidad</a>
+                    </p>
+                  </div>
+
+                  <div
+                    class="pt-sm-3 pt-md-4 pt-xxl-1 pb-4 pb-xl-0 pb-xxl-3 gap-4 d-flex justify-content-center"
+                  >
+                    <a href="https://x.com/?lang=es&mx=2" target="_blank"
+                      ><i
+                        class="bi bi-twitter text-light fs-3"
+                        aria-label="twitter"
+                      ></i
+                    ></a>
+                    <a href="https://es.linkedin.com/" target="_blank"
+                      ><i
+                        class="bi bi-linkedin text-light fs-3"
+                        aria-label="linkedin"
+                      ></i
+                    ></a>
+                    <a href="https://www.youtube.com/" target="_blank"
+                      ><i
+                        class="bi bi-youtube text-light fs-3"
+                        aria-label="youtube"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                  <div
+                    class="pt-3 pt-sm-0 pt-xxl-3 pt-xl-2 ps-xl-5 d-flex justify-content-center"
+                  >
+                    <p
+                      class="pt-4 pt-sm-0 pt-md-1 pt-xl-2 pt-xxl-0 ps-xl-3 mb-0 fw-bold text-light"
+                    >
+                      NEWSLETTERS
+                    </p>
+                  </div>
+                  <div
+                    class="ps-xl-5 pt-1 d-flex justify-content-center text-center"
+                  >
+                    <form class="w-100">
+                      <label for="Nombre" class="text-light form-label ps-xl-3"
+                        >* Nombre</label
+                      >
+                      <input
+                        type="text"
+                        id="Nombre"
+                        class="form-control mb-3 ms-1 px-5"
+                        required
+                        maxlength="25"
+                      />
+
+                      <label for="email" class="text-light form-label ps-xl-3"
+                        >* Email</label
+                      >
+                      <input
+                        type="text"
+                        id="email"
+                        class="form-control ms-1 mb-2 px-5"
+                        required
+                        maxlength="25"
+                      />
+
+                      <div
+                        class="ms-xl-1 ms-xxl-2 pt-2 d-xxl-flex d-xl-block d-flex align-items-center justify-content-center justify-content-xl-start w-100"
+                      >
+                        <input
+                          type="checkbox"
+                          id="checkbox"
+                          class="form-check-input"
+                          required
+                        />
+                        <label
+                          for="checkbox"
+                          class="text-light ps-3 ps-xl-4 ps-xxl-2 mb-0"
+                          >Acepto los
+                          <a href="#" class="text-light">terminos</a> y
+                          <a class="text-light" href="#">condiciones</a>
+                        </label>
+                      </div>
+
+                      <div class="ps-xl-3 pt-3 pb-3 pb-xl-0">
+                        <button class="btn btn-taronja py-1 px-2">
+                          Suscríbete
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6"></div>
+        <div class="col-xl-5">
+          <div class="text-center text-xl-end pt-2 pe-sm-2">
+            <p class="pt-1">© Copyrigth 2024. Todos los derechos reservados</p>
+          </div>
+        </div>
+        <div class="col-xl-1"></div>
+      </div>
+    </div>
+
+    <div class="modal fade">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Política de Cookies</h5>
+          </div>
+          <div class="modal-body">
+            <p class="my-1">
+              Este sitio web usa cookies para mejorar tu experiencia, analizar
+              el tráfico y personalizar contenido.
+            </p>
+            <p class="my-1">
+              Al navegar, aceptas su uso según nuestra Política de Cookies.
+            </p>
+            <p class="my-1">
+              Puedes gestionarlas en la configuración de tu navegador.
+            </p>
+            <p class="my-1">
+              Más información en nuestra Política de Privacidad.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-accent-sf"
+              type="button"
+              aria-label="Solicitar una demostración del software"
+              title="Solicitar una demostración"
+              data-bs-dismiss="modal"
+            >
+              Aceptar
+            </button>
+            <button
+              class="btn btn-secondary-sf"
+              type="button"
+              aria-label="Consultar precios y planes del software"
+              title="Consultar precios y planes"
+              data-bs-dismiss="modal"
+            >
+              Rechazar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var myModal = new bootstrap.Modal(document.querySelector(".modal"));
+        myModal.show();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+ul, li {
+    color: var(--color-secondary);
+}
+
+.listas-body {
+    list-style-type: disc !important; /* Asegura que los puntos sean de tipo "disc" (rellenos) */
+}
