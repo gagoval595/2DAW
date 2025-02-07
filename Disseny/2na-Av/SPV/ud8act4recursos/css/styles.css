@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Hind Vadodara';
-    src: url('fonts/hind-vadodara/HindVadodara-Regular.ttf') format('truetype');
+    src: url('./fonts/HindVadodara-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -8,4 +8,22 @@
 body {
     font-family: 'Hind Vadodara', sans-serif;
     background-color: #e8f1f9;
+}
+
+/*Foto senyora*/
+.pfp{
+    width: 9.5em;
+}
+
+.secop{
+    font-size: 12px !important;
+}
+
+.hvb:hover{
+    background-color: white;
+    color: black !important;
+}
+
+.num{
+    font-size: 12px;
 }
