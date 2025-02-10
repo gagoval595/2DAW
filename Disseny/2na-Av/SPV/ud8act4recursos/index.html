@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.min.css.map">
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">
-    <title>UD8ACT4</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css.map.css">
+    <link rel="stylesheet" href="./css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>UD8ACT4-Gabi</title>
 </head>
 
 <body>
-    <div class="container-fluid ps-3">
+    <div class="container-fluid fonsPrincipal">
         <div class="row">
-            <div class="col-2 text-center justify-content-center pe-0">
+            <div class="col-2 text-center justify-content-center pe-0 ps-4">
                 <div>
                     <img src="./img/persona1.png" alt="Imagen de una seyora somriguent"
                         class="pfp img-fluid rounded-circle mt-4 px-4 mb-1">
                     <p class="fw-bolder mb-1">Rosa Risa</p>
                     <p class="secop mb-3">SecOp Nivell2</p>
                 </div>
-                <div id="menuNav" class="me-1 ms-2 bg-dark text-start">
-                    <nav class="nav flex-column">
+                <div id="menuNav" class="bg-dark text-start">
+                    <nav class="nav flex-column ">
                         <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
                             <i class="bi bi-file-earmark-text"></i>
                             <span class="">Inventari actius</span>
@@ -47,46 +47,294 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-10 ps-2">
-                <div class="container-fluid">
+
+            <div class="col-10">
+                <div class="container-fluid pe-0">
                     <div class="row">
-                        <div class="col-lg-8">
-
-                            <nav class="navbar bg-body-tertiary px-1 py-4">
-                                <h4 class="fw-bolder text-secondary pt-1 ps-3">Centre de control de seguretat activa
-                                </h4>
-                            </nav>
-                        </div>
-
-                        <div class="col-lg-4 d-flex align-items-center justify-content-betweemn">
-                            <span class="text-danger pe-2 border-end border-dark me-2">
-                                <i class="bi bi-clock"></i> 10:52:25 +1 GMT
-                            </span>
-                            <span class="mx-2">
-                                <button class="border position-relative">
-                                    <i class="bi bi-bug-fill fs-4"></i>
-
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        99+
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                </button>
-                            </span>
-                            <i class="bi bi-box-arrow-right fs-4"></i>
-
+                        <div class="col-12 pt-1 d-flex justify-content-between">
+                            <div class="ps-2 py-3 fs-4 colorTitol pb-4">
+                                Centre de control de seguretat activa
+                            </div>
+                            <div class="align-items-center d-flex pt-2 justify-content-between gap-4">
+                                <div class="pt-1 pe-3 border-end">
+                                    <p>
+                                        <i class="bi bi-clock fs-6 pe-1"></i>
+                                        10:52:25 <span class="pe-1">+1</span>GMT
+                                    </p>
+                                </div>
+                                <div class="align-items-center d-flex gap-4 pt-1">
+                                    <p>
+                                        <i class="bi bi-bug-fill fs-4 pe-2"></i>
+                                    </p>
+                                    <p>
+                                        <i class="bi bi-box-arrow-right fs-4 pe-3"></i>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container">
+
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card text-left">
-                              <img class="card-img-top" src="holder.js/100px180/" alt="">
-                              <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Body</p>
-                              </div>
+                        <div class="col-12 pt-1">
+                            <div class="row">
+                                <div class="col-4 pe-0 pt-4 ps-5 h-100">
+                                    <div class="ps-4">
+                                        <div class="card" style="width: 100%;">
+                                            <div class="card-body pt-0 px-0">
+                                                <div class=" pt-3 px-3">
+                                                    <h4 class="card-title pb-3 border-bottom">
+                                                        <i class="bi bi-shield-exclamation me-1"></i>Nº atacs
+                                                    </h4>
+                                                </div>
+                                                <p class="card-text pt-1 textCarta text-center">5/segon</p>
+                                                <div class="pt-1 px-3">
+                                                    <a href="#"
+                                                        class="btn btn-primary py-2 fs-5 colorTitol w-100 bg-light-subtle">Veure
+                                                        detall</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ps-4 pt-4">
+                                        <div class="card" style="width: 100%;">
+                                            <div class="card-body pt-0 px-0">
+                                                <div class=" pt-3 px-3">
+                                                    <h4 class="card-title pb-3 border-bottom pt-1">
+                                                        <i class="bi bi-activity me-1"></i>Evolució
+                                                    </h4>
+                                                </div>
+                                                <div class="px-2 position-relative actiuIcona">
+                                                    <p class="position-absolute textDetall fs-3 fw-bold">Detall</p>
+                                                    <i class="bi bi-play-circle position-absolute cerclePlay"></i>
+                                                    <img class="w-100 opacity-25" src="./img/evolucio2.jpg"
+                                                        alt="Estadístiques creixents">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 pt-4">
+                                    <div class="ps-3">
+                                        <div class="card" style="width: 100%;">
+                                            <div class="card-body pt-0 px-0">
+                                                <div class=" pt-3 px-3 border-bottom w-100">
+                                                    <h4 class="card-title pb-3">
+                                                        <i class="bi bi-compass"></i> Atacs per continent
+                                                    </h4>
+                                                </div>
+                                                <div class="pt-1 px-3 d-flex justify-content-center">
+                                                    <div
+                                                        class="d-flex justify-content-between w-75 border border-black">
+                                                        <p class="textContinents d-flex">Àfrica</p>
+                                                        <p>Asia</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 ps-0 pt-4">
+                                    <div class="ps-0">
+                                        <div class="card" style="width: 90%;">
+                                            <div class="card-body py-0 px-0">
+                                                <div class=" pt-3 px-3 ">
+                                                    <h4 class="card-title pb-3 border-bottom">
+                                                        <i class="bi bi-speedometer2"></i> % Activitat
+                                                    </h4>
+                                                </div>
+                                                <div
+                                                    class="d-flex flex-column gap-2 justify-content-end align-items-end pe-3 pt-3 pb-4">
+                                                    <div class="w-100 d-flex justify-content-end ">
+                                                        <p class="m-0 me-3 textActivitat">ssh</p>
+                                                        <div class="progress-stacked w-75 me-1 rounded-0 rounded-end"
+                                                            style="height: 23px;">
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment one" aria-valuenow="35"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 45%;height:100%;">
+                                                                <div class="progress-bar bg-success"> 35%</div>
+                                                            </div>
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment three" aria-valuenow="30"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 37%;height:100%;">
+                                                                <div class="progress-bar bg-info">30%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 d-flex justify-content-end">
+                                                        <p class="m-0 me-3 textActivitat">ftp</p>
+                                                        <div class="progress-stacked w-75 me-1 rounded-0 rounded-end"
+                                                            style="height: 23px;">
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment one" aria-valuenow="35"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 55%;height:100%;">
+                                                                <div class="progress-bar bg-warning"> 55%</div>
+                                                            </div>
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment three" aria-valuenow="30"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 45%;height:100%;">
+                                                                <div class="progress-bar bg-danger">45%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 d-flex justify-content-end">
+                                                        <p class="m-0 me-3 textActivitat">ntp</p>
+                                                        <div class="progress-stacked w-75 me-1 rounded-0 rounded-end"
+                                                            style="height: 23px;">
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment one" aria-valuenow="35"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 20%;height: 100%;">
+                                                                <div class="progress-bar bg-secondary"> 15%</div>
+                                                            </div>
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment three" aria-valuenow="30"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 13%;height: 100%;">
+                                                                <div class="progress-bar bg-primary">10%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 d-flex justify-content-end">
+                                                        <p class="m-0 me-3 textActivitat">dns</p>
+                                                        <div class="progress-stacked w-75 me-1 rounded-0 rounded-end"
+                                                            style="height: 23px;">
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment one" aria-valuenow="35"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 65%;height: 100%;">
+                                                                <div class="progress-bar bg-danger"> 50%</div>
+                                                            </div>
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Segment three" aria-valuenow="30"
+                                                                aria-valuemin="0" aria-valuemax="100"
+                                                                style="width: 35%;height:100%;">
+                                                                <div class="progress-bar bg-primary">30%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=" border border-top pt-3 pb-2">
+                                                    <div class="px-3">
+                                                        <p class="textActualitzacio mb-0">
+                                                            Última actualització fa 3 mins
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 pt-3 pb-3">
+                                <div class="ps-5 pe-4 pt-2">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body py-0 px-0">
+                                            <div class=" pt-3 px-3">
+                                                <h4 class="card-title pb-3 border-bottom">
+                                                    <i class="bi bi-clipboard-data"></i> Tràfic
+                                                </h4>
+                                            </div>
+                                            <div class="px-3 pt-2 pb-3 border border-bottom">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Nº</th>
+                                                            <th scope="col">Pais</th>
+                                                            <th scope="col">Usuaris</th>
+                                                            <th scope="col">Connexions</th>
+                                                            <th>%Intents</th>
+                                                            <th>Mitjana atac (seg)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>155257</td>
+                                                            <td>Xina</td>
+                                                            <td>2525</td>
+                                                            <td>1560</td>
+                                                            <td>2500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>115776</td>
+                                                            <td>USA</td>
+                                                            <td>6634</td>
+                                                            <td>7887</td>
+                                                            <td>3453</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>114889</td>
+                                                            <td>Rúsia</td>
+                                                            <td>8768</td>
+                                                            <td>3288</td>
+                                                            <td>934</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">4</th>
+                                                            <td>112187</td>
+                                                            <td>Indonesia</td>
+                                                            <td>45533</td>
+                                                            <td>67887</td>
+                                                            <td>2234</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">5</th>
+                                                            <td>99023</td>
+                                                            <td>India</td>
+                                                            <td>667675</td>
+                                                            <td>3414</td>
+                                                            <td>654</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="border border-primary px-3 d-flex justify-content-between ">
+                                                <div class="d-flex align-items-center">
+                                                    <p class="textActualitzacio mb-0">Mostrant 1 de 8</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <nav aria-label="...">
+                                                        <ul class="pagination">
+                                                            <li class="page-item disabled">
+                                                                <a class="page-link">Anterior</a>
+                                                            </li>
+                                                            <li class="page-item"><a class="page-link" href="#">1</a>
+                                                            </li>
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="#">Següent</a>
+                                                            </li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid pe-0>
+              <div class=" row">
+                            <div class="col-12 ">
+                                <div class="text-center pt-3">
+                                    <p class="textFooter pt-1">@202X Disseny Interfícies web</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -94,6 +342,8 @@
             </div>
         </div>
     </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
