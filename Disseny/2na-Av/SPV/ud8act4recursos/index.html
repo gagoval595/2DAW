@@ -14,35 +14,49 @@
 <body>
     <div class="container-fluid fonsPrincipal">
         <div class="row">
-            <div class="col-2 text-center justify-content-center pe-0 ps-4">
+            <div class="col-2 text-center justify-content-center pe-0 ps-4 bg-light">
                 <div>
                     <img src="./img/persona1.png" alt="Imagen de una seyora somriguent"
                         class="pfp img-fluid rounded-circle mt-4 px-4 mb-1">
-                    <p class="fw-bolder mb-1">Rosa Risa</p>
-                    <p class="secop mb-3">SecOp Nivell2</p>
+                    <p class="fw-bolder mb-1 d-none d-lg-block">Rosa Risa</p>
+                    <p class="secop mb-3 d-none d-lg-block">SecOp Nivell2</p>
                 </div>
-                <div id="menuNav" class="bg-dark text-start">
-                    <nav class="nav flex-column ">
-                        <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <span class="">Inventari actius</span>
+                <div class="bg-dark text-start">
+                    <nav class="nav flex-column">
+                        <a class="nav-link text-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-file-earmark-text"></i>&nbsp;
+                            <span class="d-none d-lg-block">Inventari actius</span>
                         </a>
-                        <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-fingerprint"></i> Anàlisi forense
+
+                        <a class="nav-link text-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-fingerprint"></i>&nbsp;
+                            <span class="d-none d-lg-block">Anàlisi forense</span>
                         </a>
-                        <a class="nav-link text-black bg-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-bar-chart"></i> <i class="fw-bolder text-secondary">Estadístiques</i>
+
+                        <a class="nav-link text-black bg-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-bar-chart"></i>&nbsp;
+                            <span class="d-none d-lg-block">
+                                <i class="fw-bold text-secondary">Estadístiques</i>
+                            </span>
                         </a>
-                        <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-file-person"></i> Clients
+                        <a class="nav-link text-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-file-person"></i>&nbsp;
+                            <span class="d-none d-lg-block">
+                                Clients
+                            </span>
                         </a>
-                        <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-bandaid me-1"></i> Auditoria atacs
+                        <a class="nav-link text-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-bandaid me-1"></i>&nbsp;
+                            <span class="d-none d-lg-block">
+                                Auditoria atacs
+                            </span>
                         </a>
-                        <a class="nav-link text-white py-3 fonsBlauClar hvb" href="#">
-                            <i class="bi bi-envelope-exclamation"></i>
-                            Missatges
-                            <span class="bg-primary rounded-4 ms-1 px-2 text-white num">14</span>
+                        <a class="nav-link text-white py-3 fonsBlauClar hvb d-inline-flex justify-content-sm-center justify-content-lg-start" href="#">
+                            <i class="bi bi-envelope-exclamation"></i>&nbsp;
+                            <span class="d-none d-lg-block">
+                                Missatges
+                            </span>
+                            <span class="bg-primary rounded-4 ms-1 px-2 text-white num d-none d-md-block">14</span>
                         </a>
                     </nav>
                 </div>
@@ -51,20 +65,24 @@
             <div class="col-10">
                 <div class="container-fluid pe-0">
                     <div class="row">
-                        <div class="col-12 pt-1 d-flex justify-content-between">
-                            <div class="ps-2 py-3 fs-4 colorTitol pb-4">
+                        <div class="col-12 pt-1 d-flex justify-content-between bg-light">
+                            <div class="ps-2 py-3 fs-4 pb-4 colorTitol d-md-block d-none">
                                 Centre de control de seguretat activa
                             </div>
                             <div class="align-items-center d-flex pt-2 justify-content-between gap-4">
-                                <div class="pt-1 pe-3 border-end">
+                                <div class="pt-1 pe-3 border-end text-danger">
                                     <p>
                                         <i class="bi bi-clock fs-6 pe-1"></i>
                                         10:52:25 <span class="pe-1">+1</span>GMT
                                     </p>
                                 </div>
                                 <div class="align-items-center d-flex gap-4 pt-1">
-                                    <p>
+                                    <p class="position-relative">
                                         <i class="bi bi-bug-fill fs-4 pe-2"></i>
+                                        <span
+                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            99+
+                                        </span>
                                     </p>
                                     <p>
                                         <i class="bi bi-box-arrow-right fs-4 pe-3"></i>
@@ -79,9 +97,9 @@
                     <div class="row">
                         <div class="col-12 pt-1">
                             <div class="row">
-                                <div class="col-4 pe-0 pt-4 ps-5 h-100">
+                                <div class="col-lg-4 col-md-6 pe-0 pt-4 ps-5 h-100">
                                     <div class="ps-4">
-                                        <div class="card" style="width: 100%;">
+                                        <div class="card w-100">
                                             <div class="card-body pt-0 px-0">
                                                 <div class=" pt-3 px-3">
                                                     <h4 class="card-title pb-3 border-bottom">
@@ -99,7 +117,7 @@
                                     </div>
 
                                     <div class="ps-4 pt-4">
-                                        <div class="card" style="width: 100%;">
+                                        <div class="card w-100">
                                             <div class="card-body pt-0 px-0">
                                                 <div class=" pt-3 px-3">
                                                     <h4 class="card-title pb-3 border-bottom pt-1">
@@ -117,9 +135,9 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4 pt-4">
+                                <div class="col-lg-4 col-md-6 pt-4">
                                     <div class="ps-3">
-                                        <div class="card" style="width: 100%;">
+                                        <div class="card w-100">
                                             <div class="card-body pt-0 px-0">
                                                 <div class=" pt-3 px-3 border-bottom w-100">
                                                     <h4 class="card-title pb-3">
@@ -138,7 +156,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4 ps-0 pt-4">
+                                <div class="col-lg-4 col-12 ps-lg-0 pt-4 ps-md-5">
                                     <div class="ps-0">
                                         <div class="card" style="width: 90%;">
                                             <div class="card-body py-0 px-0">
@@ -245,7 +263,7 @@
                                     <div class="card" style="width: 100%;">
                                         <div class="card-body py-0 px-0">
                                             <div class=" pt-3 px-3">
-                                                <h4 class="card-title pb-3 border-bottom">
+                                                <h4 class="card-title pb-3">
                                                     <i class="bi bi-clipboard-data"></i> Tràfic
                                                 </h4>
                                             </div>
@@ -329,11 +347,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container-fluid pe-0>
-              <div class=" row">
-                            <div class="col-12 ">
-                                <div class="text-center pt-3">
-                                    <p class="textFooter pt-1">@202X Disseny Interfícies web</p>
+                        <div class="container-fluid pe-0">
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <div class="text-center bg-light">
+                                        <p class="textFooter pt-1">@202X Disseny Interfícies web</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -341,9 +360,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+        <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
