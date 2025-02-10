@@ -15,8 +15,12 @@ body {
     width: 9.5em;
 }
 
+.rosa{
+    font-size: 19px;
+    letter-spacing: 1px;
+}
 .secop{
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 
 .hvb:hover{
