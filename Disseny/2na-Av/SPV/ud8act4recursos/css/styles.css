@@ -10,11 +10,6 @@ body {
     background-color: #e8f1f9;
 }
 
-/*Foto senyora*/
-.pfp{
-    width: 9.5em;
-}
-
 .rosa{
     font-size: 19px;
     letter-spacing: 1px;
@@ -35,3 +30,28 @@ body {
 .colorTitol{
     color: #6C757D !important;
 }
+
+.textAct{
+    font-size: 12px;
+}
+
+@media (max-width: 1200px) { 
+    .pfp{
+        width: 7.5em;
+        margin-bottom: 1rem;
+    }
+ }
+
+ @media (min-width :1200px){
+    .pfp{
+        width: 9.5em;
+        margin-bottom: 0;
+    }
+ }
+
+ @media (min-width :1400px){
+    .pfp{
+        width: 11em;
+        margin-bottom: 0;
+    }
+ }
