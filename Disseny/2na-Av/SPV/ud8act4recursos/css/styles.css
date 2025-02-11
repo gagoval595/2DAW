@@ -32,8 +32,13 @@ body {
 }
 
 .textAct{
-    font-size: 12px;
+    font-size: 11px;
 }
+
+.botoPlay{
+    font-size: 5rem;
+}
+
 
 @media (max-width: 1200px) { 
     .pfp{
