@@ -14,9 +14,6 @@ body {
     font-size: 19px;
     letter-spacing: 1px;
 }
-.secop{
-    font-size: 14px !important;
-}
 
 .hvb:hover{
     background-color: white;
@@ -39,7 +36,16 @@ body {
     font-size: 5rem;
 }
 
+.text1a8, .secop{
+    font-size: 14px;
+}
+.copy{
+    font-size: 12px;
+}
 
+.textActualitzacio{
+    font-size: 14px;
+}
 @media (max-width: 1200px) { 
     .pfp{
         width: 7.5em;
