@@ -51,6 +51,51 @@ body {
         width: 7.5em;
         margin-bottom: 1rem;
     }
+    
+    .act{
+        width:94% !important;
+    }
+
+    .p11{
+        width: 11% !important;
+    }
+    .p12{
+        width: 34% !important;
+    }
+    .p13{
+        width: 28% !important;
+    }
+    
+    .p21{
+        width: 11% !important;
+    }
+    
+    .p23{
+        width: 42% !important;
+    }
+    
+    .p31{
+        width: 11% !important;
+    }
+    .p32{
+        width: 14% !important;
+    }
+    .p33{
+        width: 10% !important;
+    }
+
+    
+    .p41, .p21{
+        width: 11% !important;
+    }
+
+    .p42, .p22{
+        width: 51% !important;
+    }
+    
+    .p43{
+        width: 26% !important;
+    }
  }
 
  @media (min-width :1200px){
@@ -58,11 +103,104 @@ body {
         width: 9.5em;
         margin-bottom: 0;
     }
- }
+
+    .p11{
+        width: 17% !important;
+    }
+    .p12{
+        width: 35% !important;
+    }
+    .p13{
+        width: 32% !important;
+    }
+    
+
+    .p21{
+        width: 17% !important;
+    }
+    .p22{
+        width: 45% !important;
+    }
+    .p23{
+        width: 28% !important;
+    }
+
+
+    .p31{
+        width: 17% !important;
+    }
+
+    .p32{
+        width: 16% !important;
+    }
+    
+    .p33{
+        width: 10% !important;
+    }
+    
+    .p41{
+        width: 17% !important;
+    }
+
+    .p42{
+        width: 51% !important;
+    }
+    
+    .p43{
+        width: 32% !important;
+    }
+}
 
  @media (min-width :1400px){
     .pfp{
         width: 11em;
         margin-bottom: 0;
     }
+
+    .p11{
+        width: 14% !important;
+    }
+    .p12{
+        width: 35% !important;
+    }
+    .p13{
+        width: 32% !important;
+    }
+    
+
+    .p21{
+        width: 14% !important;
+    }
+    .p22{
+        width: 48% !important;
+    }
+    .p23{
+        width: 39% !important;
+    }
+
+
+    .p31{
+        width: 14% !important;
+    }
+
+    .p32{
+        width: 16% !important;
+    }
+    
+    .p33{
+        width: 10% !important;
+    }
+    
+    .p41{
+        width: 14% !important;
+    }
+
+    .p42{
+        width: 51% !important;
+    }
+    
+    .p43{
+        width: 32% !important;
+    }
  }
+
