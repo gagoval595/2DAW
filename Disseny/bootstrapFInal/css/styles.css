@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'HindVadodara';
+    src: url(./fonts/HindVadodara-Regular.ttf) format('truetype');
+}
+
+*{
+    font-family: 'HindVadodara', sans-serif;
+}
