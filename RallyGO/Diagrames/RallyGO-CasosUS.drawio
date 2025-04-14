@@ -1,0 +1,220 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.9">
+  <diagram name="Página-1" id="L4rBFlL7tnJPlqW8Mj8x">
+    <mxGraphModel dx="3208" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-23" target="UPgqQ-oiw72uepaQwuXJ-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-23" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="60.639999999999986" y="111.25" width="268.75" height="268.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-1" value="Usuari Nou" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-311.64" y="215.63" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-2" value="Administrador&lt;br&gt;(Gestió Usuaris)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-413" y="564.38" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-6" target="UPgqQ-oiw72uepaQwuXJ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-6" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-231.64000000000001" y="161.88" width="167.5" height="167.5" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-7" value="Visualitzar la WEB" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-194.76000000000002" y="182.63" width="93.75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-8" value="Iniciar sessió" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-194.13000000000002" y="261.63" width="93.12" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-10" value="Reservar &lt;br&gt;serveis" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="148.14" y="190" width="93.75" height="48.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-13" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-177.89000000000001" y="131.88" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-14" value="Afegir a&amp;nbsp;&lt;br&gt;favorits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="148.14" y="248.75" width="93.12" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-15" value="Publicar&amp;nbsp;&lt;div&gt;fotos al Blog&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="148.76999999999998" y="308.75" width="93.12" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-22" value="Usuari Registrat" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-15.610000000000014" y="215.63" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-24" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="165.33000000000004" y="82.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-25" value="Visualitzar la WEB" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="148.44999999999993" y="133.25" width="93.75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-33" target="UPgqQ-oiw72uepaQwuXJ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-33" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-343" y="460" width="268.75" height="268.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-35" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-238.31" y="430" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-38" value="Modificar dades&amp;nbsp;&lt;br&gt;d&#39;Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-257.14" y="536.9399999999999" width="97.03" height="51.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-39" value="Eliminar &lt;br&gt;Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-257.14" y="595.6899999999999" width="97.03" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-40" value="Visualitzar dades d&#39;Usuaris" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-256.51" y="655.6899999999999" width="96.4" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-41" value="Afegir Nou Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-256.83" y="480.19" width="96.72" height="48.37" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-42" value="Administrador&lt;br&gt;(Gestió de Serveis)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-3" y="564.38" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-43" target="UPgqQ-oiw72uepaQwuXJ-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-43" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="67" y="460" width="268.75" height="268.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-44" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="171.69" y="430" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-45" value="Modificar dades&amp;nbsp;&lt;br&gt;d&#39;Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="152.86" y="536.9399999999999" width="97.03" height="51.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-46" value="Eliminar &lt;br&gt;Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="152.86" y="595.6899999999999" width="97.03" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-47" value="Visualitzar dades d&#39;Usuaris" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="153.49" y="655.6899999999999" width="96.4" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-48" value="Afegir Nou Usuari" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="153.17000000000002" y="480.19" width="96.72" height="48.37" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-49" value="Administrador&lt;br&gt;(Gestió de Blog)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-413" y="894.38" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-50" target="UPgqQ-oiw72uepaQwuXJ-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-50" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-343" y="790" width="268.75" height="268.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-51" value="Publicar Fotos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-193.30999999999995" y="889.9999999999999" width="97.03" height="51.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-54" value="Aprovar Fotos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-312.99999999999994" y="818.5699999999999" width="96.72" height="48.37" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-58" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-238.30999999999995" y="760" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-59" value="Moderar Contingut" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-313.31" y="889.9999999999999" width="97.03" height="51.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-60" value="Editar Articles" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-256.82000000000005" y="954.3799999999999" width="97.03" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-61" value="Elminar Fotos" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-192.9999999999999" y="818.57" width="96.72" height="48.37" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-62" value="Administrador&lt;br&gt;(Aprovació de&lt;br&gt;Serveis d&#39;Empreses&lt;br&gt;Externes)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-3" y="894.38" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-64" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="67" y="790" width="330" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-66" value="Visualitzar&amp;nbsp;&lt;br&gt;peticions" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="833.06" width="103" height="56.94" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-67" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="171.69000000000005" y="760" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-68" value="Gestió de serveis&lt;br&gt;existents" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="900" width="103.31" height="61.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-70" value="Aprovar/Denegar&lt;br&gt;peticions" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100.31000000000002" y="980" width="103" height="56.94" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-72" value="Empresa Registrada" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="910" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-74" value="Enviar Petició&lt;br&gt;a RallyGO per oferir un servei" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="241.26" y="910" width="137.8" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-76" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-74" target="UPgqQ-oiw72uepaQwuXJ-72">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="960" as="sourcePoint" />
+            <mxPoint x="430" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-77" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="UPgqQ-oiw72uepaQwuXJ-68">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="27" y="930.47" as="sourcePoint" />
+            <mxPoint x="88" y="930.47" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-79" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.008;entryY=0.551;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="UPgqQ-oiw72uepaQwuXJ-66">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="27" y="930.5400000000001" as="sourcePoint" />
+            <mxPoint x="100" y="931.07" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-80" value="" style="endArrow=none;html=1;rounded=0;entryX=0.001;entryY=0.532;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="UPgqQ-oiw72uepaQwuXJ-70">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="27" y="930" as="sourcePoint" />
+            <mxPoint x="97.31000000000188" y="1008.47" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-82" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-66" target="UPgqQ-oiw72uepaQwuXJ-74">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="870" as="sourcePoint" />
+            <mxPoint x="260" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-83" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-68" target="UPgqQ-oiw72uepaQwuXJ-74">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="213" y="872" as="sourcePoint" />
+            <mxPoint x="240" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-84" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-70" target="UPgqQ-oiw72uepaQwuXJ-74">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="213" y="941" as="sourcePoint" />
+            <mxPoint x="251" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-85" value="Empresa&lt;br&gt;(CRUD de serveis)&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="909.38" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPgqQ-oiw72uepaQwuXJ-87" target="UPgqQ-oiw72uepaQwuXJ-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-87" value="&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="630" y="805" width="268.75" height="268.75" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-88" value="WEB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="734.69" y="775" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-89" value="Modificar dades&amp;nbsp;&lt;br&gt;Servei" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="715.86" y="881.9399999999999" width="97.03" height="51.62" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-90" value="Eliminar &lt;br&gt;Servei" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="715.86" y="940.6899999999999" width="97.03" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-91" value="Visualitzar dades de Servei" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="716.49" y="1000.6899999999999" width="96.4" height="52.87" as="geometry" />
+        </mxCell>
+        <mxCell id="UPgqQ-oiw72uepaQwuXJ-92" value="Afegir Servei" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="716.1700000000001" y="825.19" width="96.72" height="48.37" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
