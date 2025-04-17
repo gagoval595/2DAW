@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SPIV">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Disseny/2na-Av/SPIV/FrontEnd.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Disseny/2na-Av/SPIV/WebApp-Bootstrap-Gabriel.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

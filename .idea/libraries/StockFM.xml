@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="StockFM">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Servidor/ProyecteFinal/StockFM.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
