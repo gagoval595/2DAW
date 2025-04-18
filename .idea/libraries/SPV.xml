@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SPV">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Disseny/2na-Av/SPV/ud8act4recursos-gabi.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Disseny/2na-Av/SPV/casos_exit.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
