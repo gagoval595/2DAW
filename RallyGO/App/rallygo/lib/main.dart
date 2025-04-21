@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF171B25)),
         scaffoldBackgroundColor: Colors.black,
       ),
       home: const MyHomePage(),
@@ -27,8 +28,27 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+  static const List<Widget> _screens = <Widget>[
+    Center(child: Text('Home Screen', style: TextStyle(color: Colors.white))),
+    Center(child: Text('Search Screen', style: TextStyle(color: Colors.white))),
+    Center(child: Text('Profile Screen', style: TextStyle(color: Colors.white))),
+    Center(child: Text('Settings Screen', style: TextStyle(color: Colors.white))),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +71,39 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: const SizedBox.shrink(),
+      body: _screens.elementAt(_selectedIndex),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: GNav(
+          gap: 8,
+          activeColor: Colors.white,
+          color: Colors.black,
+          backgroundColor: Colors.white,
+          tabBackgroundColor:  Color(0xFF171B25),
+          padding: const EdgeInsets.all(12),
+          selectedIndex: _selectedIndex,
+          onTabChange: _onItemTapped,
+          tabs: const [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+            ),
+            GButton(
+              icon: Icons.search,
+              text: 'Search',
+            ),
+            GButton(
+              icon: Icons.person,
+              text: 'Profile',
+            ),
+            GButton(
+              icon: Icons.settings,
+              text: 'Settings',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
