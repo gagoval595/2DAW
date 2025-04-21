@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "257817086699",
+    "project_id": "rallygo-e9a6a",
+    "storage_bucket": "rallygo-e9a6a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257817086699:android:5b9d7d10f8880c974d4cae",
+        "android_client_info": {
+          "package_name": "com.rallygo.es"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu2DZatt3EI-JOpkZzf8A7CAu4VxQ5GXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257817086699:android:9abcd152673969354d4cae",
+        "android_client_info": {
+          "package_name": "com.rallygo.rallygo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu2DZatt3EI-JOpkZzf8A7CAu4VxQ5GXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

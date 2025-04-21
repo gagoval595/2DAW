@@ -1,14 +1,28 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services") version "4.3.15"
+    // END: FlutterFire Configuration
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
+dependencies {
+    // …tus dependencias actuales
+
+    // 1) Importar el Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    // TODO: agrega aquí otros SDKs de Firebase sin versión,
+    // p.ej. firebase-auth, firestore, storage…
+    // implementation("com.google.firebase:firebase-auth")
+    // implementation("com.google.firebase:firebase-firestore")
+}
+
 
 android {
     namespace = "com.rallygo.rallygo"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
