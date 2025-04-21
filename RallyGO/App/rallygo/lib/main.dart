@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:rallygo/services/api_service.dart';
 import 'firebase_options.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+import 'models/campeonato.dart';
 
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final api = ApiService();
+
+  // Prueba a cargar campeonatos y mostrarlos por consola:
+  try {
+    List<Campeonato> lista = (await api.fetchCampeonatos()).cast<Campeonato>();
+    for (var c in lista) {
+      print('Campeonato: ${c.id} → ${c.nombre}');
+    }
+  } catch (e) {
+    print('Fallo al cargar: $e');
+  }
 }
 
 class MyApp extends StatelessWidget {
