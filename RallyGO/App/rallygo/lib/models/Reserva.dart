@@ -1,23 +1,24 @@
+// lib/models/reserva.dart
 class Reserva {
   final int id;
-  final int usuarioId;
-  final int servicioId;
-  final int estadoReservaId;
+  final int? usuarioId;
+  final int? servicioId;
+  final int? estadoReservaId;
   final DateTime fecha;
 
   Reserva({
     required this.id,
-    required this.usuarioId,
-    required this.servicioId,
-    required this.estadoReservaId,
+    this.usuarioId,
+    this.servicioId,
+    this.estadoReservaId,
     required this.fecha,
   });
 
   factory Reserva.fromJson(Map<String, dynamic> json) => Reserva(
     id: json['id'] as int,
-    usuarioId: json['usuario_id'] as int,
-    servicioId: json['servicio_id'] as int,
-    estadoReservaId: json['estado_reserva_id'] as int,
+    usuarioId: json['usuario_id'] as int?,
+    servicioId: json['servicio_id'] as int?,
+    estadoReservaId: json['estado_reserva_id'] as int?,
     fecha: DateTime.parse(json['fecha'] as String),
   );
 

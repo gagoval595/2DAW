@@ -1,6 +1,7 @@
+// lib/models/etapa.dart
 class Etapa {
   final int id;
-  final int campeonatoId;
+  final int? campeonatoId;
   final String nombre;
   final DateTime? fecha;
   final DateTime? createdAt;
@@ -8,7 +9,7 @@ class Etapa {
 
   Etapa({
     required this.id,
-    required this.campeonatoId,
+    this.campeonatoId,
     required this.nombre,
     this.fecha,
     this.createdAt,
@@ -17,7 +18,7 @@ class Etapa {
 
   factory Etapa.fromJson(Map<String, dynamic> json) => Etapa(
     id: json['id'] as int,
-    campeonatoId: json['campeonato_id'] as int,
+    campeonatoId: json['campeonato_id'] as int?,
     nombre: json['nombre'] as String,
     fecha: json['fecha'] != null
         ? DateTime.parse(json['fecha'] as String)

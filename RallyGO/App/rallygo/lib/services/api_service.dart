@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../models/EstadoReserva.dart';
+import '../models/estado_reserva.dart';
 import '../models/campeonato.dart';
 import '../models/etapa.dart';
 import '../models/servicio.dart';

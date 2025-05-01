@@ -1,18 +1,17 @@
+// lib/models/usuario.dart
 class Usuario {
   final int id;
   final String nombreUsuario;
   final String correo;
   final String contrasena;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
+  final DateTime creadoEn;
 
   Usuario({
     required this.id,
     required this.nombreUsuario,
     required this.correo,
     required this.contrasena,
-    this.createdAt,
-    this.updatedAt,
+    required this.creadoEn,
   });
 
   factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
@@ -20,12 +19,7 @@ class Usuario {
     nombreUsuario: json['nombre_usuario'] as String,
     correo: json['correo'] as String,
     contrasena: json['contrasena'] as String,
-    createdAt: json['created_at'] != null
-        ? DateTime.parse(json['created_at'] as String)
-        : null,
-    updatedAt: json['updated_at'] != null
-        ? DateTime.parse(json['updated_at'] as String)
-        : null,
+    creadoEn: DateTime.parse(json['creado_en'] as String),
   );
 
   Map<String, dynamic> toJson() => {
@@ -33,7 +27,6 @@ class Usuario {
     'nombre_usuario': nombreUsuario,
     'correo': correo,
     'contrasena': contrasena,
-    'created_at': createdAt?.toIso8601String(),
-    'updated_at': updatedAt?.toIso8601String(),
+    'creado_en': creadoEn.toIso8601String(),
   };
 }
