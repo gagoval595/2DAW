@@ -1,3 +1,4 @@
+/*
 // lib/services/api_service.dart
 
 import 'dart:convert';
@@ -71,7 +72,8 @@ class ApiService {
     return Campeonato.fromJson(record);
   }
 
-  Future<Campeonato> createCampeonato(Campeonato c) async {
+*/
+/*  Future<Campeonato> createCampeonato(Campeonato c) async {
     final resp = await http.post(
       Uri.parse('$_base/campeonato'),
       headers: _jsonHeaders,
@@ -86,7 +88,8 @@ class ApiService {
         ? decoded['data']
         : decoded;
     return Campeonato.fromJson(record);
-  }
+  }*//*
+
 
   Future<Campeonato> updateCampeonato(Campeonato c) async {
     final resp = await http.put(
@@ -501,3 +504,4 @@ class ApiService {
     }
   }
 }
+*/

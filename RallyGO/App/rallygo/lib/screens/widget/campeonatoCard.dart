@@ -1,9 +1,10 @@
+// lib/screens/widget/campeonato_card.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../models/campeonato.dart';
 
 class CampeonatoCard extends StatelessWidget {
   final Campeonato campeonato;
-  /// Nombre del archivo de asset, p.ej. 'wrc.png'
   final String assetImageFile;
 
   const CampeonatoCard({
@@ -14,7 +15,6 @@ class CampeonatoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ruta completa al asset
     final String assetPath = 'assets/images/campeonatos/$assetImageFile';
 
     return Container(
@@ -33,31 +33,58 @@ class CampeonatoCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Imagen de asset con bordes redondeados
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
             child: AspectRatio(
               aspectRatio: 16 / 9,
-              child: Image.asset(
-                assetPath,
-                fit: BoxFit.cover,
-                errorBuilder: (ctx, err, stack) => Container(
-                  color: Colors.grey[200],
-                  child: const Icon(Icons.broken_image, size: 48),
-                ),
+              child: Builder(
+                builder: (context) {
+                  try {
+                    return SvgPicture.asset(
+                      assetPath,
+                      fit: BoxFit.cover,
+                      placeholderBuilder: (context) => Container(
+                        color: Colors.grey[200],
+                        child: const Center(child: CircularProgressIndicator()),
+                      ),
+                    );
+                  } catch (e) {
+                    return Container(
+                      color: Colors.grey[200],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.broken_image, size: 48),
+                          Text('Error: $assetImageFile'),
+                        ],
+                      ),
+                    );
+                  }
+                },
               ),
             ),
           ),
-
-          // Nombre del campeonato
           Padding(
-            padding: const EdgeInsets.all(12),
-            child: Text(
-              campeonato.nombre,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  campeonato.nombre,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  campeonato.fecha,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
