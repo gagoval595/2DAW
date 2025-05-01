@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* leaflet */
+@import "~leaflet/dist/leaflet.css";
+/* leaflet-routing-machine */
+@import "~leaflet-routing-machine/dist/leaflet-routing-machine.css";

@@ -1,132 +1,93 @@
 {
-  "puntos": [
-      {
-        "name": "Inicio SS1+4",
-        "coordenadas":[27.964054,-15.552137]
-      },
-      {
-        "name": "Fin SS1+4",
-        "coordenadas":[27.99119,-15.497517]
-      },
-      {
-        "name": "Inicio SS2+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS2+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS3+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS3+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS4+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS4+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS5+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS5+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS6+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS6+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS7+5",
-        "coordenadas":[28.037568,-15.579586]
-      },
-      {
-        "name": "Fin SS7+5",
-        "coordenadas":[28.025573,-15.640754]
-      },
-      {
-        "name": "Inicio SS8+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS8+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      },
-      {
-        "name": "Inicio SS9+12",
-        "coordenadas":[27.986572,-15.610359]
-      },
-      {
-        "name": "Fin SS9+12",
-        "coordenadas":[27.988586,-15.569285]
-      }
+  "principioFin": [
+    {
+      "name": "Inicio SS1+4",
+      "coordenadas": [27.964054, -15.552137]
+    },
+    {
+      "name": "Fin SS1+4",
+      "coordenadas": [27.99119, -15.497517]
+    },
+
+    {
+      "name": "Inicio SS2+5",
+      "coordenadas": [28.037566, -15.579585]
+    },
+    {
+      "name": "Fin SS2+5",
+      "coordenadas": [28.025573, -15.640755]
+    },
+
+    {
+      "name": "Inicio SS3+6",
+      "coordenadas": [27.958767, -15.778035]
+    },
+    {
+      "name": "Fin SS3+6",
+      "coordenadas": [27.900397, -15.711782]
+    },
+
+    {
+      "name": "Inicio SS7+10",
+      "coordenadas": [28.054447, -15.641696]
+    },
+    {
+      "name": "Fin SS7+10",
+      "coordenadas": [28.111942, -15.582498]
+    },
+
+    {
+      "name": "Inicio SS8+11",
+      "coordenadas": [28.087248, -15.537089]
+    },
+    {
+      "name": "Fin SS8+11",
+      "coordenadas": [28.060677, -15.556987]
+    },
+
+    {
+      "name": "Inicio SS9+12",
+      "coordenadas": [27.98654, -15.610357]
+    },
+    {
+      "name": "Fin SS9+12",
+      "coordenadas": [27.988591, -15.569302]
+    },
+
+    {
+      "name": "Shakedown SSS13",
+      "coordenadas": [28.102984, -15.456932]
+    },
+
+    {
+      "name": "Inicio SS14+17",
+      "coordenadas": [27.900636, -15.463923]
+    },
+    {
+      "name": "Fin SS14+17",
+      "coordenadas": [27.882886, -15.521087]
+    },
+
+    {
+      "name": "Inicio SS14+17",
+      "coordenadas": [27.900636, -15.463923]
+    },
+    {
+      "name": "Fin SS14+17",
+      "coordenadas": [27.882886, -15.521087]
+    },
+
+    {
+      "name": "Inicio SS15+18",
+      "coordenadas": [27.885909,-15.563406]
+    },
+    {
+      "name": "Fin SS15+18",
+      "coordenadas": [27.787464, -15.58006]
+    },
+    {
+      "name": "Shakedown SSS16",
+      "coordenadas": [27.786049,-15.506333]
+    }
   ]
 }
