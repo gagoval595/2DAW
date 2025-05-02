@@ -13,9 +13,19 @@ class CampeonatoCard extends StatelessWidget {
     required this.assetImageFile,
   }) : super(key: key);
 
+  // Detect image type based on extension
+  String _getImageType(String path) {
+    final extension = path.toLowerCase();
+    if (extension.endsWith('.svg')) return 'svg';
+    if (extension.endsWith('.jpg') || extension.endsWith('.jpeg')) return 'jpg';
+    if (extension.endsWith('.png')) return 'png';
+    return 'unknown';
+  }
+
   @override
   Widget build(BuildContext context) {
     final String assetPath = 'assets/images/campeonatos/$assetImageFile';
+    const String fallbackAsset = 'assets/images/campeonatos/default_rally.jpg'; // Ensure this exists
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -40,23 +50,69 @@ class CampeonatoCard extends StatelessWidget {
               child: Builder(
                 builder: (context) {
                   try {
-                    return SvgPicture.asset(
-                      assetPath,
-                      fit: BoxFit.cover,
-                      placeholderBuilder: (context) => Container(
-                        color: Colors.grey[200],
-                        child: const Center(child: CircularProgressIndicator()),
-                      ),
-                    );
+                    final imageType = _getImageType(assetImageFile);
+                    if (imageType == 'svg') {
+                      return SvgPicture.asset(
+                        assetPath,
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (context) => Container(
+                          color: Colors.grey[200],
+                          child: const Center(child: CircularProgressIndicator()),
+                        ),
+                      );
+                    } else if (imageType == 'jpg' || imageType == 'png') {
+                      return Image.asset(
+                        assetPath,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          debugPrint('Failed to load asset: $assetPath, error: $error');
+                          return Image.asset(
+                            fallbackAsset,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) => Container(
+                              color: Colors.grey[200],
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.broken_image, size: 48),
+                                  Text('Error: $assetImageFile'),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    } else {
+                      debugPrint('Unsupported image type for: $assetPath');
+                      return Image.asset(
+                        fallbackAsset,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: Colors.grey[200],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.broken_image, size: 48),
+                              Text('Unsupported: $assetImageFile'),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
                   } catch (e) {
-                    return Container(
-                      color: Colors.grey[200],
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.broken_image, size: 48),
-                          Text('Error: $assetImageFile'),
-                        ],
+                    debugPrint('Exception loading asset: $assetPath, error: $e');
+                    return Image.asset(
+                      fallbackAsset,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        color: Colors.grey[200],
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.broken_image, size: 48),
+                            Text('Error: $assetImageFile'),
+                          ],
+                        ),
                       ),
                     );
                   }

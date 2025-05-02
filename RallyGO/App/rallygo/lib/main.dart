@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart'; // Importa el paquete flashy_tab_bar2
 import 'package:rallygo/screens/calendario_screen.dart';
 import 'package:rallygo/screens/eventos_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env');  // ahora Flutter buscará en los assets
   runApp(MyApp());
 }
 
