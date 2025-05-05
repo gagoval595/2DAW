@@ -2,7 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import SegmentRuta from "./SegmentRuta";
 import Markers from "./Markers";
-import data from "../coord/wrc-canarias/principioFin.json";
+import data from "../../coord/wrc-canarias/principioFin.json";
 
 export default function MapView() {
   const center = [27.972242873491282, -15.574734385799008];

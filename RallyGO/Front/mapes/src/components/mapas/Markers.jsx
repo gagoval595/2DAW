@@ -1,6 +1,6 @@
 import React from "react";
 import { Marker, Popup } from "react-leaflet";
-import IconFin from "./icons/IconFin";
+import IconFin from "../icons/IconFin";
 
 const Markers = ({ principioFin }) => {  
   if (!principioFin) {
