@@ -1,3 +1,18 @@
+:root {
+  --blauOscur: #171B25;
+  --blauClar: #569ABE;
+  --roig: #C83F3F;
+  --blanc: #FFFFFF;
+}
+
+.bg-blauOscur {
+  background-color: var(--blauOscur);
+}
+
+.bg-blauClar {
+  background-color: var(--blauClar);
+}
+
 .App {
   font-family: Arial, sans-serif;
 }
@@ -5,4 +20,47 @@
 h1 {
   text-align: center;
   margin-top: 20px;
+}
+
+.logo{
+  width: 9rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.leaflet-container{
+  height: 250px;
+  width: auto;
+  position: relative;
+}
+
+Navbar {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (min-width: 768px) {
+  .logo.d-md-block {
+    max-width: 200px; 
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
