@@ -2,15 +2,15 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import SegmentRuta from "./SegmentRuta";
 import Markers from "./Markers";
-import data from "../../coord/wrc-canarias/principioFin.json";
+import data from "../coord/wrc-canarias/principioFin.json";
 
 export default function MapView() {
   const center = [27.972242873491282, -15.574734385799008];
-  const items = data.principioFin;
+  const items = data?.principioFin || []; 
 
   const midpointsMap = {
     "SS1+4": [
-      [27.964032,-15.550646]
+      [27.964032, -15.550646]
     ]
   };
 
@@ -20,9 +20,11 @@ export default function MapView() {
       const tramo = inicio.name.replace("Inicio ", "");
       const fin = items.find((p) => p.name === `Fin ${tramo}`);
       if (!fin) return null;
+
       const waypoints = [inicio.coordenadas];
       if (midpointsMap[tramo]) waypoints.push(...midpointsMap[tramo]);
       waypoints.push(fin.coordenadas);
+
       return { tramo, waypoints };
     })
     .filter(Boolean);

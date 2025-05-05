@@ -7,7 +7,8 @@ export default function SegmentRuta({ waypoints, color = "red" }) {
   const map = useMap();
 
   useEffect(() => {
-    if (!map || !waypoints?.length) return;
+    if (!map || !Array.isArray(waypoints) || waypoints.length < 2) return;
+
     let lineLayer, decorator;
     let canceled = false;
 

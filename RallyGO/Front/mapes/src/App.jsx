@@ -3,12 +3,12 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Calendario from "./pages/Calendario";
-import Equipos from "./pages/Equipos";
-import Galeria from "./pages/Galeria";
-import Servicios from "./pages/Servicios";
-import Contacto from "./pages/Contacto";
+import Home from "./components/pages/Home";
+import Calendario from "./components/pages/Calendario";
+import Equipos from "./components/pages/Equipos";
+import Galeria from "./components/pages/Galeria";
+import Servicios from "./components/pages/Servicios";
+import Contacto from "./components/pages/Contacto";
 
 function App() {
   return (

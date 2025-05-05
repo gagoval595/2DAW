@@ -1,19 +1,26 @@
 import React from "react";
 import { Marker, Popup } from "react-leaflet";
-import IconFin from "../icons/IconFin";
+import IconFin from "../components/icons/IconFin";
 
-const Markers = ({ principioFin }) => {  
-  if (!principioFin) {
-    console.error('principioFin is undefined');
+const Markers = ({ principioFin }) => {
+  if (!Array.isArray(principioFin) || principioFin.length === 0) {
+    console.error("principioFin no és un array vàlid o està buit");
     return null;
   }
 
-  const markers = principioFin.map((marker, index) => (
-    <Marker key={index} position={marker.coordenadas} icon={IconFin}>
-      <Popup>{marker.name}</Popup>
-    </Marker>
-  ));
-  
+  const markers = principioFin.map((marker, index) => {
+    if (!marker?.coordenadas) {
+      console.error(`Les coordenades per al marcador ${marker?.name} no són vàlides`);
+      return null;
+    }
+
+    return (
+      <Marker key={index} position={marker.coordenadas} icon={IconFin}>
+        <Popup>{marker.name}</Popup>
+      </Marker>
+    );
+  });
+
   return markers;
 };
 
