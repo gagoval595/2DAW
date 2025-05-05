@@ -1,31 +1,29 @@
-// src/App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./components/pages/Home";
-import Calendario from "./components/pages/Calendario";
-import Equipos from "./components/pages/Equipos";
-import Galeria from "./components/pages/Galeria";
-import Servicios from "./components/pages/Servicios";
-import Contacto from "./components/pages/Contacto";
+
+// import react-leaflet
+import "leaflet/dist/leaflet.css";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+
+//import bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+// import mapa
+import MapView from "./components/mapas/MapView.jsx";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <div className="main-content">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/calendario" component={Calendario} />
-          <Route path="/equipos" component={Equipos} />
-          <Route path="/fotos" component={Galeria} />
-          <Route path="/servicios" component={Servicios} />
-          <Route path="/contacto" component={Contacto} />
-        </Switch>
+    <>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-12 text-center mt-3 mb-3">
+            <h1>Mapa de Canarias</h1>
+            <MapView />
+          </div>
+        </div>
       </div>
-      <Footer />
-    </Router>
+    </>
   );
 }
 

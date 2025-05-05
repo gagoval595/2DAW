@@ -38,7 +38,10 @@ export default function SegmentRuta({ waypoints, color = "red" }) {
           ],
         }).addTo(map);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error("Error en la crida a l'API de rutes: ", error);
+        alert("No es va poder obtenir la ruta.");
+      });
 
     return () => {
       canceled = true;

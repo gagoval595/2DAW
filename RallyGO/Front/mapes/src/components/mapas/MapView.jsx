@@ -3,10 +3,11 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import SegmentRuta from "./SegmentRuta";
 import Markers from "./Markers";
 import data from "../coord/wrc-canarias/principioFin.json";
+import 'leaflet/dist/leaflet.css';
 
 export default function MapView() {
   const center = [27.972242873491282, -15.574734385799008];
-  const items = data?.principioFin || []; 
+  const items = Array.isArray(data?.principioFin) ? data.principioFin : [];
 
   const midpointsMap = {
     "SS1+4": [

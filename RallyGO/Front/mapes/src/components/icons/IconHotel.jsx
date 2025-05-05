@@ -1,7 +1,7 @@
 import L from "leaflet";
 
 const IconLocation = L.icon({
-    iconUrl: require('../assets/hotel.png'),
+    iconUrl: require('../../assets/hotel.png'),
     iconAnchor: null, 
     shadowUrl: null,
     shadowSize: null,

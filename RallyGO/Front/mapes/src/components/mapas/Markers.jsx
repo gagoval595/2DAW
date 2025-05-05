@@ -1,6 +1,6 @@
 import React from "react";
 import { Marker, Popup } from "react-leaflet";
-import IconFin from "../components/icons/IconFin";
+import IconFin from "../icons/IconFin";
 
 const Markers = ({ principioFin }) => {
   if (!Array.isArray(principioFin) || principioFin.length === 0) {
@@ -9,7 +9,7 @@ const Markers = ({ principioFin }) => {
   }
 
   const markers = principioFin.map((marker, index) => {
-    if (!marker?.coordenadas) {
+    if (!Array.isArray(marker?.coordenadas) || marker?.coordenadas.length !== 2) {
       console.error(`Les coordenades per al marcador ${marker?.name} no són vàlides`);
       return null;
     }
