@@ -2,175 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Campeonato;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator; //validar campeonats mitjançant laravel
+use Illuminate\Http\Response;
+use App\Models\Usuario;
+use App\Http\Requests\UsuarioRequest;
+use App\Http\Resources\UsuarioResource;
 
-class CampeonatoController extends Controller
+class UsuarioController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET /api/usuarios
      */
     public function index()
     {
-        $campeonatos = Campeonato::all();
-
-        $data = [
-            'message' => $campeonatos,
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
+        return UsuarioResource::collection(Usuario::all());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * POST /api/usuarios
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nombre' => 'required|max:10',
-        ]);
+        $data = $request->validated();
+        $data['contrasena'] = bcrypt($data['contrasena']);
+        $usuario = Usuario::create($data);
 
-        if ($validator->fails()) {
-            $data = [
-                'message' => 'Error en la validación de los datos',
-                'errors' => $validator->errors(),
-                'status' => 400
-            ];
-            return response()->json($data, 400);
-        }
-
-        $campeonato = Campeonato::create([
-            'nombre' => $request->nombre
-        ]);
-
-        $data = [
-            'message' => 'Campeonato creado con éxito',
-            'status' => 201,
-            'usuario' => $campeonato
-        ];
-
-        return response()->json($data, 201);
+        return (new UsuarioResource($usuario))
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     /**
-     * Display the specified resource.
+     * GET /api/usuarios/{usuario}
      */
-    public function show(Campeonato $campeonato)
+    public function show(Usuario $usuario)
     {
-       $campeonato = Campeonato::find($campeonato->id);
-
-        if (!$campeonato) {
-            $data = [
-                'message' => 'Campeonato no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-
-        $data = [
-            'message' => $campeonato,
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
+        return new UsuarioResource($usuario);
     }
 
     /**
-     * Update the specified resource in storage.
+     * PUT /api/usuarios/{usuario}
      */
-    public function update(Request $request, Campeonato $campeonato)
+    public function update(UsuarioRequest $request, Usuario $usuario)
     {
-        $campeonato = Campeonato::find($campeonato->id);
-        if (!$campeonato) {
-            $data = [
-                'message' => 'Campeonato no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
+        $data = $request->validated();
+        if (isset($data['contrasena'])) {
+            $data['contrasena'] = bcrypt($data['contrasena']);
         }
-        $validator = Validator::make($request->all(), [
-            'nombre' => 'required|max:10',
-        ]);
-        if ($validator->fails()) {
-            $data = [
-                'message' => 'Error en la validación de los datos',
-                'errors' => $validator->errors(),
-                'status' => 400
-            ];
-            return response()->json($data, 400);
-        }
-        
-        $campeonato->nombre = $request->nombre;
-        
-        $campeonato->save();
-        
-        $data = [
-            'message' => 'Campeonato actualizado con éxito',
-            'status' => 200,
-            'campeonato' => $campeonato
-        ];
-    return response()->json($data, 200);
+        $usuario->update($data);
+
+        return new UsuarioResource($usuario);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DELETE /api/usuarios/{usuario}
      */
-    public function destroy(Campeonato $campeonato)
+    public function destroy(Usuario $usuario)
     {
-        $campeonato = Campeonato::find($campeonato->id);
-
-        if (!$campeonato) {
-            $data = [
-                'message' => 'Campeonato no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-
-        $campeonato->delete();
-
-        $data = [
-            'message' => 'Campeonato eliminado con éxito',
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
-    }
-
-    public function parte(Request $request, $id)
-    {
-
-        $campeonato = Campeonato::find($id);
-        if (!$campeonato) {
-            $data = [
-                'message' => 'Campeonato no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-        $validator = Validator::make($request->all(), [
-            'nombre' => 'required|max:10',
-        ]);
-
-        if ($validator->fails()) {
-            $data = [
-                'message' => 'Error en la validación de los datos',
-                'errors' => $validator->errors(),
-                'status' => 400
-            ];
-            return response()->json($data, 400);
-        }
-        $campeonato->nombre = $request->nombre;
-      
-        $campeonato->save();
-      
-        $data = [
-            'message' => 'Campeonato actualizado con éxito',
-            'status' => 200,
-            'campeonato' => $campeonato
-        ];
-        return response()->json($data, 200);
+        $usuario->delete();
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

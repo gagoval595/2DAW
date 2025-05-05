@@ -1,96 +1,57 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Models\Etapa;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\EtapaRequest;
+use App\Http\Resources\EtapaResource;
 
 class EtapaController extends Controller
 {
+    /**
+     * GET /api/etapa
+     */
     public function index()
     {
-        return response()->json(Etapa::all(), 200);
+        $etapa = Etapa::all();
+        return EtapaResource::collection($etapa);
     }
 
-    public function store(Request $request)
+    /**
+     * POST /api/etapa
+     */
+    public function store(EtapaRequest $request)
     {
-        $request->validate([
-            'campeonato_id' => 'required|exists:campeonato,id',
-            'nombre'        => 'required|string|max:100',
-            'fecha'         => 'nullable|date',
-        ]);
-
-        $e = Etapa::create($request->only('campeonato_id','nombre','fecha'));
-
-        return response()->json($e, 201);
+        $etapa = Etapa::create($request->validated());
+        return new EtapaResource($etapa);
     }
 
-    public function show($id)
+    /**
+     * GET /api/etapa/{etapa}
+     */
+    public function show(Etapa $etapa)
     {
-        $e = Etapa::find($id);
-        if (!$e) {
-            return response()->json(['message'=>'Etapa no encontrada'], 404);
-        }
-        return response()->json($e, 200);
+        return new EtapaResource($etapa);
     }
 
-    public function update(Request $request, $id)
+    /**
+     * PUT /api/etapa/{etapa}
+     */
+    public function update(EtapaRequest $request, Etapa $etapa)
     {
-        $e = Etapa::find($id);
-        if (!$e) {
-            return response()->json(['message'=>'Etapa no encontrada'], 404);
-        }
-
-        $request->validate([
-            'campeonato_id' => 'required|exists:campeonato,id',
-            'nombre'        => 'required|string|max:100',
-            'fecha'         => 'nullable|date',
-        ]);
-
-        $e->update($request->only('campeonato_id','nombre','fecha'));
-        return response()->json($e, 200);
+        $etapa->update($request->validated());
+        return new EtapaResource($etapa);
     }
 
-    // Actualització parcial
-    public function parte(Request $request, $id)
+    /**
+     * DELETE /api/etapa/{etapa}
+     */
+    public function destroy(Etapa $etapa)
     {
-        $e = Etapa::find($id);
-        if (!$e) {
-            return response()->json(['message'=>'Etapa no encontrada'], 404);
-        }
-
-        $validator = Validator::make($request->all(), [
-            'campeonato_id' => 'nullable|exists:campeonato,id',
-            'nombre'        => 'nullable|string|max:100',
-            'fecha'         => 'nullable|date',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 400);
-        }
-
-        if ($request->has('campeonato_id')) {
-            $e->campeonato_id = $request->campeonato_id;
-        }
-        if ($request->has('nombre')) {
-            $e->nombre = $request->nombre;
-        }
-        if ($request->has('fecha')) {
-            $e->fecha = $request->fecha;
-        }
-
-        $e->save();
-        return response()->json($e, 200);
-    }
-
-    public function destroy($id)
-    {
-        $e = Etapa::find($id);
-        if (!$e) {
-            return response()->json(['message'=>'Etapa no encontrada'], 404);
-        }
-        $e->delete();
-        return response()->json(null, 204);
+        $etapa->delete();
+        // 204 No Content
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

@@ -11,26 +11,19 @@ export default function SegmentRuta({ waypoints, color = "red" }) {
     let lineLayer, decorator;
     let canceled = false;
 
-    // 1) Montamos la URL de OSRM con todos los puntos (lng,lat;...)
-    const coordsStr = waypoints
-      .map(([lat, lng]) => `${lng},${lat}`)
-      .join(";");
+    const coordsStr = waypoints.map(([lat, lng]) => `${lng},${lat}`).join(";");
     const url = `https://router.project-osrm.org/route/v1/driving/${coordsStr}?overview=full&geometries=geojson`;
 
-    // 2) Llamada a OSRM
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
         if (canceled || !json.routes?.length) return;
-        // convertimos [lng,lat] → [lat,lng]
         const latlngs = json.routes[0].geometry.coordinates.map(
           ([lng, lat]) => [lat, lng]
         );
 
-        // 3) Dibujamos la línea base
         lineLayer = L.polyline(latlngs, { color, weight: 4 }).addTo(map);
 
-        // 4) Decoramos con flechas
         decorator = L.polylineDecorator(lineLayer, {
           patterns: [
             {
@@ -46,7 +39,6 @@ export default function SegmentRuta({ waypoints, color = "red" }) {
       })
       .catch(console.error);
 
-    // 5) Cleanup al desmontar
     return () => {
       canceled = true;
       if (lineLayer) map.removeLayer(lineLayer);

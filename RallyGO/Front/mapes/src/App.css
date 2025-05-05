@@ -1,12 +1,11 @@
-/* leaflet */
 @import "~leaflet/dist/leaflet.css";
-/* leaflet-routing-machine */
 @import "~leaflet-routing-machine/dist/leaflet-routing-machine.css";
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 .leaflet-container{
-  height: 10vh;
-  width: 10vw;
-  position: absolute;
+  height: 250px;
+  width: auto;
+  position: relative;
 }
 
