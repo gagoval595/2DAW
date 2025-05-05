@@ -5,7 +5,7 @@ import Markers from "./Markers";
 import data from "../coord/wrc-canarias/principioFin.json";
 
 export default function MapView() {
-  const center = [27.95, -15.75];
+  const center = [27.972242873491282, -15.574734385799008];
   const items = data.principioFin;
 
   const midpointsMap = {
