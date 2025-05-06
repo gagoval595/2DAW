@@ -1,7 +1,8 @@
 :root {
-  --blauOscur: #171B25;
+  --blauOscur: #001F4A;
   --blauClar: #569ABE;
   --roig: #C83F3F;
+  --roigOscur:#a03131;
   --blanc: #FFFFFF;
 }
 
@@ -17,15 +18,34 @@
   font-family: Arial, sans-serif;
 }
 
-h1 {
+h1,h2 {
   text-align: center;
   margin-top: 20px;
+  color: var(--blauOscur) !important;
 }
 
+/*botons corporatius*/
+.btn-blau{
+  background-color: var(--blauClar);
+  color: var(--blanc);
+  border: none;
+}
+.btn-roig{
+  background-color: var(--roig);
+  color: var(--blanc);
+  border:none;
+}
+.btn-blau:hover{
+  background-color: var(--blauOscur);
+  color: var(--blanc);
+}
+.btn-roig:hover{
+  background-color: var(--roigOscur);
+}
 .logo{
   width: 9rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .leaflet-container{
@@ -34,12 +54,8 @@ h1 {
   position: relative;
 }
 
-Navbar {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
 
+/*Navbar */
 .navbar {
   display: flex;
   justify-content: center;
@@ -47,20 +63,9 @@ Navbar {
   text-align: center;
 }
 
-.logo {
-  max-width: 100%;
-  height: auto;
-}
-
-
-@media (min-width: 768px) {
-  .logo.d-md-block {
-    max-width: 200px; 
-  }
-}
-
 .navbar-nav {
   display: flex;
   justify-content: center;
   width: 100%;
 }
+
