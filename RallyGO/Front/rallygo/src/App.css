@@ -1,5 +1,5 @@
 :root {
-  --blauOscur: #001F4A;
+  --blauOscur: #0E1E2F;
   --blauClar: #569ABE;
   --roig: #C83F3F;
   --roigOscur:#a03131;
@@ -42,11 +42,35 @@ h1,h2 {
 .btn-roig:hover{
   background-color: var(--roigOscur);
 }
+
+/*logos */
 .logo{
   width: 9rem;
   max-width: 100%;
   height: auto;
 }
+
+/*footer */
+.logoFooter{
+  width: 12rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.linksFooter{
+  text-decoration: none;
+  color: var(--blanc);
+}
+
+.footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.linksFooter:hover{
+  font-weight: bold;
+}
+
 
 .leaflet-container{
   height: 250px;
@@ -69,3 +93,29 @@ h1,h2 {
   width: 100%;
 }
 
+/*card wrc/scer */
+.cardwrc{
+  height: 200px;
+}
+
+.cardscer{
+  height: 250px;
+}
+
+/*card scer */
+.carousel-custom .carousel-control-prev, .carousel-custom .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  width: 3rem; 
+  height: 3rem;
+  z-index: 5; 
+  background-color: var(--blauOscur) !important;
+}
+
+.carousel-custom .carousel-control-prev {
+  left: -50px; 
+}
+
+.carousel-custom .carousel-control-next {
+  right: -50px;
+}

@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 const IconFin = new L.Icon({
-  iconUrl: require("../assets/fin.png"),
+  iconUrl: require("/assets/fin.png"),
   iconSize: [25, 25]
 });
 

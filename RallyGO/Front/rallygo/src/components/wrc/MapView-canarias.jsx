@@ -1,8 +1,8 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import SegmentRuta from "./SegmentRuta";
-import Markers from "./Markers";
-import data from "./principioFin.json";
+import SegmentRuta from "../SegmentRuta-canarias";
+import Markers from "../Markers-canarias";
+import data from "../principioFin.json";
 import 'leaflet/dist/leaflet.css';
 
 export default function MapView() {
@@ -38,11 +38,7 @@ export default function MapView() {
       />
 
       {segments.map((seg, i) => (
-        <SegmentRuta
-          key={i}
-          waypoints={seg.waypoints}
-          color={"blue"}
-        />
+        <SegmentRuta key={i} waypoints={seg.waypoints} color={"blue"} />
       ))}
 
       <Markers principioFin={items} />
