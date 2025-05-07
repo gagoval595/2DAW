@@ -1,13 +1,12 @@
-// lib/screens/widget/championship_card.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rallygo/models/championship.dart';
+import 'package:rallygo/models/temporada.dart';
 import 'package:rallygo/screens/championship_events_screen.dart';
 
-class ChampionshipCard extends StatelessWidget {
-  final Championship championship;
+class TemporadaCard extends StatelessWidget {
+  final Temporada temporada;
 
-  const ChampionshipCard({Key? key, required this.championship}) : super(key: key);
+  const TemporadaCard({Key? key, required this.temporada}) : super(key: key);
 
   // Detect image type based on extension
   String _getImageType(String path) {
@@ -27,7 +26,7 @@ class ChampionshipCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ChampionshipEventsScreen(championship: championship),
+            builder: (context) => ChampionshipEventsScreen(temporada: temporada),
           ),
         );
       },
@@ -54,10 +53,10 @@ class ChampionshipCard extends StatelessWidget {
                 child: Builder(
                   builder: (context) {
                     try {
-                      final imageType = _getImageType(championship.imageAsset);
+                      final imageType = _getImageType(temporada.imageAsset);
                       if (imageType == 'svg') {
                         return SvgPicture.asset(
-                          championship.imageAsset,
+                          temporada.imageAsset,
                           fit: BoxFit.cover,
                           placeholderBuilder: (context) => Container(
                             color: Colors.grey[200],
@@ -66,10 +65,10 @@ class ChampionshipCard extends StatelessWidget {
                         );
                       } else if (imageType == 'jpg' || imageType == 'png') {
                         return Image.asset(
-                          championship.imageAsset,
+                          temporada.imageAsset,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
-                            debugPrint('Failed to load asset: ${championship.imageAsset}, error: $error');
+                            debugPrint('Failed to load asset: ${temporada.imageAsset}, error: $error');
                             return Image.asset(
                               fallbackAsset,
                               fit: BoxFit.cover,
@@ -79,7 +78,7 @@ class ChampionshipCard extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     const Icon(Icons.broken_image, size: 48),
-                                    Text('Error: ${championship.imageAsset}'),
+                                    Text('Error: ${temporada.imageAsset}'),
                                   ],
                                 ),
                               ),
@@ -87,7 +86,7 @@ class ChampionshipCard extends StatelessWidget {
                           },
                         );
                       } else {
-                        debugPrint('Unsupported image type for: ${championship.imageAsset}');
+                        debugPrint('Unsupported image type for: ${temporada.imageAsset}');
                         return Image.asset(
                           fallbackAsset,
                           fit: BoxFit.cover,
@@ -97,14 +96,14 @@ class ChampionshipCard extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Icon(Icons.broken_image, size: 48),
-                                Text('Unsupported: ${championship.imageAsset}'),
+                                Text('Unsupported: ${temporada.imageAsset}'),
                               ],
                             ),
                           ),
                         );
                       }
                     } catch (e) {
-                      debugPrint('Exception loading asset: ${championship.imageAsset}, error: $e');
+                      debugPrint('Exception loading asset: ${temporada.imageAsset}, error: $e');
                       return Image.asset(
                         fallbackAsset,
                         fit: BoxFit.cover,
@@ -114,7 +113,7 @@ class ChampionshipCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Icon(Icons.broken_image, size: 48),
-                              Text('Error: ${championship.imageAsset}'),
+                              Text('Error: ${temporada.imageAsset}'),
                             ],
                           ),
                         ),
@@ -127,7 +126,7 @@ class ChampionshipCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12),
               child: Text(
-                championship.name,
+                temporada.name,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

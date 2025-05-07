@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'package:rallygo/models/campeonato.dart';
-import '../models/lugarAlojamiento.dart';
-import '../services/alojamiento_service.dart';
+import 'package:rallygo/screens/rallye/rankin_screen.dart';
+import '../../models/campeonato.dart';
+import '../api/Api.dart';
+import 'rallye/info_screen.dart';
+import 'rallye/map_screen.dart';
+import 'rallye/alojamientos_screen.dart';
+import 'rallye/noticias_screen.dart';
 
 class RallyDetailScreen extends StatefulWidget {
   final Campeonato campeonato;
 
-  const RallyDetailScreen({Key? key, required this.campeonato})
-      : super(key: key);
+  const RallyDetailScreen({Key? key, required this.campeonato}) : super(key: key);
 
   @override
   _RallyDetailScreenState createState() => _RallyDetailScreenState();
@@ -19,17 +21,31 @@ class RallyDetailScreen extends StatefulWidget {
 class _RallyDetailScreenState extends State<RallyDetailScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
-  late final Future<List<LugarAlojamiento>> _futAlojamientos;
+  late final List<Widget> _screens;
+  late final ApiService apiService;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
-    // Asegúrate de que tu modelo Campeonato tenga un LatLng centro
-    _futAlojamientos = AlojamientoService().fetchAlojamientos(
-      lat: widget.campeonato.centro.latitude,
-      lng: widget.campeonato.centro.longitude,
+    apiService = ApiService(); // Cambiar por tu URL
+    _tabController = TabController(length: 5, vsync: this)..addListener(() {
+      if (!_tabController.indexIsChanging) return;
+      setState(() => _selectedIndex = _tabController.index);
+    });
+
+    final centro = LatLng(
+      widget.campeonato.lat,
+      widget.campeonato.lng,
     );
+
+    _screens = [
+      InfoScreen(campeonato: widget.campeonato),
+      MapScreen(campeonato: widget.campeonato),
+      AlojamientosScreen(centro: centro),
+      NoticiasScreen(campeonato: widget.campeonato),
+      RankingScreen(campeonato: widget.campeonato),
+    ];
   }
 
   @override
@@ -42,119 +58,56 @@ class _RallyDetailScreenState extends State<RallyDetailScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
-        headerSliverBuilder: (_, __) => [
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            centerTitle: true,
+            backgroundColor: innerBoxIsScrolled ? Colors.white : Colors.white,
             expandedHeight: 250,
             pinned: true,
+            elevation: 0,
+            foregroundColor: innerBoxIsScrolled ? Colors.black : Colors.white,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(widget.campeonato.nombre),
-              background: Image.asset(
-                'assets/images/campeonatos/${widget.campeonato.nombre.toLowerCase().replaceAll(' ', '_')}.jpg',
+              collapseMode: CollapseMode.parallax,
+              centerTitle: true,
+              titlePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              title: Text(
+                widget.campeonato.nombre,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: innerBoxIsScrolled ? Colors.white : Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  shadows: const [Shadow(blurRadius: 4, color: Colors.black26)],
+                ),
+              ),
+              background: Image.network(
+                widget.campeonato.imageAsset,
                 fit: BoxFit.cover,
               ),
-            ),
-            bottom: TabBar(
-              controller: _tabController,
-              tabs: const [
-                Tab(text: 'Info'),
-                Tab(text: 'Mapa'),
-                Tab(text: 'Alojamientos'),
-                Tab(text: 'Noticias'),
-                Tab(text: 'Ranking'),
-              ],
             ),
           ),
         ],
         body: TabBarView(
           controller: _tabController,
-          children: [
-            _buildInfoTab(),
-            _buildMapTab(),
-            _buildAlojamientosTab(),
-            _buildNewsTab(),
-            _buildRankingTab(),
-          ],
+          physics: const NeverScrollableScrollPhysics(),
+          children: _screens,
         ),
       ),
-    );
-  }
-
-  Widget _buildInfoTab() {
-    // Aquí tu código de detalles básicos, historia y datos curiosos
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Fecha: ${widget.campeonato.fecha}', style: const TextStyle(fontSize: 16)),
-          const SizedBox(height: 8),
-          Text('Ubicación: ${widget.campeonato.ubicacion}', style: const TextStyle(fontSize: 16)),
-          const SizedBox(height: 8),
-          Text('Superficie: ${widget.campeonato.superficie}', style: const TextStyle(fontSize: 16)),
-          const SizedBox(height: 16),
+      bottomNavigationBar: FlashyTabBar(
+        selectedIndex: _selectedIndex,
+        showElevation: true,
+        onItemSelected: (i) {
+          setState(() => _selectedIndex = i);
+          _tabController.animateTo(i);
+        },
+        items: [
+          FlashyTabBarItem(icon: Icon(Icons.info), title: Text('Info')),
+          FlashyTabBarItem(icon: Icon(Icons.map), title: Text('Mapa')),
+          FlashyTabBarItem(icon: Icon(Icons.hotel), title: Text('Alojam.')),
+          FlashyTabBarItem(icon: Icon(Icons.article), title: Text('Noticias')),
+          FlashyTabBarItem(icon: Icon(Icons.leaderboard), title: Text('Ranking')),
         ],
       ),
     );
-  }
-
-  Widget _buildMapTab() {
-    // Aquí colocas tu GoogleMap con polilíneas y marcadores
-    return Center(child: Text('Aquí irá el mapa con los tramos'));
-  }
-
-  Widget _buildAlojamientosTab() {
-    return FutureBuilder<List<LugarAlojamiento>>(
-      future: _futAlojamientos,
-      builder: (context, snap) {
-        if (snap.connectionState != ConnectionState.done) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (snap.hasError) {
-          return Center(child: Text('Error: ${snap.error}'));
-        }
-        final lista = snap.data!;
-        if (lista.isEmpty) {
-          return const Center(child: Text('No se encontraron alojamientos'));
-        }
-        return ListView.separated(
-          padding: const EdgeInsets.all(8),
-          separatorBuilder: (_, __) => const Divider(),
-          itemCount: lista.length,
-          itemBuilder: (ctx, i) {
-            final a = lista[i];
-            return ListTile(
-              leading: const Icon(Icons.hotel),
-              title: Text(a.nombre),
-              subtitle: Text(a.direccion),
-              trailing: IconButton(
-                icon: const Icon(Icons.open_in_new),
-                onPressed: () async {
-                  final uri = Uri.parse(a.url);
-                  if (await canLaunchUrl(uri)) {
-                    await launchUrl(uri, mode: LaunchMode.externalApplication);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('No se pudo abrir URL')),
-                    );
-                  }
-                },
-              ),
-              onTap: () {
-                // Ejemplo: centrar el mapa en a.ubicación
-                // _mapController.animateCamera(CameraUpdate.newLatLng(a.ubicación));
-              },
-            );
-          },
-        );
-      },
-    );
-  }
-
-  Widget _buildNewsTab() {
-    return Center(child: Text('Aquí irán las noticias'));
-  }
-
-  Widget _buildRankingTab() {
-    return Center(child: Text('Aquí irá el ranking'));
   }
 }
