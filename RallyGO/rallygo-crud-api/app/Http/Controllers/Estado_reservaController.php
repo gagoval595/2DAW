@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Models\Estado_reserva;
-use Illuminate\Http\Request;
 
 class Estado_reservaController extends Controller
 {
