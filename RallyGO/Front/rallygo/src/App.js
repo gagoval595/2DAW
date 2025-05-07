@@ -1,12 +1,21 @@
-import React from "react";
+import React , { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MapViewCanarias from "./components/wrc/MapView-canarias";
+
+
 import { Button, Carousel, Card } from "react-bootstrap";
 
 function App() {
+  const [showMap, setShowMap] = React.useState(false);
+
+  const handleShowMap = () => {
+    setShowMap(!showMap);
+  }
+ 
   return (
     <div className="App">
       <Header />
@@ -165,13 +174,16 @@ function App() {
         </Carousel>
 
         <div className="d-flex justify-content-center my-3">
-          <Button className="btn-blau my-3 justify-content-center">
-            Ver mapa
+          <Button className="btn-blau my-3 justify-content-center" onClick={handleShowMap}>
+            {showMap ? "Ocultar mapa" : "Ver mapa"}
             <i className="bi bi-map ms-2"></i>
           </Button>
         </div>
+          {showMap && <MapViewCanarias />}
       </div>
-      <Footer />
+      <div className="mt-5">
+        <Footer />
+      </div>
     </div>
   );
 }

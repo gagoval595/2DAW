@@ -1,11 +1,11 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import SegmentRuta from "../SegmentRuta-canarias";
-import Markers from "../Markers-canarias";
-import data from "../principioFin.json";
+import SegmentRuta from "./SegmentRuta-canarias";
+import Markers from "./Markers-canarias";
+import data from "./principioFin.json";
 import 'leaflet/dist/leaflet.css';
 
-export default function MapView() {
+export default function MapViewCanarias() {
   const center = [27.972242873491282, -15.574734385799008];
   const items = Array.isArray(data?.principioFin) ? data.principioFin : [];
 
@@ -31,7 +31,7 @@ export default function MapView() {
     .filter(Boolean);
 
   return (
-    <MapContainer center={center} zoom={12} style={{ height: "100vh", width: "100%" }}>
+    <MapContainer center={center} zoom={12} style={{ height: "25rem", width: "100%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap"

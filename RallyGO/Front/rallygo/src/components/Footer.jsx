@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='container-fluid bg-blauOscur text-white py-4'>
                 <div className='row'>
                     <div className='col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center'>
-                        <img src={logo} alt='Logo' className='img-fluid logoFooter' />
+                        <img src={logo} alt='Logo' className='img-fluid logoFooter' href="/home" />
                     </div>
                     <div className='col-lg-4 col-md-6 col-sm-12 justify-content-center align-items-center text-center'>
                         <h5>PÁGINAS</h5>
@@ -27,10 +27,11 @@ const Footer = () => {
                             <li><a href='/politica-privacidad' className='linksFooter'>Política de Privacidad</a></li>
                             <li><a href='/politica-cookies' className='linksFooter'>Política de Cookies</a></li>
                         </ul>
-                        <i class="bi bi-instagram" href="https://www.instagram.com/rallygo.es/"></i> 
-                        <i class="bi bi-youtube" href="https://www.instagram.com/rallygo.es/"></i> {/* Cambiar*/}
-                        <i class="bi bi-twitter mx-2" href="https://www.instagram.com/rallygo.es/"></i> {/* Cambiar*/}
-                        
+                    
+                        <i class="bi bi-instagram icones-link linksFooter"></i> 
+                        <i class="bi bi-youtube icones-link linksFooter px-2"></i> 
+                        <i class="bi bi-twitter icones-link linksFooter"></i> 
+                        {/* href="https://www.instagram.com/rallygo.es/" ns pq no va*/}
                     </div>
                 </div> 
             </div>

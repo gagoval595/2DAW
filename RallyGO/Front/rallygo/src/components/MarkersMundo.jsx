@@ -1,10 +1,8 @@
-import React from "react";
-import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 const IconFin = new L.Icon({
-  iconUrl: require("../img/assets/fin.png"),
+  iconUrl: require("../assets/camping.png"),
   iconSize: [25, 25]
 });
 
@@ -19,12 +17,6 @@ const Markers = ({ principioFin }) => {
       console.error(`Las coordenadas del marcador ${marker?.name} no son válidas`);
       return null;
     }
-
-    return (
-      <Marker key={index} position={marker.coordenadas} icon={IconFin}>
-        <Popup>{marker.name}</Popup>
-      </Marker>
-    );
   });
 
   return markers;

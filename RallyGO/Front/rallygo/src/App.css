@@ -2,7 +2,7 @@
   --blauOscur: #0E1E2F;
   --blauClar: #569ABE;
   --roig: #C83F3F;
-  --roigOscur:#a03131;
+  --roigOscur:#500000;
   --blanc: #FFFFFF;
 }
 
@@ -26,21 +26,25 @@ h1,h2 {
 
 /*botons corporatius*/
 .btn-blau{
-  background-color: var(--blauClar);
+  background-color: var(--blauOscur);
   color: var(--blanc);
   border: none;
 }
+
 .btn-roig{
   background-color: var(--roig);
   color: var(--blanc);
   border:none;
 }
+
 .btn-blau:hover{
-  background-color: var(--blauOscur);
+  background-color: var(--blauClar);
   color: var(--blanc);
 }
+
 .btn-roig:hover{
   background-color: var(--roigOscur);
+ 
 }
 
 /*logos */
@@ -69,8 +73,12 @@ h1,h2 {
 
 .linksFooter:hover{
   font-weight: bold;
+  color: var(--blauClar);
 }
 
+.icones-link{
+  font-size: 1.2rem;
+}
 
 .leaflet-container{
   height: 250px;
