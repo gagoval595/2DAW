@@ -35,23 +35,21 @@ class Campeonato {
 
   factory Campeonato.fromJson(Map<String, dynamic> json) {
     return Campeonato(
-      id: json['id'].toString(),
-      nombre: json['nombre'],
-      fecha: json['fecha'],
-      championshipId: json['temporada_id'],
-      ubicacion: json['ubicacion'],
-      superficie: json['superficie'],
-      totalTramos: json['total_tramos'],
-      distanciaTotal: double.tryParse(json['distancia_total'].toString()) ?? 0.0,
-      historia: json['historia'],
-      datosCuriosos: json['datos_curiosos'],
-      imageAsset: json['image_asset'],
-      lat: double.tryParse(json['lat'].toString()) ?? 0.0,
-      lng: double.tryParse(json['lng'].toString()) ?? 0.0,
-      // Verifica si 'championship' es nulo o está vacío
+      id: json['id']?.toString() ?? '',
+      nombre: json['nombre'] ?? '',
+      fecha: json['fecha'] ?? '',
+      championshipId: json['championship_id']?.toString() ?? '', // Cambiado de temporada_id a championship_id
+      ubicacion: json['ubicacion'] ?? '',
+      superficie: json['superficie'] ?? '',
+      totalTramos: json['total_tramos'] ?? 0,
+      distanciaTotal: double.tryParse(json['distancia_total']?.toString() ?? '0') ?? 0.0,
+      historia: json['historia'] ?? '',
+      datosCuriosos: json['datos_curiosos'] ?? '',
+      imageAsset: json['image_asset'] ?? '',
+      lat: double.tryParse(json['lat']?.toString() ?? '0') ?? 0.0,
+      lng: double.tryParse(json['lng']?.toString() ?? '0') ?? 0.0,
       temporada: json['temporada'] != null
           ? Temporada.fromJson(json['temporada'])
-          : Temporada(id: "", name: "", imageAsset: ""), // Valor predeterminado vacío
+          : Temporada(id: "", name: "", imageAsset: ""),
     );
-  }
-}
+  }}

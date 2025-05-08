@@ -17,16 +17,15 @@ class ApiService {
   }
 
   final String baseUrl = Config.baseUrl;
-  // Obtener todos los campeonatos
+
   Future<List<Campeonato>> fetchCampeonatos() async {
     final res = await http.get(Uri.parse('$baseUrl/api/campeonatos'));
-    print('Respuesta de la API: ${res.body}');  // Imprime la respuesta
+    print('Respuesta de la API: ${res.body}');
     if (res.statusCode == 200) {
       final List<dynamic> data = json.decode(res.body);
       return data.map((item) => Campeonato.fromJson(item)).toList();
     } else {
       print('Error al cargar los campeonatos: ${res.statusCode} - ${res.body}');
-
       throw Exception('Error al cargar los campeonatos');
     }
   }
@@ -43,7 +42,7 @@ class ApiService {
 
   Future<List<Temporada>> fetchTemporadas() async {
     final res = await http.get(Uri.parse('$baseUrl/api/temporadas'));
-    print('Respuesta de la API: ${res.body}');  // Imprime la respuesta
+    print('Respuesta de la API: ${res.body}');
     if (res.statusCode == 200) {
       final List<dynamic> data = json.decode(res.body);
       return data.map((item) => Temporada.fromJson(item)).toList();
@@ -53,15 +52,19 @@ class ApiService {
   }
 
 
-  Future<List<Campeonato>> fetchEventsByTemporadaId(String temporadaId) async {
+  Future<List<Campeonato>> fetchCampeonatosByTemporadaId(String temporadaId) async {
+    // Usamos la ruta correcta definida en api.php
+    final res = await http.get(Uri.parse('$baseUrl/api/temporada/$temporadaId/campeonatos'));
 
-    final res = await http.get(Uri.parse('$baseUrl/api/campeonatos/$temporadaId/eventos'));
+    print('Consultando campeonatos de temporada: $temporadaId');
+    print('URL: $baseUrl/api/temporada/$temporadaId/campeonatos');
 
     if (res.statusCode == 200) {
       final List<dynamic> data = json.decode(res.body);
       return data.map((item) => Campeonato.fromJson(item)).toList();
     } else {
-      throw Exception('Error al cargar los eventos del campeonato');
+      print('Error: ${res.statusCode} - ${res.body}');
+      throw Exception('Error al cargar los campeonatos de la temporada $temporadaId');
     }
   }
 
