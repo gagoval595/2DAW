@@ -53,9 +53,9 @@ class ApiService {
   }
 
 
-  Future<List<Campeonato>> fetchEventsByTemporadaId(String championshipId) async {
+  Future<List<Campeonato>> fetchEventsByTemporadaId(String temporadaId) async {
 
-    final res = await http.get(Uri.parse('$baseUrl/api/campeonatos/$championshipId/eventos'));
+    final res = await http.get(Uri.parse('$baseUrl/api/campeonatos/$temporadaId/eventos'));
 
     if (res.statusCode == 200) {
       final List<dynamic> data = json.decode(res.body);

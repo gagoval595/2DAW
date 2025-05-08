@@ -14,8 +14,8 @@ class Temporada extends Model
     public $incrementing = false;
     protected $fillable = ['id', 'name', 'image_asset'];
 
-    public function campeonatos()
-    {
-        return $this->hasMany(Campeonato::class,);
-    }
+public function campeonatos()
+{
+    return $this->hasMany(Campeonato::class, 'championship_id');
+}
 }

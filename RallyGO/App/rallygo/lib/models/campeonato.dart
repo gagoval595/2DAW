@@ -38,7 +38,7 @@ class Campeonato {
       id: json['id'].toString(),
       nombre: json['nombre'],
       fecha: json['fecha'],
-      championshipId: json['championship_id'],
+      championshipId: json['temporada_id'],
       ubicacion: json['ubicacion'],
       superficie: json['superficie'],
       totalTramos: json['total_tramos'],
