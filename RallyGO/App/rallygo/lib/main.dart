@@ -7,7 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');  // ahora Flutter buscará en los assets
+  await dotenv.load(fileName: 'rallygo/.env');  // ahora Flutter buscará en los assets
   runApp(MyApp());
 }
 

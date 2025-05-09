@@ -1,0 +1,2 @@
+include ':build.gradle.kts'
+project(':build.gradle.kts').projectDir = new File(rootDir, 'RallyGO/App/rallygo/android/build.gradle.kts')

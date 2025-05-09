@@ -40,7 +40,7 @@ flutter:
   assets:
       - assets/images/
       - assets/images/campeonatos/
-      - assets/images/championships/
-      - .env
+      - assets/images/temporadas/
+      - rallygo/.env
 
 

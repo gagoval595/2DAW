@@ -1,6 +1,11 @@
-class Env {
-  // En Android emulator, localhost es 10.0.2.2
-/*
-  static const String apiBaseUrl = 'http://10.0.2.2:8000/api';
-*/
+// config.dart
+
+class Config {
+  // Aquí puedes definir tu base URL para la API
+  static const String baseUrl = 'http://192.168.0.12:8000'; // Reemplaza con tu IP local o dominio
+
+  // Puedes añadir más parámetros de configuración si lo necesitas, por ejemplo:
+  static const String apiKey = 'your_api_key';
+  static const String apiVersion = 'v1';
+// O cualquier otro valor global
 }
