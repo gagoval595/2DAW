@@ -17,7 +17,7 @@ Route::post('/alojamientos', [AlojamientoController::class, 'store']);
 Route::get('campeonatos/{id}/resultados', [TemporadaController::class, 'resultados']);
 Route::get('championships/{id}/clasificacion', [TemporadaController::class, 'clasificacion']);
 Route::apiResource('temporadas', TemporadaController::class)->only(['index','show']);
-Route::get('temporadas/{temporadda}/rallies/{campeonato}/ranking', [RankingController::class, 'rally']);
-Route::get('temporadas/{temporadda}/rallies/{campeonato}/standings', [RankingController::class, 'standings']);
+Route::get('temporadas/{temporada}/rallies/{campeonato}/ranking', [RankingController::class, 'rally']);
+Route::get('temporadas/{temporada}/rallies/{campeonato}/standings', [RankingController::class, 'standings']);
 
 

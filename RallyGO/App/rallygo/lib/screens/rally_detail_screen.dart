@@ -55,59 +55,61 @@ class _RallyDetailScreenState extends State<RallyDetailScreen>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverAppBar(
-            centerTitle: true,
-            backgroundColor: innerBoxIsScrolled ? Colors.white : Colors.white,
-            expandedHeight: 250,
-            pinned: true,
-            elevation: 0,
-            foregroundColor: innerBoxIsScrolled ? Colors.black : Colors.white,
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.parallax,
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: _selectedIndex == 4 // Si es la pantalla de rankings
+      ? _screens[_selectedIndex] // Usar la pantalla directamente sin NestedScrollView
+      : NestedScrollView( // Para el resto de pantallas mantener comportamiento actual
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            SliverAppBar(
               centerTitle: true,
-              titlePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              title: Text(
-                widget.campeonato.nombre,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: innerBoxIsScrolled ? Colors.white : Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  shadows: const [Shadow(blurRadius: 4, color: Colors.black26)],
+              backgroundColor: innerBoxIsScrolled ? Colors.white : Colors.white,
+              expandedHeight: 250,
+              pinned: true,
+              elevation: 0,
+              foregroundColor: innerBoxIsScrolled ? Colors.black : Colors.white,
+              flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.parallax,
+                centerTitle: true,
+                titlePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                title: Text(
+                  widget.campeonato.nombre,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: innerBoxIsScrolled ? Colors.white : Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    shadows: const [Shadow(blurRadius: 4, color: Colors.black26)],
+                  ),
+                ),
+                background: Image.network(
+                  widget.campeonato.imageAsset,
+                  fit: BoxFit.cover,
                 ),
               ),
-              background: Image.network(
-                widget.campeonato.imageAsset,
-                fit: BoxFit.cover,
-              ),
             ),
+          ],
+          body: TabBarView(
+            controller: _tabController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: _selectedIndex == 4 ? [] : _screens.where((screen) => screen != _screens[4]).toList(),
           ),
-        ],
-        body: TabBarView(
-          controller: _tabController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: _screens,
         ),
-      ),
-      bottomNavigationBar: FlashyTabBar(
-        selectedIndex: _selectedIndex,
-        showElevation: true,
-        onItemSelected: (i) {
-          setState(() => _selectedIndex = i);
-          _tabController.animateTo(i);
-        },
-        items: [
-          FlashyTabBarItem(icon: Icon(Icons.info), title: Text('Info')),
-          FlashyTabBarItem(icon: Icon(Icons.map), title: Text('Mapa')),
-          FlashyTabBarItem(icon: Icon(Icons.hotel), title: Text('Alojam.')),
-          FlashyTabBarItem(icon: Icon(Icons.article), title: Text('Noticias')),
-          FlashyTabBarItem(icon: Icon(Icons.leaderboard), title: Text('Ranking')),
-        ],
-      ),
-    );
-  }
-}
+    bottomNavigationBar: FlashyTabBar(
+      selectedIndex: _selectedIndex,
+      showElevation: true,
+      onItemSelected: (i) {
+        setState(() => _selectedIndex = i);
+        _tabController.animateTo(i);
+      },
+      items: [
+        FlashyTabBarItem(icon: Icon(Icons.info), title: Text('Info')),
+        FlashyTabBarItem(icon: Icon(Icons.map), title: Text('Mapa')),
+        FlashyTabBarItem(icon: Icon(Icons.hotel), title: Text('Alojam.')),
+        FlashyTabBarItem(icon: Icon(Icons.article), title: Text('Noticias')),
+        FlashyTabBarItem(icon: Icon(Icons.leaderboard), title: Text('Ranking')),
+      ],
+    ),
+  );
+}}
