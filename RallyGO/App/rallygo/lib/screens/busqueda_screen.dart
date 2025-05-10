@@ -23,17 +23,17 @@ class _BusquedaScreenState extends State<BusquedaScreen> {
     {
       'nombre': 'Sébastien Ogier',
       'equipo': 'Toyota Gazoo Racing',
-      'imagen': 'assets/images/logoRallyGoCirculo.png',
+      'imagen': 'assets/images/Sébastien Ogier.png',
     },
     {
       'nombre': 'Thierry Neuville',
       'equipo': 'Hyundai Motorsport',
-      'imagen': 'assets/images/logoRallyGoCirculo.png',
+      'imagen': 'assets/images/thierry neuville.jpg',
     },
     {
       'nombre': 'Kalle Rovanperä',
       'equipo': 'Toyota Gazoo Racing',
-      'imagen': 'assets/images/logoRallyGoCirculo.png',
+      'imagen': 'assets/images/Kalle Rovanperä.jpg',
     },
   ];
 

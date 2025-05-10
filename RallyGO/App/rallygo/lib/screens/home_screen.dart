@@ -1,13 +1,12 @@
-// lib/screens/eventos_screen.dart
   import 'package:flutter/material.dart';
   import '../models/campeonato.dart';
 
-  class EventosScreen extends StatefulWidget {
+  class PrincipalScreen extends StatefulWidget {
     @override
-    _EventosScreenState createState() => _EventosScreenState();
+    _PrincipalScreenState createState() => _PrincipalScreenState();
   }
 
-  class _EventosScreenState extends State<EventosScreen> {
+  class _PrincipalScreenState extends State<PrincipalScreen> {
     // Datos locales para evitar consultas a la API
     final List<Map<String, dynamic>> _eventosDestacados = [
       {

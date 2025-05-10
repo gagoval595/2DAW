@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart'; // Importa el paquete flashy_tab_bar2
 import 'package:rallygo/screens/busqueda_screen.dart';
 import 'package:rallygo/screens/calendario_screen.dart';
-import 'package:rallygo/screens/eventos_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:rallygo/screens/home_screen.dart';
 import 'package:rallygo/screens/login_screen.dart';
 import 'package:rallygo/screens/perfil_screen.dart';
 import 'package:rallygo/services/autentificacion_service.dart';
 import 'package:rallygo/screens/register_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: 'rallygo/.env');
@@ -32,11 +33,9 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreen extends StatefulWidget {
-
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
-
 
 class _SplashScreenState extends State<SplashScreen> {
   final AuthService _authService = AuthService();
@@ -52,9 +51,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final isLoggedIn = await _authService.isLoggedIn();
 
     if (mounted) {
-      Navigator.of(context).pushReplacementNamed(
-        isLoggedIn ? '/home' : '/login',
-      );
+      Navigator.of(
+        context,
+      ).pushReplacementNamed(isLoggedIn ? '/home' : '/login');
     }
   }
 
@@ -77,9 +76,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pantallas = [
-    EventosScreen(), // Página para la primera pestaña
-    BusquedaScreen(), // Página para la segunda pestaña
-    CalendarioScreen(), // Página para la tercera pestaña
+    PrincipalScreen(),
+    BusquedaScreen(),
+    CalendarioScreen(),
     ProfileScreen(),
   ];
 
@@ -106,15 +105,19 @@ class _HomeScreenState extends State<HomeScreen> {
               _selectedIndex = index;
             }),
         items: [
-          FlashyTabBarItem(icon: Icon(Icons.event), title: Text('Eventos')),
-          FlashyTabBarItem(icon: Icon(Icons.search), title: Text('Buscar')),
           FlashyTabBarItem(
-            icon: Icon(Icons.calendar_month),
-            title: Text('Calendario'),
+              icon: Icon(Icons.home),
+              title: Text('Home')),
+          FlashyTabBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Buscar')),
+          FlashyTabBarItem(
+              icon: Icon(Icons.calendar_month),
+              title: Text('Calendario'),
           ),
           FlashyTabBarItem(
-            icon: Icon(Icons.portrait_outlined),
-            title: Text('Perfil'),
+              icon: Icon(Icons.portrait_outlined),
+              title: Text('Perfil'),
           ),
         ],
       ),
