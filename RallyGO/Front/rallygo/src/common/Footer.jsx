@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "./img/icona.jpg";
+import logo from "../components/img/icona.jpg";
 
 const Footer = () => {
     return (
@@ -28,9 +28,9 @@ const Footer = () => {
                             <li><a href='/politica-cookies' className='linksFooter'>Política de Cookies</a></li>
                         </ul>
                     
-                        <i class="bi bi-instagram icones-link linksFooter"></i> 
-                        <i class="bi bi-youtube icones-link linksFooter px-2"></i> 
-                        <i class="bi bi-twitter icones-link linksFooter"></i> 
+                        <i className="bi bi-instagram icones-link linksFooter"></i> 
+                        <i className="bi bi-youtube icones-link linksFooter px-2"></i> 
+                        <i className="bi bi-twitter icones-link linksFooter"></i> 
                         {/* href="https://www.instagram.com/rallygo.es/" ns pq no va*/}
                     </div>
                 </div> 

@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "../App.css";
-import logo from "./img/LogoRallyGO.png";
+import logo from "../components/img/LogoRallyGO.png";
 function Header() {
   return (
     

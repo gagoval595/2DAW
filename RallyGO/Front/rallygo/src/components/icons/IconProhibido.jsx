@@ -1,6 +1,6 @@
 import L from "leaflet";
 
-const IconLocation = L.icon({
+const IconProhibido = L.icon({
     iconUrl: require('../../assets/prohibido.png'),
     iconAnchor: null, 
     shadowUrl: null,
@@ -10,4 +10,4 @@ const IconLocation = L.icon({
     className: "leaflet-localize-icon",
 })
 
-export default IconLocation;
+export default IconProhibido;

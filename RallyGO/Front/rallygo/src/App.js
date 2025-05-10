@@ -2,8 +2,8 @@ import React , { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./common/Header";
+import Footer from "./common/Footer";
 import MapViewCanarias from "./components/wrc/MapView-canarias";
 
 

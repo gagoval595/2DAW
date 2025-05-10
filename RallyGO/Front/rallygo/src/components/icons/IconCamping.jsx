@@ -1,13 +1,13 @@
 import L from "leaflet";
 
-const IconLocation = L.icon({
+const IconCamping = L.icon({
     iconUrl: require('../../assets/camping.png'),
     iconAnchor: null, 
     shadowUrl: null,
     shadowSize: null,
     shadowAnchor: null,
     iconSize: [30, 30],
-    className: "leaflet-localize-icon",
+    className: "leaflet-camping-icon",
 })
 
-export default IconLocation;
+export default IconCamping;

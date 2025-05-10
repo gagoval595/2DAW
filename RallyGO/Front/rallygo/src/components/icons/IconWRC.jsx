@@ -1,13 +1,13 @@
 import L from "leaflet";
 
-const IconHotel = L.icon({
-    iconUrl: require('../../assets/hotel.png'),
+const IconWRC = L.icon({
+    iconUrl: require('../../assets/wrc.png'),
     iconAnchor: null, 
     shadowUrl: null,
     shadowSize: null,
     shadowAnchor: null,
     iconSize: [30, 30],
-    className: "leaflet-hotel-icon",
+    className: "leaflet-wrc-icon",
 })
 
-export default IconHotel;
+export default IconWRC;
