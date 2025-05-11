@@ -7,15 +7,46 @@ import '../api/Api.dart';
 import '../config.dart';
 import '../models/lugarAlojamiento.dart';
 
+/// Servicio para gestionar la búsqueda y paginación de alojamientos cercanos a una ubicación.
+///
+/// Esta clase se encarga de:
+/// - Obtener alojamientos desde la API de Google Places
+/// - Gestionar la paginación de resultados
+/// - Almacenar los alojamientos en la base de datos
+/// - Consultar alojamientos guardados en la base de datos
 class AlojamientoService {
+  /// Clave de API para Google Maps Platform
   final _apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
+
+  /// Instancia del servicio de API general
   final ApiService apiService = ApiService();
+
+  /// URL base para las peticiones a la API del backend
   static final String _baseUrl = Config.baseUrl;
+
+  /// Token de paginación para la siguiente página de resultados de Google Places
   String? _nextPageToken;
+
+  /// Última latitud utilizada en la búsqueda
   double? _lastLat;
+
+  /// Última longitud utilizada en la búsqueda
   double? _lastLng;
+
+  /// Último radio utilizado en la búsqueda (en metros)
   int? _lastRadius;
 
+  /// Obtiene alojamientos cercanos a una ubicación específica.
+  ///
+  /// Realiza una petición a la API de Google Places para encontrar alojamientos
+  /// cercanos a las coordenadas especificadas dentro del radio indicado.
+  ///
+  /// @param lat Latitud del centro de búsqueda
+  /// @param lng Longitud del centro de búsqueda
+  /// @param radius Radio de búsqueda en metros (predeterminado: 20000)
+  /// @param pageSize Número máximo de resultados a devolver (predeterminado: 20)
+  /// @return Lista de objetos [LugarAlojamiento] encontrados
+  /// @throws Exception Si la API key no está definida o si hay un error con la API
   Future<List<LugarAlojamiento>> fetchAlojamientos({
     required double lat,
     required double lng,
@@ -69,6 +100,13 @@ class AlojamientoService {
     return alojamientos.take(pageSize).toList();
   }
 
+  /// Obtiene la siguiente página de resultados utilizando el token de paginación.
+  ///
+  /// Este método utiliza el token de paginación obtenido en la última llamada a
+  /// [fetchAlojamientos] para obtener el siguiente conjunto de resultados.
+  ///
+  /// @return Lista de objetos [LugarAlojamiento] de la siguiente página
+  /// @return Lista vacía si no hay más resultados disponibles (no hay token de paginación)
   Future<List<LugarAlojamiento>> fetchNextPage() async {
     if (_nextPageToken == null) {
       return [];
@@ -84,6 +122,10 @@ class AlojamientoService {
     );
   }
 
+  /// Guarda una lista de alojamientos en la base de datos del backend.
+  ///
+  /// @param alojamientos Lista de [LugarAlojamiento] a guardar
+  /// @private Método interno para uso de la clase
   Future<void> _saveAlojamientos(List<LugarAlojamiento> alojamientos) async {
     for (var alojamiento in alojamientos) {
       final uri = Uri.parse('$_baseUrl/api/alojamientos');
@@ -111,7 +153,18 @@ class AlojamientoService {
     }
   }
 
-  // Método opcional para consultar desde la base de datos (puedes usarlo en otros casos)
+  /// Consulta alojamientos guardados en la base de datos.
+  ///
+  /// Permite obtener alojamientos previamente guardados desde la base de datos
+  /// del backend, con soporte para paginación y filtrado por ubicación.
+  ///
+  /// @param lat Latitud del centro de búsqueda
+  /// @param lng Longitud del centro de búsqueda
+  /// @param radius Radio de búsqueda en metros
+  /// @param page Número de página a consultar
+  /// @param pageSize Número de elementos por página
+  /// @return Lista de objetos [LugarAlojamiento] recuperados de la base de datos
+  /// @private Método opcional para consultas a la base de datos
   Future<List<LugarAlojamiento>> _fetchFromDatabase(
       double lat, double lng, int radius, int page, int pageSize) async {
     try {
