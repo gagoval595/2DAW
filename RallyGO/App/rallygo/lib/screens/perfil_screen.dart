@@ -123,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    "Usuario RallyGO",
+                    "Invitado",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

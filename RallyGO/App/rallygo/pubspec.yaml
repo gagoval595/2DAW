@@ -43,5 +43,7 @@ flutter:
       - assets/images/campeonatos/
       - assets/images/temporadas/
       - rallygo/.env
+      - assets/images/default_avatar.png
+
 
 

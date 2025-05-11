@@ -23,7 +23,7 @@ class _BusquedaScreenState extends State<BusquedaScreen> {
     {
       'nombre': 'Sébastien Ogier',
       'equipo': 'Toyota Gazoo Racing',
-      'imagen': 'assets/images/Sébastien Ogier.png',
+      'imagen': 'assets/images/Sébastien Ogier.jpg',
     },
     {
       'nombre': 'Thierry Neuville',

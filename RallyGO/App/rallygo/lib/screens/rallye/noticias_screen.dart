@@ -190,7 +190,7 @@ class _NoticiasScreenState extends State<NoticiasScreen>
           'fecha': '27 Enero 2024',
           'autor': 'Laura Gómez',
           'categoria': 'Incidencias',
-          'imagen': 'assets/images/logoRallyGoCirculo.png',
+          'imagen': 'assets/images/evans.jpg',
           'resumen': 'Elfyn Evans tuvo que abandonar la lucha por el podio tras sufrir un problema en la transmisión de su Toyota GR Yaris Rally1 durante la etapa del sábado, dejando vía libre a sus rivales.',
         },
         {

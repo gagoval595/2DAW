@@ -46,4 +46,17 @@ class LugarAlojamiento {
       photoUrl: photoUrl,
     );
   }
+  factory LugarAlojamiento.fromDatabaseJson(Map<String, dynamic> json) {
+    return LugarAlojamiento(
+      nombre: json['nombre'] as String,
+      direccion: json['direccion'] as String,
+      ubicacion: LatLng(
+        json['lat'] as double,
+        json['lng'] as double,
+      ),
+      placeId: json['place_id'] as String,
+      url: json['url'] as String,
+      photoUrl: json['photo_url'] as String?,
+    );
+  }
 }
