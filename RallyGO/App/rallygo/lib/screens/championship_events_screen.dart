@@ -27,12 +27,12 @@ class _ChampionshipEventsScreenState extends State<ChampionshipEventsScreen> {
   void _loadEvents() async {
     try {
       print(widget.temporada.id);
-      final response = await apiService.fetchEventsByTemporadaId(widget.temporada.id);
+      final response = await apiService.fetchCampeonatosByTemporadaId(widget.temporada.id);
       setState(() {
         events = response;
       });
     } catch (error) {
-      print("Error al cargar los eventos: $error");
+      print("Error al cargar los campeonatos: $error");
     }
   }
 

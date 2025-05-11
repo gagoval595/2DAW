@@ -17,6 +17,13 @@ class Ranking extends Model
         'posicion',
         'piloto',
         'puntos',
-        'equipo'
+        'equipo',
+        'campeonato_id'
     ];
+
+    // Relación con campeonato
+    public function campeonato()
+    {
+        return $this->belongsTo(Campeonato::class, 'campeonato_id');
+    }
 }
