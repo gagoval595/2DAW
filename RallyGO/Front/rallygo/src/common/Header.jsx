@@ -11,10 +11,10 @@ function Header() {
           <Nav className="my-lg-0 d-flex align-items-center" navbarScroll>
             <img src={logo} className="logo d-md-none d-sm-block " alt="Logo RallyGO" />
             
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/equipos">Calendario</Nav.Link>
             <Nav.Link href="/equipos">Equipos</Nav.Link>
-            <Navbar.Brand href="/home">
+            <Navbar.Brand href="/">
               <img src={logo} className="logo d-none d-md-block ms-3" alt="Logo RallyGO" />
             </Navbar.Brand>
 
