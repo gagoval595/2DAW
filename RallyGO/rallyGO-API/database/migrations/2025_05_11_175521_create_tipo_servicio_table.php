@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('etapa', function (Blueprint $table) {
+        Schema::create('tipo_servicio', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campeonato_id')->constrained('campeonato')->onDelete('cascade');
-            $table->string('nombre',100);
-            $table->date('fecha')->nullable();
+            $table->enum('tipo', ['Hotel', 'Parquing', 'Camping','Apartamento']);
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('etapa');
+        Schema::dropIfExists('tipo_servicio');
     }
 };

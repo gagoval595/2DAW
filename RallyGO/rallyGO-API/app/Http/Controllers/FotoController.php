@@ -6,50 +6,84 @@ use App\Models\Foto;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Exception;
 
 class FotoController extends Controller
 {
     public function index($servicioId)
     {
-        $servicio = Servicio::find($servicioId);
+        try {
+            $servicio = Servicio::findOrFail($servicioId);
+            $fotos = Foto::where('servicio_id', $servicioId)->get();
 
-        if (!$servicio) {
-            return response()->json(['message' => 'Servicio no encontrado'], 404);
+            if ($fotos->isEmpty()) {
+                return response()->json([
+                    'message' => 'No hay fotos para este servicio',
+                    'fotos' => []
+                ], 200);
+            }
+
+            return response()->json([
+                'message' => 'Fotos recuperadas con éxito',
+                'fotos' => $fotos
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al obtener las fotos',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $fotos = Foto::where('servicio_id', $servicioId)->get();
-        return response()->json($fotos);
     }
 
     public function store(Request $request, $servicioId)
     {
-        $validator = Validator::make($request->all(), [
-            'url' => 'required|string|max:255',
-            'descripcion' => 'nullable|string|max:255',
-        ]);
+        try {
+            $servicio = Servicio::findOrFail($servicioId);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            $validator = Validator::make($request->all(), [
+                'url' => 'required|string|max:255',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'Error de validación',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $foto = new Foto([
+                'servicio_id' => $servicioId,
+                'url' => $request->url,
+            ]);
+
+            $foto->save();
+
+            return response()->json([
+                'message' => 'Foto añadida con éxito',
+                'foto' => $foto
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al guardar la foto',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $foto = new Foto();
-        $foto->servicio_id = $servicioId;
-        $foto->url = $request->url;
-        $foto->descripcion = $request->descripcion;
-        $foto->save();
-
-        return response()->json($foto, 201);
     }
 
     public function destroy($id)
     {
-        $foto = Foto::find($id);
-
-        if (!$foto) {
-            return response()->json(['message' => 'Foto no encontrada'], 404);
+        try {
+            $foto = Foto::findOrFail($id);
+            $foto->delete();
+            
+            return response()->json([
+                'message' => 'Foto eliminada con éxito'
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al eliminar la foto',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $foto->delete();
-        return response()->json(['message' => 'Foto eliminada con éxito'], 200);
     }
 }

@@ -1,23 +1,20 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class Galeria_foto extends Migration
+use Illuminate\Database\Eloquent\Model;
+
+class Galeria_foto extends Model
 {
-    public function up(): void
-    {
-        Schema::create('galeria_foto', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('etapa_id')->constrained('etapa')->onDelete('cascade'); 
-            $table->string('url');
-            $table->timestamps(); 
-        });
-    }
+    protected $table = 'galeriaFoto';
 
-    public function down(): void
+    protected $fillable = [
+        'etapa_id',
+        'url'
+    ];
+
+    public function etapa()
     {
-        Schema::dropIfExists('galeria_foto');
+        return $this->belongsTo(Etapa::class, 'etapa_id');
     }
 }

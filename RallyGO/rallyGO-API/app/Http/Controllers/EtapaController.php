@@ -6,73 +6,105 @@ use Illuminate\Http\Request;
 use App\Models\Etapa;
 use App\Models\Campeonato;
 use App\Models\Servicio;
+use Illuminate\Support\Facades\Validator;
+use Exception;
 
 class EtapaController extends Controller
 {
     public function index()
     {
-        $etapas = Etapa::with(['campeonato', 'servicios'])->get();
-
-        return response()->json([
-            'message' => 'Lista de etapas',
-            'etapas' => $etapas,
-        ], 200);
+        try {
+            $etapas = Etapa::with('campeonato')->get();
+            
+            return response()->json([
+                'etapas' => $etapas
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al obtener las etapas',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'campeonato_id' => 'required|exists:campeonato,id',
-            'nombre' => 'required|string|max:100',
-            'fecha' => 'nullable|date',
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'campeonato_id' => 'required|exists:campeonato,id',
+                'nombre' => 'required|string|max:100',
+                'fecha' => 'required|string|max:50',
+                'pais' => 'required|string|max:50'
+            ]);
 
-        $etapa = Etapa::create($request->all());
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'Error de validación',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
 
-        return response()->json([
-            'message' => 'Etapa creada con éxito',
-            'etapa' => $etapa,
-        ], 201);
+            $etapa = Etapa::create($request->all());
+
+            return response()->json([
+                'message' => 'Etapa creada con éxito',
+                'etapa' => $etapa
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al crear la etapa',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function show(string $id)
     {
-        $etapa = Etapa::with(['campeonato', 'servicios'])->find($id);
-
-        if (!$etapa) {
+        try {
+            $etapa = Etapa::with('campeonato')->findOrFail($id);
+            
+            return response()->json([
+                'message' => 'Etapa recuperada con éxito',
+                'etapa' => $etapa
+            ], 200);
+        } catch (Exception $e) {
             return response()->json([
                 'message' => 'Etapa no encontrada',
+                'error' => $e->getMessage()
             ], 404);
         }
-
-        return response()->json([
-            'message' => 'Detalles de la etapa',
-            'etapa' => $etapa,
-        ], 200);
     }
 
     public function update(Request $request, string $id)
     {
-        $etapa = Etapa::find($id);
+        try {
+            $validator = Validator::make($request->all(), [
+                'campeonato_id' => 'sometimes|required|exists:campeonato,id',
+                'nombre' => 'sometimes|required|string|max:100',
+                'fecha' => 'sometimes|required|string|max:50',
+                'pais' => 'sometimes|required|string|max:50'
+            ]);
 
-        if (!$etapa) {
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'Error de validación',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $etapa = Etapa::findOrFail($id);
+            $etapa->update($request->all());
+
             return response()->json([
-                'message' => 'Etapa no encontrada',
-            ], 404);
+                'message' => 'Etapa actualizada con éxito',
+                'etapa' => $etapa
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al actualizar la etapa',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $request->validate([
-            'campeonato_id' => 'sometimes|required|exists:campeonato,id',
-            'nombre' => 'sometimes|required|string|max:100',
-            'fecha' => 'sometimes|nullable|date',
-        ]);
-
-        $etapa->update($request->all());
-
-        return response()->json([
-            'message' => 'Etapa actualizada con éxito',
-            'etapa' => $etapa,
-        ], 200);
     }
 
     public function destroy(string $id)

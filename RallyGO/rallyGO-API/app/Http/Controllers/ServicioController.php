@@ -17,26 +17,23 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'etapa_id' => 'required|integer',
-            'tipo_servicio_id' => 'required|integer',
+            'etapa_id' => 'required|exists:etapa,id',
+            'tipo_servicio_id' => 'required|exists:tipo_servicio,id',
             'ubicación' => 'required|string|max:255',
-            'latitud' => 'required|numeric',
-            'longitud' => 'required|numeric',
+            'latitud' => 'required|numeric|between:-90,90',
+            'longitud' => 'required|numeric|between:-180,180',
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $servicio = new Servicio();
-        $servicio->etapa_id = $request->etapa_id;
-        $servicio->tipo_servicio_id = $request->tipo_servicio_id;
-        $servicio->ubicación = $request->ubicación;
-        $servicio->latitud = $request->latitud;
-        $servicio->longitud = $request->longitud;
-        $servicio->save();
-
-        return response()->json($servicio, 201);
+        try {
+            $servicio = Servicio::create($request->all());
+            return response()->json($servicio, 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al crear el servicio'], 500);
+        }
     }
 
     public function show(string $id)
@@ -53,26 +50,24 @@ class ServicioController extends Controller
     public function update(Request $request, string $id)
     {
         $validator = Validator::make($request->all(), [
-            'etapa_id' => 'sometimes|required|integer',
-            'tipo_servicio_id' => 'sometimes|required|integer',
+            'etapa_id' => 'sometimes|required|exists:etapa,id',
+            'tipo_servicio_id' => 'sometimes|required|exists:tipo_servicio,id',
             'ubicación' => 'sometimes|required|string|max:255',
-            'latitud' => 'sometimes|required|numeric',
-            'longitud' => 'sometimes|required|numeric',
+            'latitud' => 'sometimes|required|numeric|between:-90,90',
+            'longitud' => 'sometimes|required|numeric|between:-180,180',
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $servicio = Servicio::find($id);
-
-        if (!$servicio) {
+        try {
+            $servicio = Servicio::findOrFail($id);
+            $servicio->update($request->all());
+            return response()->json($servicio);
+        } catch (\Exception $e) {
             return response()->json(['message' => 'Servicio no encontrado'], 404);
         }
-
-        $servicio->update($request->only(['etapa_id', 'tipo_servicio_id', 'ubicación', 'latitud', 'longitud']));
-
-        return response()->json($servicio);
     }
 
     public function destroy(string $id)

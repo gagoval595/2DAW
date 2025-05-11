@@ -30,27 +30,32 @@ Route::put('/etapa/{id}', [EtapaController::class, 'update']);
 Route::delete('/etapa/{id}', [EtapaController::class, 'destroy']);
 
 /*CRUD Tipo Servicio*/
-use App\Http\Controllers\TipoServicioController;
-Route::get('/tipo_servicio', [TipoServicioController::class, 'index']);
-Route::get('/tipo_servicio/{id}', [TipoServicioController::class, 'show']);
-Route::post('/tipo_servicio', [TipoServicioController::class, 'store']);
-Route::put('/tipo_servicio/{id}', [TipoServicioController::class, 'update']);
-Route::delete('/tipo_servicio/{id}', [TipoServicioController::class, 'destroy']);
+use App\Http\Controllers\Tipo_servicioController;
+Route::get('/tipo-servicio', [Tipo_servicioController::class, 'index']);
+Route::get('/tipo-servicio/{id}', [Tipo_servicioController::class, 'show']);
+Route::post('/tipo-servicio', [Tipo_servicioController::class, 'store']);
+Route::put('/tipo-servicio/{id}', [Tipo_servicioController::class, 'update']);
+Route::delete('/tipo-servicio/{id}', [Tipo_servicioController::class, 'destroy']);
 
 /*CRUD Foto*/
 use App\Http\Controllers\FotoController;
-Route::get('/foto', [FotoController::class, 'index']);
-Route::get('/foto/{id}', [FotoController::class, 'show']);
-Route::post('/foto', [FotoController::class, 'store']);
-Route::put('/foto/{id}', [FotoController::class, 'update']);
-Route::delete('/foto/{id}', [FotoController::class, 'destroy']);
+Route::get('/servicio/{servicioId}/foto', [FotoController::class, 'index']);
+Route::post('/servicio/{servicioId}/foto', [FotoController::class, 'store']);
+Route::delete('/servicio/{servicioId}/foto/{id}', [FotoController::class, 'destroy']);
 
 /*CRUD Galeria_foto*/
 
-use App\Http\Controllers\GaleriaFotoController;
-Route::get('/galeria_foto', [GaleriaFotoController::class, 'index']);
-Route::get('/galeria_foto/{id}', [GaleriaFotoController::class, 'show']);
-Route::post('/galeria_foto', [GaleriaFotoController::class, 'store']);
-Route::put('/galeria_foto/{id}', [GaleriaFotoController::class, 'update']);
-Route::delete('/galeria_foto/{id}', [GaleriaFotoController::class, 'destroy']);
+use App\Http\Controllers\Galeria_fotoController;
+Route::get('/galeria', [Galeria_fotoController::class, 'index']);
+Route::get('/galeria/{id}', [Galeria_fotoController::class, 'show']);
+Route::post('/galeria', [Galeria_fotoController::class, 'store']);
+Route::put('/galeria/{id}', [Galeria_fotoController::class, 'update']);
+Route::delete('/galeria/{id}', [Galeria_fotoController::class, 'destroy']);
 
+/*CRUD Campeonato*/	
+use App\Http\Controllers\CampeonatoController;
+Route::get('/campeonato', [CampeonatoController::class, 'index']);
+Route::get('/campeonato/{id}', [CampeonatoController::class, 'show']);
+Route::post('/campeonato', [CampeonatoController::class, 'store']);
+Route::put('/campeonato/{id}', [CampeonatoController::class, 'update']);
+Route::delete('/campeonato/{id}', [CampeonatoController::class, 'destroy']);

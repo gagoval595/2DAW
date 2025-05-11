@@ -8,16 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('galeria_foto', function (Blueprint $table) {
+        Schema::create('etapa', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('etapa_id')->constrained('etapa')->onDelete('cascade');
-            $table->string('url');
+            $table->foreignId('campeonato_id')->constrained('campeonato')->onDelete('cascade');
+            $table->string('nombre',100);
+            $table->string('fecha', 50);
+            $table->string('pais', 50);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('galeria_foto');
+        Schema::dropIfExists('etapa');
     }
 };

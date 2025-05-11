@@ -8,17 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tipo_servicio', function (Blueprint $table) {
+        Schema::create('campeonato', function (Blueprint $table) {
             $table->id();
-            $table->enum('tipo', ['Hotel', 'Parquing', 'Camping']);
-            $table->string('nombre');
-            $table->string('descripcion');
+            $table->enum('tipo', ['WRC', 'S-CER']);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('tipo_servicio');
+        Schema::dropIfExists('campeonato');
     }
 };

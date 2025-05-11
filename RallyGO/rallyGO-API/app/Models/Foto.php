@@ -1,23 +1,21 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class Foto extends Migration
+use Illuminate\Database\Eloquent\Model;
+
+class Foto extends Model
 {
-    public function up(): void
-    {
-        Schema::create('foto', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('servicio_id')->constrained('servicio')->onDelete('cascade');
-            $table->string('url');
-            $table->timestamps();
-        });
-    }
+    protected $table = 'foto';
 
-    public function down(): void
+    protected $fillable = [
+        'id',
+        'servicio_id',
+        'url',
+    ];
+
+    public function servicio()
     {
-        Schema::dropIfExists('foto');
+        return $this->belongsTo(Servicio::class, 'servicio_id');
     }
 }

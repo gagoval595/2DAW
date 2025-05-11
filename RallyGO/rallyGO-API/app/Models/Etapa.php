@@ -13,6 +13,7 @@ class Etapa extends Model
         'campeonato_id',
         'nombre',
         'fecha',
+        'pais'
     ];
 
     public function campeonato()

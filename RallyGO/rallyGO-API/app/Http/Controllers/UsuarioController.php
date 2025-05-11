@@ -18,31 +18,36 @@ class UsuarioController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nombre' => 'required|string|max:50',
-            'email' => 'required|string|email|max:100|unique:usuario,email',
-            'telefono' => 'nullable|string|max:15',
+            'email' => 'required|email|unique:usuario,email',
+            'telefono' => 'required|string|max:15',
             'password' => 'required|string|min:8',
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $usuario = new Usuario();
-        $usuario->nombre = $request->nombre;
-        $usuario->email = $request->email;
-        $usuario->telefono = $request->telefono;
-        $usuario->password = Hash::make($request->password); 
-        $usuario->save();
-
-        return response()->json($usuario, 201);
+        try {
+            $usuario = Usuario::create([
+                'nombre' => $request->nombre,
+                'email' => $request->email,
+                'telefono' => $request->telefono,
+                'password' => Hash::make($request->password)
+            ]);
+            return response()->json($usuario, 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al crear el usuario'], 500);
+        }
     }
 
     public function show(string $id)
     {
-        if (!$usuario) {
+        try {
+            $usuario = Usuario::findOrFail($id);
+            return response()->json($usuario);
+        } catch (\Exception $e) {
             return response()->json(['message' => 'Usuario no encontrado'], 404);
         }
-        return response()->json($usuario);
     }
 
     public function update(Request $request, string $id)

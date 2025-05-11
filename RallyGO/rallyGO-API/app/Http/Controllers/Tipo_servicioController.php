@@ -2,72 +2,96 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TipoServicio;
 use Illuminate\Http\Request;
+use Exception;
 
 class Tipo_servicioController extends Controller
 {
     public function index()
     {
-         return response()->json(Tipo_servicioController::all());
+        try {
+            $tipos = TipoServicio::with('servicios')->get();
+            return response()->json([
+                'tipos' => $tipos
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al obtener los tipos de servicio',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'tipo' => 'required|in:Hotel,Parquing,Camping',
-            'nombre' => 'required|string|max:50',
-            'descripcion' => 'required|string|max:255',
-        ]);
+        try {
+            $request->validate([
+                'tipo' => 'required|in:Hotel,Parquing,Camping',
+                'nombre' => 'required|string|max:255',
+                'descripcion' => 'required|string|max:255'
+            ]);
 
-        $Tipo_servicioController = new Tipo_servicioController();
-        $Tipo_servicioController->tipo = $request->tipo;
-        $Tipo_servicioController->nombre = $request->nombre;
-        $Tipo_servicioController->descripcion = $request->descripcion;
-        $Tipo_servicioController->save();
+            $tipoServicio = TipoServicio::create($request->all());
 
-        return response()->json($Tipo_servicioController, 201);
+            return response()->json([
+                'message' => 'Tipo de servicio creado con éxito',
+                'tipo' => $tipoServicio
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al crear el tipo de servicio',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function show(string $id)
     {
-        $Tipo_servicioController = Tipo_servicioController::find($id);
-
-        if (!$Tipo_servicioController) {
-            return response()->json(['message' => 'Tipo de servicio no encontrado'], 404);
+        try {
+            $tipoServicio = TipoServicio::with('servicios')->findOrFail($id);
+            return response()->json([
+                'message' => 'Tipo de servicio recuperado con éxito',
+                'tipo' => $tipoServicio
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Tipo de servicio no encontrado',
+                'error' => $e->getMessage()
+            ], 404);
         }
-
-        return response()->json($Tipo_servicioController);
     }
-
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'tipo' => 'sometimes|required|in:Hotel,Parquing,Camping',
-            'nombre' => 'sometimes|required|string|max:50',
-            'descripcion' => 'sometimes|required|string|max:255',
-        ]);
+        try {
+            $tipoServicio = TipoServicio::findOrFail($id);
+            $tipoServicio->update($request->all());
 
-        $Tipo_servicioController = Tipo_servicioController::find($id);
-
-        if (!$Tipo_servicioController) {
-            return response()->json(['message' => 'Tipo de servicio no encontrado'], 404);
+            return response()->json([
+                'message' => 'Tipo de servicio actualizado con éxito',
+                'tipo' => $tipoServicio
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al actualizar el tipo de servicio',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $Tipo_servicioController->update($request->all());
-
-        return response()->json($Tipo_servicioController);
     }
-
     public function destroy(string $id)
     {
-        $Tipo_servicioController = Tipo_servicioController::find($id);
+        try {
+            $tipoServicio = TipoServicio::findOrFail($id);
+            $tipoServicio->delete();
 
-        if (!$Tipo_servicioController) {
-            return response()->json(['message' => 'Tipo de servicio no encontrado'], 404);
+            return response()->json([
+                'message' => 'Tipo de servicio eliminado con éxito'
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Error al eliminar el tipo de servicio',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $Tipo_servicioController->delete();
-
-        return response()->json(['message' => 'Tipo de servicio eliminado']);
     }
 }
