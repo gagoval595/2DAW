@@ -25,26 +25,44 @@ h1,h2 {
 }
 
 /*botons corporatius*/
-.btn-blau{
-  background-color: var(--blauOscur);
-  color: var(--blanc);
-  border: none;
+.btn-blau {
+  background-color: var(--blauOscur) !important;
+  color: var(--blanc) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.btn-roig{
-  background-color: var(--roig);
-  color: var(--blanc);
-  border:none;
+.btn-blau:hover {
+  background-color: var(--blauClar) !important;
+  color: var(--blanc) !important;
 }
 
-.btn-blau:hover{
-  background-color: var(--blauClar);
-  color: var(--blanc);
+.btn-blau:active,
+.btn-blau:focus {
+  background-color: var(--blauOscur) !important;
+  color: var(--blanc) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.btn-roig:hover{
-  background-color: var(--roigOscur);
- 
+.btn-roig {
+  background-color: var(--roig) !important;
+  color: var(--blanc) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.btn-roig:hover {
+  background-color: var(--roigOscur) !important;
+  color: var(--blanc) !important;
+}
+
+.btn-roig:active,
+.btn-roig:focus {
+  background-color: var(--roig) !important;
+  color: var(--blanc) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /*logos */
@@ -80,13 +98,51 @@ h1,h2 {
   font-size: 1.2rem;
 }
 
+/*mapa */
 .leaflet-container{
   height: 250px;
   width: auto;
   position: relative;
 }
+.leaflet-popup {
+  z-index: 1000;
+}
 
+.leyenda {
+  position: absolute;
+  z-index: 999;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  right: 10px;
+  top: 25px;
+}
 
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.legend-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.legend-text {
+  font-size: 14px;
+  color: var(--blauOscur);
+}
+
+.mapa{
+  height: 25rem;
+}
+
+@media (min-widht:1199.9px){
+
+}
 /*Navbar */
 .navbar {
   display: flex;
@@ -104,26 +160,51 @@ h1,h2 {
 /*card wrc/scer */
 .cardwrc{
   height: 200px;
+  object-fit: cover;
 }
 
 .cardscer{
-  height: 250px;
+  height: 200px;
+  object-fit: cover;
 }
 
-/*card scer */
-.carousel-custom .carousel-control-prev, .carousel-custom .carousel-control-next {
-  position: absolute;
-  top: 50%;
-  width: 3rem; 
-  height: 3rem;
-  z-index: 5; 
-  background-color: var(--blauOscur) !important;
+
+.card {
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.carousel-custom .carousel-control-prev {
-  left: -50px; 
+/* Pagination */
+.pagination .page-link {
+  color: var(--blauOscur);
+  border-color: var(--blauOscur);
+  background-color: var(--blanc);
 }
 
-.carousel-custom .carousel-control-next {
-  right: -50px;
+.pagination .page-item.active .page-link {
+  background-color: var(--blauOscur);
+  border-color: var(--blauOscur);
+  color: var(--blanc);
 }
+
+.pagination .page-link:hover {
+  background-color: var(--blauClar);
+  border-color: var(--blauClar);
+  color: var(--blanc);
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  border-color: #dee2e6;
+  background-color: var(--blanc);
+}
+
+
+/*evento */
+.text-evento{
+  font-size: 1.5rem;
+}
+
+

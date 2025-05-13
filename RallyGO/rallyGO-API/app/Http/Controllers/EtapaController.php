@@ -34,7 +34,10 @@ class EtapaController extends Controller
                 'campeonato_id' => 'required|exists:campeonato,id',
                 'nombre' => 'required|string|max:100',
                 'fecha' => 'required|string|max:50',
-                'pais' => 'required|string|max:50'
+                'pais' => 'required|string|max:50',
+                'latitud' => 'required|numeric|between:-90,90',
+                'longitud' => 'required|numeric|between:-180,180',
+                'image' => 'nullable|string'
             ]);
 
             if ($validator->fails()) {
@@ -82,7 +85,9 @@ class EtapaController extends Controller
                 'campeonato_id' => 'sometimes|required|exists:campeonato,id',
                 'nombre' => 'sometimes|required|string|max:100',
                 'fecha' => 'sometimes|required|string|max:50',
-                'pais' => 'sometimes|required|string|max:50'
+                'pais' => 'sometimes|required|string|max:50',
+                'latitud' => 'sometimes|required|numeric|between:-90,90',
+                'longitud' => 'sometimes|required|numeric|between:-180,180'
             ]);
 
             if ($validator->fails()) {

@@ -9,11 +9,13 @@ class Etapa extends Model
     protected $table = 'etapa';
 
     protected $fillable = [
-        'id',
         'campeonato_id',
         'nombre',
         'fecha',
-        'pais'
+        'pais',
+        'latitud',
+        'longitud',
+        'image'
     ];
 
     public function campeonato()
