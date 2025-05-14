@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { apiService } from "../../services/apiService"; 
 
 import MapViewMundo from "../MapViewMundo";
@@ -11,7 +11,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 function Home() {  
   const [wrcEvents, setWrcEvents] = useState([]);
   const [scerEvents, setScerEvents] = useState([]); 
-  const [showAllWRC, setShowAllWRC] = useState(false);
+  const [mostraTotWRC, setMostraWRC] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); //per ajustar la paginació i les cards
 
@@ -24,7 +24,7 @@ function Home() {
         setWrcEvents(wrcOnly);
         setScerEvents(scerOnly);
       } catch (error) {
-        console.error('Error fetching events:', error);
+        console.error('mala?:', error);
         setWrcEvents([]);
         setScerEvents([]);
       }
@@ -59,21 +59,16 @@ function Home() {
   };
 
   return (
-    <div className="Home">
-      <h1>¿A dónde te quieres ir?</h1>
-      <h2 className="pb-4">WRC</h2>
-
+    <>
       <div className="container">
         {/* WRC */}
         <div className="row g-4">
-          {(showAllWRC ? wrcEvents : wrcEvents.slice(0, 4)).map((event) => (
+          <h1>¿A dónde quieres ir?</h1>
+          <h2 className="pb-4">WRC</h2>
+          {(mostraTotWRC ? wrcEvents : wrcEvents.slice(0, 4)).map((event) => (
             <div key={event.id} className="col-lg-3 col-md-6 col-xs-12 h-100">
               <Card className="h-100">
-                <Card.Img
-                  variant="top"
-                  src={event.image}
-                  className="cardwrc"
-                />
+                <Card.Img variant="top" src={event.image} className="cardwrc"/>
                 <Card.Body className="d-flex flex-column h-100">
                   <Card.Title>{event.nombre}</Card.Title>
                   <Card.Text>{event.fecha}</Card.Text>
@@ -93,10 +88,10 @@ function Home() {
         <div className="d-flex justify-content-center mt-4">
           <Button 
             className="btn btn-blau"
-            onClick={() => setShowAllWRC(!showAllWRC)}
+            onClick={() => setMostraWRC(!mostraTotWRC)}
           >
-            {showAllWRC ? 'Ver menos' : 'Ver más'}
-            <i className={`bi bi-chevron-${showAllWRC ? 'up' : 'down'} ms-2`}></i>
+            {mostraTotWRC ? 'Ver menos' : 'Ver más'}
+            <i className={`bi bi-chevron-${mostraTotWRC ? 'up' : 'down'} ms-2`}></i>
           </Button>
         </div>
 
@@ -217,7 +212,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

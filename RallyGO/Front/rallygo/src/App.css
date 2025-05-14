@@ -94,8 +94,31 @@ h1,h2 {
   color: var(--blauClar);
 }
 
-.icones-link{
-  font-size: 1.2rem;
+/* Estilos para el dropdown del footer */
+.footer-links .dropdown-menu {
+    background-color: var(--blauOscur) !important;
+    border: 1px solid var(--blanc) !important;
+    min-width: 100% !important;
+}
+
+.footer-links .dropdown-item {
+    color: var(--blanc) !important;
+    text-align: center !important;
+    padding: 0.25rem 1rem !important;
+}
+
+.footer-links .dropdown-item:hover {
+    background-color: var(--blauClar) !important;
+}
+
+.footer-links .basic-nav-dropdown {
+    color: var(--blanc) !important;
+    padding: 0 !important;
+}
+
+.footer-links .dropdown-toggle::after {
+    display: inline-block !important;
+    margin-left: 0.5rem !important;
 }
 
 /*mapa */
@@ -140,22 +163,33 @@ h1,h2 {
   height: 25rem;
 }
 
-@media (min-widht:1199.9px){
 
-}
 /*Navbar */
-.navbar {
+.nav .nav-link {
+  color: var(--blauOscur) !important;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
+  align-items: center;
 }
 
-.navbar-nav {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.nav .nav-link:hover {
+  background-color: var(--roig) !important;
+  color: var(--blanc) !important;
 }
+
+.nav .nav-link:hover .icones-link {
+  color: var(--blanc) !important;
+}
+
+.navbar-toggler {
+  color: var(--blauOscur) !important;
+  border-color: var(--blauOscur) !important;
+}
+
+.navbar-collapse .nav-link {
+  transition: all 0.3s ease;
+}
+
 
 /*card wrc/scer */
 .cardwrc{
@@ -208,3 +242,7 @@ h1,h2 {
 }
 
 
+/*iconos */
+.icones-link{
+  font-size: 1.2rem;
+}
