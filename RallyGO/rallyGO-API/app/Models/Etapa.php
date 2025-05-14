@@ -15,7 +15,8 @@ class Etapa extends Model
         'pais',
         'latitud',
         'longitud',
-        'image'
+        'image',
+        'logo'
     ];
 
     public function campeonato()

@@ -37,7 +37,8 @@ class EtapaController extends Controller
                 'pais' => 'required|string|max:50',
                 'latitud' => 'required|numeric|between:-90,90',
                 'longitud' => 'required|numeric|between:-180,180',
-                'image' => 'nullable|string'
+                'image' => 'nullable|string',
+                'logo' => 'nullable|string'
             ]);
 
             if ($validator->fails()) {
@@ -87,7 +88,9 @@ class EtapaController extends Controller
                 'fecha' => 'sometimes|required|string|max:50',
                 'pais' => 'sometimes|required|string|max:50',
                 'latitud' => 'sometimes|required|numeric|between:-90,90',
-                'longitud' => 'sometimes|required|numeric|between:-180,180'
+                'longitud' => 'sometimes|required|numeric|between:-180,180',
+                'image'=> 'sometimes|required|string|max:255',
+                'logo'=>'sometimes|required|string|max:100',
             ]);
 
             if ($validator->fails()) {

@@ -246,3 +246,34 @@ h1,h2 {
 .icones-link{
   font-size: 1.2rem;
 }
+
+/*CALENDARIO */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.rally-logo {
+    height: auto;
+    max-height: 45px;
+}
+
+.table-responsive {
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .rally-logo {
+        max-height: 30px;
+    }
+}
