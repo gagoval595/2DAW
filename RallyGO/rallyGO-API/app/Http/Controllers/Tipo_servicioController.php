@@ -27,9 +27,11 @@ class Tipo_servicioController extends Controller
     {
         try {
             $request->validate([
-                'tipo' => 'required|in:Hotel,Parquing,Camping',
+                'tipo' => 'required|in:Hotel,Parquing,Camping,Apartamento',
                 'nombre' => 'required|string|max:255',
-                'descripcion' => 'required|string|max:255'
+                'descripcion' => 'required|string|max:255',
+                'foto' => 'nullable|string|max:255',
+                'icono' => 'nullable|string|max:255',
             ]);
 
             $tipoServicio = TipoServicio::create($request->all());

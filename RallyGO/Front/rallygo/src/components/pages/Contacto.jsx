@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Crear icono personalizado
 const iconoRallyGO = new L.Icon({
   iconUrl: require('../img/icona.jpg'),
   iconSize: [30, 30],
@@ -37,16 +36,16 @@ function Contacto() {
   const position = [38.845316929516116, -0.11278598675761838]; 
 
   return (
-    <div className="container py-5">
+    <div className="container">
       <h1 className="text-center mb-4">Contacta con nosotros</h1>
       <p className="text-center mb-5">
         ¿Tienes alguna duda? Estamos aquí para ayudarte durante tu aventura de
         rally
       </p>
 
-      <div className="row h-100">
-        <div className="col-lg-7 col-sm-12 h-100">
-          <div className="form-container h-100">
+      <div className="row">
+        <div className="col-lg-7 col-sm-12 ">
+          <div className="form-container">
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Nombre completo</Form.Label>

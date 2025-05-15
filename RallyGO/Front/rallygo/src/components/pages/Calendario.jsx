@@ -33,12 +33,7 @@ function Calendario() {
           <h5>{event.nombre}</h5>
           <p className="mb-2">{event.fecha}</p>
           <p className="mb-3">{event.pais}</p>
-          <img 
-            src={event.logo} 
-            alt={`Logo ${event.nombre}`} 
-            className="rally-logo mb-2"
-            height="40"
-          />
+          <img src={event.logo} alt={`Logo ${event.nombre}`} className="rally-logo mb-2" height="40"/>
         </div>
       </Card.Body>
     </Card>
@@ -71,7 +66,7 @@ function Calendario() {
                 {events.map((event, index) => (
                   <tr key={event.id} className={index % 2 === 0 ? 'bg-light' : ''}>
                     <td className="text-center">{String(index + 1).padStart(2, '0')}</td>
-                    <td>{event.nombre}</td>
+                    <td className='text-center'>{event.nombre}</td>
                     <td className="text-center">{event.fecha}</td>
                     <td className="text-center">{event.pais}</td>
                     <td className="text-center d-lg-block d-md-none">

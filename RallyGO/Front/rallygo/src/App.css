@@ -289,3 +289,33 @@ h1,h2 {
         max-height: 30px;
     }
 }
+
+/* Estilos para la página de servicios */
+.custom-carousel {
+  position: relative;
+  padding: 0 50px;
+}
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: var(--blauOscur);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.custom-carousel .carousel-control-prev {
+  left: 0;
+}
+
+.custom-carousel .carousel-control-next {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .custom-carousel {
+    padding: 0 30px;
+  }
+}
