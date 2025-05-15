@@ -5,8 +5,8 @@ import '../../App.css';
 
 function Calendario() {
   const [events, setEvents] = useState([]);
-  const [currentPageWRC, setCurrentPageWRC] = useState(1);
-  const [currentPageSCER, setCurrentPageSCER] = useState(1);
+  const [paginaActualWRC, setpaginaActualWRC] = useState(1);
+  const [paginaActualSCER, setpaginaActualSCER] = useState(1);
   const eventsPerPage = 4;
 
   useEffect(() => {
@@ -44,19 +44,17 @@ function Calendario() {
     </Card>
   );
 
-  const EventTable = ({ events, title, currentPage, setCurrentPage }) => {
-    const indexUltimo = currentPage * eventsPerPage;
+  const EventTable = ({ events, title, paginaActual, setpaginaActual }) => {
+    const indexUltimo = paginaActual * eventsPerPage;
     const indexPrimero = indexUltimo - eventsPerPage;
     const eventos = events.slice(indexPrimero, indexUltimo);
     const recuentoPaginas = Math.ceil(events.length / eventsPerPage);
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const paginate = (pageNumber) => setpaginaActual(pageNumber);
 
     return (
       <div className="mb-5">
         <h2 className="text-center mb-4">{title}</h2>
-        
-        {/* Desktop view - Full table without pagination */}
         <div className="d-none d-md-block">
           <div className="table-responsive">
             <Table striped hover className="align-middle">
@@ -86,7 +84,6 @@ function Calendario() {
           </div>
         </div>
 
-        {/* Mobile view with pagination */}
         <div className="d-md-none">
           {eventos.map((event, index) => (
             <EventCard 
@@ -95,14 +92,13 @@ function Calendario() {
               index={indexPrimero + index}
             />
           ))}
-          
-          {/* Pagination only shown in mobile */}
+
           <div className="d-flex justify-content-center mt-3">
             <Pagination>
               {Array.from({ length: recuentoPaginas }).map((_, index) => (
                 <Pagination.Item
                   key={index + 1}
-                  active={index + 1 === currentPage}
+                  active={index + 1 === paginaActual}
                   onClick={() => paginate(index + 1)}
                 >
                   {index + 1}
@@ -118,16 +114,15 @@ function Calendario() {
   return (
     <Container className="py-4">
       <EventTable 
-        events={wrc} 
-        title="CALENDARIO WRC" 
-        currentPage={currentPageWRC}
-        setCurrentPage={setCurrentPageWRC}
+        events={wrc} title="CALENDARIO WRC" 
+        paginaActual={paginaActualWRC}
+        setpaginaActual={setpaginaActualWRC}
       />
       <EventTable 
         events={scer} 
         title="CALENDARIO S-CER" 
-        currentPage={currentPageSCER}
-        setCurrentPage={setCurrentPageSCER}
+        paginaActual={paginaActualSCER}
+        setpaginaActual={setpaginaActualSCER}
       />
     </Container>
   );

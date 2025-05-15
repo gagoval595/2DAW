@@ -246,7 +246,19 @@ h1,h2 {
 .icones-link{
   font-size: 1.2rem;
 }
+/*CONTACTO */
+.links{
+  font-size: 1.2rem;
+  color: var(--blauOscur);
+}
 
+.mapaContacto{
+  height: 10.5rem;
+}
+
+.links:hover{
+  color:var(--roig)
+}
 /*CALENDARIO */
 .table {
     margin-bottom: 0;
