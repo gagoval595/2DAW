@@ -1,21 +1,42 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Servicios() {
-  const [servicios, setServicios] = useState([]);
   const [tiposServicio, setTiposServicio] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // Función para construir URLs completas
+  const getFullUrl = (path) => {
+    if (!path) return null;
+    if (path.startsWith('http')) return path;
+    return `http://localhost:8000/${path}`;
+  };
+
+  // Función para obtener imagen predeterminada según tipo
+  const getDefaultImage = (tipoStr) => {
+    if (!tipoStr) return "/assets/localizar.png";
+    
+    const lowerType = tipoStr.toLowerCase();
+    const availableTypes = ['hotel', 'parquing', 'camping', 'apartamento'];
+    
+    if (availableTypes.includes(lowerType)) {
+      return `/assets/${lowerType}-default.jpg`;
+    }
+    
+    return "/assets/localizar.png";
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/tipo-servicio');
+        console.log("Datos recibidos:", response.data);
         setTiposServicio(response.data.tipos);
         setLoading(false);
       } catch (err) {
+        console.error("Error cargando datos:", err);
         setError('Error al cargar los servicios');
         setLoading(false);
       }
@@ -24,11 +45,13 @@ function Servicios() {
     fetchData();
   }, []);
 
+  if (loading) return <div className="container text-center py-5"><h2>Cargando servicios...</h2></div>;
+  if (error) return <div className="container text-center py-5"><h2>{error}</h2></div>;
+
   return (
     <div className="container">
       <h1 className="text-center my-4">Servicios disponibles</h1>
 
-      {/* Servicios por tipo */}
       {tiposServicio.map((tipo) => (
         <section key={tipo.id} className="mb-5">
           <h2 className="mb-4">{tipo.tipo}</h2>
@@ -36,23 +59,33 @@ function Servicios() {
             {tipo.servicios?.map((servicio) => (
               <div className="col-lg-4 col-md-6 col-sm-12" key={servicio.id}>
                 <div className="card h-100">
-                  <Card.Img 
-                    variant="top" 
-                    src={tipo.foto || "/assets/localizar.png"} 
-                    alt={tipo.nombre}
+                  <img 
+                    className="card-img-top" 
+                    src={
+                      // Prioridad: foto del servicio > foto del tipo > imagen por defecto según tipo
+                      servicio.foto_url || 
+                      (servicio.fotos && getFullUrl(servicio.fotos.ruta)) ||
+                      tipo.foto_url || 
+                      (tipo.foto && getFullUrl(tipo.foto)) || 
+                      getDefaultImage(tipo.tipo)
+                    }
+                    alt={servicio.ubicacion || tipo.nombre}
                     style={{ height: '200px', objectFit: 'cover' }}
+                    onError={(e) => {
+                      console.log("Error cargando imagen:", e.target.src);
+                      e.target.src = getDefaultImage(tipo.tipo);
+                    }}
                   />
-                  <Card.Body className="d-flex flex-column">
-                    <Card.Title>{tipo.nombre}</Card.Title>
-                    <Card.Text>
-                      <p>{tipo.descripcion}</p>
-                      <p><strong>Ubicación: </strong>{servicio.ubicación}</p>
-                    </Card.Text>
-                    <div className="mt-auto">
-                      <Button className="btn-roig">Reservar</Button>
-                      <Button className="mx-2 btn-blau">Ver más</Button>
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="card-title">{tipo.nombre}</h5>
+                    <div className="card-text mb-3">
+                      {tipo.descripcion || 'Sin descripción disponible'}
                     </div>
-                  </Card.Body>
+                    <div className="mt-auto">
+                      <button className="btn btn-primary btn-roig">Reservar</button>
+                      <button className="btn btn-secondary mx-2 btn-blau">Ver más</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

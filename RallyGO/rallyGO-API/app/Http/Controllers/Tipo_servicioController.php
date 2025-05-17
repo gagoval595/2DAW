@@ -11,7 +11,27 @@ class Tipo_servicioController extends Controller
     public function index()
     {
         try {
-            $tipos = TipoServicio::with('servicios')->get();
+            $tipos = TipoServicio::with(['servicios', 'servicios.fotos'])->get();
+            
+            // Añadir URLs completas para las imágenes
+            $tipos->each(function ($tipo) {
+                if ($tipo->foto) {
+                    $tipo->foto_url = url($tipo->foto);
+                }
+                if ($tipo->icono) {
+                    $tipo->icono_url = url($tipo->icono);
+                }
+                
+                // También procesar las fotos de los servicios
+                if ($tipo->servicios) {
+                    $tipo->servicios->each(function ($servicio) {
+                        if ($servicio->fotos && $servicio->fotos->ruta) {
+                            $servicio->foto_url = url($servicio->fotos->ruta);
+                        }
+                    });
+                }
+            });
+            
             return response()->json([
                 'tipos' => $tipos
             ], 200);
@@ -26,23 +46,46 @@ class Tipo_servicioController extends Controller
     public function store(Request $request)
     {
         try {
-            $request->validate([
-                'tipo' => 'required|in:Hotel,Parquing,Camping,Apartamento',
+             $request->validate([
+                'tipo' => 'required|string',
                 'nombre' => 'required|string|max:255',
-                'descripcion' => 'required|string|max:255',
-                'foto' => 'nullable|string|max:255',
-                'icono' => 'nullable|string|max:255',
+                'descripcion' => 'required|string',
+                'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'icono' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             ]);
-
-            $tipoServicio = TipoServicio::create($request->all());
-
+            
+            // Guardar tipo de servicio
+            $tipoServicio = new TipoServicio();
+            $tipoServicio->tipo = $request->tipo;
+            $tipoServicio->nombre = $request->nombre;
+            $tipoServicio->descripcion = $request->descripcion;
+            
+            // Guardar foto en public/img/servicios
+            if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
+                $filename = time() . '.' . $request->foto->extension();
+                $request->foto->move(public_path('img/servicios'), $filename);
+                $tipoServicio->foto = 'img/servicios/' . $filename;
+            }
+            
+            // Guardar icono en public/img/iconos
+            if ($request->hasFile('icono') && $request->file('icono')->isValid()) {
+                $filename = time() . '-icon.' . $request->icono->extension();
+                $request->icono->move(public_path('img/iconos'), $filename);
+                $tipoServicio->icono = 'img/iconos/' . $filename;
+            }
+            
+            $tipoServicio->save();
+            
             return response()->json([
-                'message' => 'Tipo de servicio creado con éxito',
-                'tipo' => $tipoServicio
+                'status' => 'success',
+                'message' => 'Tipo de servicio creado correctamente',
+                'data' => $tipoServicio
             ], 201);
-        } catch (Exception $e) {
+            
+        } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Error al crear el tipo de servicio',
+                'status' => 'error',
+                'message' => 'Error al crear tipo de servicio',
                 'error' => $e->getMessage()
             ], 500);
         }

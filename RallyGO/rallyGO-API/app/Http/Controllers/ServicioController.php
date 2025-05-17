@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ServicioController extends Controller
 {
@@ -16,23 +17,45 @@ class ServicioController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'etapa_id' => 'required|exists:etapa,id',
-            'tipo_servicio_id' => 'required|exists:tipo_servicio,id',
-            'ubicación' => 'required|string|max:255',
-            'latitud' => 'required|numeric|between:-90,90',
-            'longitud' => 'required|numeric|between:-180,180',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
-
         try {
-            $servicio = Servicio::create($request->all());
-            return response()->json($servicio, 201);
+            // Validar entrada con nombres de tablas consistentes
+            $validated = $request->validate([
+                'tipo_servicio_id' => 'required|integer|exists:tipo_servicio,id',
+                'etapa_id' => 'required|integer|exists:etapa,id',
+                'ubicacion' => 'required|string|max:255',
+                'latitud' => 'required|numeric',
+                'longitud' => 'required|numeric',
+            ]);
+            
+            // Crear servicio
+            $servicio = new Servicio();
+            $servicio->tipo_servicio_id = $request->tipo_servicio_id;
+            $servicio->etapa_id = $request->etapa_id;
+            $servicio->ubicación = $request->ubicacion; // Notar la diferencia: ubicación con tilde
+            $servicio->latitud = $request->latitud;
+            $servicio->longitud = $request->longitud;
+            
+            $servicio->save();
+            
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Servicio creado correctamente',
+                'data' => $servicio
+            ], 201);
+            
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Error de validación',
+                'errors' => $e->errors()
+            ], 422);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al crear el servicio'], 500);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Error al crear el servicio',
+                'error' => $e->getMessage(),
+                'trace' => config('app.debug') ? $e->getTraceAsString() : null
+            ], 500);
         }
     }
 

@@ -59,3 +59,11 @@ Route::get('/campeonato/{id}', [CampeonatoController::class, 'show']);
 Route::post('/campeonato', [CampeonatoController::class, 'store']);
 Route::put('/campeonato/{id}', [CampeonatoController::class, 'update']);
 Route::delete('/campeonato/{id}', [CampeonatoController::class, 'destroy']);
+
+
+Route::post('/test-servicio', function (Request $request) {
+    return response()->json([
+        'status' => 'success',
+        'received' => $request->all()
+    ]);
+});

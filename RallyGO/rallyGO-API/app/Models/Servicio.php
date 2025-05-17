@@ -9,12 +9,11 @@ class Servicio extends Model
     protected $table = 'servicio';
 
     protected $fillable = [
-        'id',
-        'etapa_id',
         'tipo_servicio_id',
-        'ubicación',
+        'etapa_id',
+        'ubicación', // Con tilde, para coincidir con la base de datos
         'latitud',
-        'longitud',
+        'longitud'
     ];
    
     protected $casts = [
@@ -36,4 +35,8 @@ class Servicio extends Model
     {
         return $this->belongsTo(Foto::class);
     }
+    public function reservas()
+{
+    return $this->hasMany(Reserva::class);
+}
 }

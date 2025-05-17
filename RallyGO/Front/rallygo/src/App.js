@@ -7,6 +7,7 @@ import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
+import AdminServicios from "./components/pages/AdminServicios";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/galeria" element={<Galeria />} />
+        <Route path="/admin/servicios" element={<AdminServicios />} />
       </Routes>
       <div className="mt-5">
         <Footer />
