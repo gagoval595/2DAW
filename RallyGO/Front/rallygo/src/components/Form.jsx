@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { apiService } from "../services/apiService";
 import MapLocationPicker from "./MapLocationPicker";
@@ -14,28 +14,24 @@ function AddServiceForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
   const [validationErrors, setValidationErrors] = useState({});
+  const [mapKey, setMapKey] = useState(0); // Para forzar re-renderizado del mapa
 
-  // Cargar tipos de servicio y etapas al iniciar
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Obtener tipos de servicio
         const tiposResponse = await apiService.getTiposServicio();
         setTiposServicio(Array.isArray(tiposResponse.data) ? tiposResponse.data : 
                           (tiposResponse.data?.tipos || []));
         
-        // Obtener etapas con manejo adecuado de la respuesta
         const etapasResponse = await apiService.getEtapas();
         console.log("Respuesta de etapas:", etapasResponse);
         
-        // Asegurar que etapas sea un array
         let etapasArray = [];
         if (Array.isArray(etapasResponse.data)) {
           etapasArray = etapasResponse.data;
         } else if (etapasResponse.data?.etapas && Array.isArray(etapasResponse.data.etapas)) {
           etapasArray = etapasResponse.data.etapas;
         } else if (typeof etapasResponse.data === 'object') {
-          // Si es un objeto con IDs como claves
           etapasArray = Object.values(etapasResponse.data);
         }
         
@@ -52,7 +48,26 @@ function AddServiceForm() {
     fetchData();
   }, []);
 
-  // Manejar la selección de ubicación desde el mapa
+  const handleEtapaChange = (e) => {
+    const selectedEtapaId = e.target.value;
+    setEtapaId(selectedEtapaId);
+    
+    if (selectedEtapaId) {
+      const selectedEtapa = etapas.find(etapa => etapa.id == selectedEtapaId);
+      console.log("Etapa seleccionada:", selectedEtapa);
+      
+      if (selectedEtapa && selectedEtapa.latitud && selectedEtapa.longitud) {
+        console.log(`Actualizando coordenadas: lat=${selectedEtapa.latitud}, lng=${selectedEtapa.longitud}`);
+        setLatitud(selectedEtapa.latitud.toString());
+        setLongitud(selectedEtapa.longitud.toString());
+        
+        setMapKey(prevKey => prevKey + 1);
+      } else {
+        console.warn("La etapa no tiene coordenadas definidas");
+      }
+    }
+  };
+
   const handleLocationSelect = useCallback((lat, lng) => {
     setLatitud(lat.toFixed(6));
     setLongitud(lng.toFixed(6));
@@ -65,16 +80,14 @@ function AddServiceForm() {
     setValidationErrors({});
 
     try {
-      // Asegurarnos de que los valores sean del tipo correcto
       const newService = {
-        tipo_servicio_id: parseInt(tipoServicioId), // Convertir a número
-        etapa_id: parseInt(etapaId), // Convertir a número
+        tipo_servicio_id: parseInt(tipoServicioId),
+        etapa_id: parseInt(etapaId), 
         ubicacion: ubicacion.trim(),
         latitud: parseFloat(latitud),
         longitud: parseFloat(longitud),
       };
 
-      // Validar los datos antes de enviar
       if (!newService.tipo_servicio_id) {
         throw new Error("Debes seleccionar un tipo de servicio");
       }
@@ -94,7 +107,6 @@ function AddServiceForm() {
       console.log("Enviando servicio:", newService);
       await apiService.createServicio(newService);
       
-      // Reset form después de éxito
       setTipoServicioId("");
       setEtapaId("");
       setUbicacion("");
@@ -106,37 +118,23 @@ function AddServiceForm() {
         type: "success" 
       });
     } catch (error) {
-      console.error("Error completo:", error);
-      if (error.response) {
-        console.error("Datos del error:", error.response.data);
-        console.error("Estado HTTP:", error.response.status);
-        
-        if (error.response.data && error.response.data.error) {
-          // Mostrar el mensaje de error específico del servidor
-          setMessage({ 
-            text: `Error del servidor: ${error.response.data.error}`, 
-            type: "danger" 
-          });
-        } else {
-          // Error genérico
-          setMessage({ 
-            text: "Error al crear el servicio. Por favor, intenta nuevamente.", 
-            type: "danger" 
-          });
-        }
+      console.error("Error al crear servicio:", error);
+      let errorMessage = "Error al crear el servicio";
+      if (error.response && error.response.data && error.response.data.errors) {
+        errorMessage = "Errores de validación: " + Object.values(error.response.data.errors).flat().join(", ");
+        setValidationErrors(error.response.data.errors);
       } else {
-        // Error de red u otro
-        setMessage({ 
-          text: error.message || "Error al crear el servicio", 
-          type: "danger" 
-        });
+        errorMessage = error.message || "Error al crear el servicio";
       }
+      setMessage({
+        text: errorMessage,
+        type: "danger",
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Verificar si hay un error de validación específico
   const getValidationError = (field) => {
     return validationErrors[field] ? validationErrors[field][0] : null;
   };
@@ -175,7 +173,7 @@ function AddServiceForm() {
         <Form.Control
           as="select"
           value={etapaId}
-          onChange={(e) => setEtapaId(e.target.value)}
+          onChange={handleEtapaChange}
           isInvalid={!!getValidationError('etapa_id')}
           required
         >
@@ -186,6 +184,9 @@ function AddServiceForm() {
             </option>
           ))}
         </Form.Control>
+        <Form.Text className="text-muted">
+          Al seleccionar una etapa, el mapa se centrará automáticamente en su ubicación.
+        </Form.Text>
         {getValidationError('etapa_id') && (
           <Form.Control.Feedback type="invalid">
             {getValidationError('etapa_id')}
@@ -210,13 +211,14 @@ function AddServiceForm() {
         )}
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-5">
         <Form.Label>Selecciona la ubicación en el mapa</Form.Label>
         <MapLocationPicker 
+          key={mapKey}
           onLocationSelect={handleLocationSelect} 
           initialPosition={[
-            latitud ? parseFloat(latitud) : 40.416775, 
-            longitud ? parseFloat(longitud) : -3.70379
+            latitud ? parseFloat(latitud) :38.845329725344044, 
+            longitud ? parseFloat(longitud) :  -0.11281582444679437
           ]} 
         />
       </Form.Group>
@@ -246,8 +248,8 @@ function AddServiceForm() {
             {getValidationError('latitud') || getValidationError('longitud')}
           </div>
         )}
-        <Form.Text className="text-muted">
-          Coordenadas seleccionadas automáticamente desde el mapa.
+        <Form.Text className="text-muted mt-2">
+          Coordenadas seleccionadas automáticamente desde el mapa o la etapa.
         </Form.Text>
       </Form.Group>
 

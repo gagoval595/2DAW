@@ -45,9 +45,6 @@ function Servicios() {
     fetchData();
   }, []);
 
-  if (loading) return <div className="container text-center py-5"><h2>Cargando servicios...</h2></div>;
-  if (error) return <div className="container text-center py-5"><h2>{error}</h2></div>;
-
   return (
     <div className="container">
       <h1 className="text-center my-4">Servicios disponibles</h1>
@@ -62,7 +59,6 @@ function Servicios() {
                   <img 
                     className="card-img-top" 
                     src={
-                      // Prioridad: foto del servicio > foto del tipo > imagen por defecto según tipo
                       servicio.foto_url || 
                       (servicio.fotos && getFullUrl(servicio.fotos.ruta)) ||
                       tipo.foto_url || 

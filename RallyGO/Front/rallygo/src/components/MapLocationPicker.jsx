@@ -3,49 +3,56 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// Corregir el problema de los iconos de Leaflet en React
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
-// Componente para manejar eventos del mapa
 function LocationMarker({ position, setPosition }) {
-  const map = useMapEvents({
-    click(e) {
+  useMapEvents({
+    click: (e) => {
       setPosition([e.latlng.lat, e.latlng.lng]);
-    }
+    },
   });
 
-  useEffect(() => {
-    if (position[0] !== 0 && position[1] !== 0) {
-      map.flyTo(position, map.getZoom());
-    }
-  }, [position, map]);
-
-  return position[0] !== 0 ? 
-    <Marker position={position} /> : null;
+  return position[0] !== 0 ? <Marker position={position} /> : null;
 }
 
-function MapLocationPicker({ onLocationSelect, initialPosition = [40.416775, -3.70379] }) {
+function MapLocationPicker({ onLocationSelect, initialPosition = [38.845329725344044, -0.11281582444679437] }) {
   const [position, setPosition] = useState(initialPosition);
+  const [map, setMap] = useState(null);
   
-  // Actualizar coordenadas cuando cambie la posición
+  useEffect(() => {
+    setPosition(initialPosition);
+    if (map) {
+      map.setView(initialPosition, 13);
+    }
+  }, [initialPosition, map]);
+  
   useEffect(() => {
     if (position) {
       onLocationSelect(position[0], position[1]);
     }
   }, [position, onLocationSelect]);
 
+  useEffect(() => {
+    if (map) {
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 100);
+    }
+  }, [map]);
+
   return (
-    <div className="map-container" style={{ height: '400px', width: '100%', marginBottom: '20px' }}>
+    <div className="map-container" style={{ height: '350px', width: '100%', marginBottom: '20px', border: '1px solid #ddd', borderRadius: '4px' }}>
       <MapContainer 
         center={position} 
         zoom={13} 
         scrollWheelZoom={true}
         style={{ height: '100%', width: '100%' }}
+        whenCreated={setMap}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -54,7 +61,7 @@ function MapLocationPicker({ onLocationSelect, initialPosition = [40.416775, -3.
         <LocationMarker position={position} setPosition={setPosition} />
       </MapContainer>
       <p className="mt-2 text-muted">
-        <small>Haz clic en el mapa para seleccionar la ubicación</small>
+        <small>Haz clic en el mapa para seleccionar la ubicación exacta</small>
       </p>
     </div>
   );
