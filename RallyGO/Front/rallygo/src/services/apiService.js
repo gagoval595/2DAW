@@ -1,4 +1,5 @@
 import api from '../api';
+import axios from 'axios';
 
 export const apiService = {
     // Campeonatos
@@ -15,7 +16,6 @@ export const apiService = {
     getTiposServicio: () => api.get('/tipo-servicio'),
     createServicio: async (servicioData) => {
         try {
-            // Enviar petición con datos mínimos primero para diagnóstico
             const testResponse = await api.post('/test-servicio', {
                 test: true,
                 data: servicioData
@@ -34,7 +34,9 @@ export const apiService = {
 
     // Tipos de servicio
     getTipoServicio: (id) => api.get(`/tipo-servicio/${id}`),
-    createTipoServicio: (formData) => {
+    createTipoServicio(formData) {
+        console.log("Enviando datos a la API:", [...formData.entries()].map(pair => `${pair[0]}: ${pair[1]}`));
+        
         return api.post('/tipo-servicio', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',

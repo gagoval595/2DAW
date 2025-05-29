@@ -14,7 +14,37 @@ function TipoServicioForm({ onTipoCreated }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      console.log("Archivo seleccionado:", file.name, file.type, file.size);
+
+      // Validar tipo de archivo
+      const validTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/jpg",
+      ];
+      if (!validTypes.includes(file.type)) {
+        setMessage({
+          text: "Por favor selecciona un archivo de imagen válido (JPEG, PNG o GIF)",
+          type: "danger",
+        });
+        e.target.value = ""; // Limpiar input
+        return;
+      }
+
+      // Validar tamaño (máximo 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setMessage({
+          text: "La imagen es demasiado grande. Máximo 5MB permitido.",
+          type: "danger",
+        });
+        e.target.value = ""; // Limpiar input
+        return;
+      }
+
       setFoto(file);
+
+      // Generar vista previa
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
@@ -37,43 +67,87 @@ function TipoServicioForm({ onTipoCreated }) {
         throw new Error("El nombre es obligatorio");
       }
 
-      const formData = new FormData();
-      formData.append("nombre", nombre.trim());
+      console.log("=== DATOS ANTES DE ENVIAR ===");
+      console.log("Nombre:", nombre);
+      console.log("Descripción:", descripcion);
+      console.log("Foto:", foto);
 
-      if (descripcion.trim()) {
-        formData.append("descripcion", descripcion.trim());
-      }
+      const formData = new FormData();
+      
+      const nombreLimitado = nombre.trim().substring(0, 255);
+      const descripcionLimitada = descripcion.trim().substring(0, 255) || "Sin descripción";
+      
+      const tipoCorto = nombreLimitado.substring(0, 10).toUpperCase();
+      
+      console.log("Datos procesados:");
+      console.log("- Tipo:", tipoCorto);
+      console.log("- Nombre:", nombreLimitado, `(${nombreLimitado.length} caracteres)`);
+      console.log("- Descripción:", descripcionLimitada, `(${descripcionLimitada.length} caracteres)`);
+      
+      formData.append("tipo", tipoCorto);
+      formData.append("nombre", nombreLimitado);
+      formData.append("descripcion", descripcionLimitada);
 
       if (foto) {
         formData.append("foto", foto);
       }
 
+      console.log("=== CONTENIDO DE FORMDATA ===");
+      for (let pair of formData.entries()) {
+        if (pair[1] instanceof File) {
+          console.log(`${pair[0]}: [ARCHIVO] ${pair[1].name} (${pair[1].size} bytes)`);
+        } else {
+          console.log(`${pair[0]}: "${pair[1]}" (${pair[1].length} caracteres)`);
+        }
+      }
+
+      console.log("=== ENVIANDO SOLICITUD ===");
       const response = await apiService.createTipoServicio(formData);
-      console.log("Tipo de servicio creado:", response.data);
+      
+      console.log("=== RESPUESTA EXITOSA ===");
+      console.log(response.data);
 
       setNombre("");
       setDescripcion("");
       setFoto(null);
       setPreview(null);
+      
+      const fileInput = document.querySelector('input[type="file"]');
+      if (fileInput) fileInput.value = '';
 
       if (onTipoCreated && typeof onTipoCreated === "function") {
         await onTipoCreated();
       }
 
       setMessage({
-        text: "Tipo de servicio creado correctamente",
+        text: "¡Tipo de servicio creado correctamente!",
         type: "success",
       });
       setSuccess(true);
+      
     } catch (error) {
-      console.error("Error al crear tipo de servicio:", error);
-
-      const errorMessage =
-        error.response?.data?.message ||
-        error.response?.data?.error ||
-        error.message ||
-        "Error al crear el tipo de servicio";
-
+      console.error("=== ERROR DETECTADO ===");
+      console.error("Error completo:", error);
+      
+      let errorMessage = "Error desconocido";
+      
+      if (error.response) {
+        console.error("Status:", error.response.status);
+        console.error("Data:", error.response.data);
+        
+        if (error.response.data?.error) {
+          errorMessage = error.response.data.error;
+        } else if (error.response.data?.message) {
+          errorMessage = error.response.data.message;
+        }
+        
+        if (errorMessage.includes('Data truncated')) {
+          errorMessage = "Los datos son demasiado largos. Se han ajustado automáticamente.";
+        }
+      } else {
+        errorMessage = error.message || "Error de conexión";
+      }
+      
       setMessage({ text: errorMessage, type: "danger" });
     } finally {
       setIsLoading(false);
@@ -112,11 +186,18 @@ function TipoServicioForm({ onTipoCreated }) {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             disabled={isLoading}
+            maxLength={100}
             required
           />
           <Form.Text className="text-muted">
-            El nombre debe ser descriptivo del tipo de servicio
+            El nombre debe ser descriptivo del tipo de servicio (máx. 100 caracteres) 
+            - Quedan: {100 - nombre.length} caracteres
           </Form.Text>
+          {nombre.length > 90 && (
+            <Form.Text className="text-warning">
+              Advertencia: Te quedan pocos caracteres disponibles
+            </Form.Text>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -128,7 +209,17 @@ function TipoServicioForm({ onTipoCreated }) {
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
             disabled={isLoading}
+            maxLength={255} 
           />
+          <Form.Text className="text-muted">
+            Descripción detallada del tipo de servicio (máx. 255 caracteres)
+            - Quedan: {255 - descripcion.length} caracteres
+          </Form.Text>
+          {descripcion.length > 240 && (
+            <Form.Text className="text-warning">
+              Advertencia: Te quedan pocos caracteres disponibles
+            </Form.Text>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-4">
@@ -140,7 +231,7 @@ function TipoServicioForm({ onTipoCreated }) {
             disabled={isLoading}
           />
           <Form.Text className="text-muted">
-            Sube una imagen representativa para este tipo de servicio
+            Sube una imagen representativa para este tipo de servicio (máx. 5MB)
           </Form.Text>
 
           {preview && (
